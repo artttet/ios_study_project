@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodayViewController" customModule="MyDiet" customModuleProvider="target">
+            <connections>
+                <outlet property="calendarPagerView" destination="6yc-qH-OdR" id="Gbg-PY-IdC"/>
+                <outlet property="cardsPagerView" destination="w4J-GH-Itd" id="aRu-rs-oKv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eea-oC-pjY">
+                    <rect key="frame" x="32" y="76" width="130.5" height="41"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <color key="textColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Август" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObX-6V-NGs">
+                    <rect key="frame" x="32" y="117" width="56.5" height="20.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <color key="textColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qH-OdR" customClass="CalendarPagerView" customModule="MyDiet" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="145.5" width="414" height="72.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4J-GH-Itd" customClass="CardsPagerView" customModule="MyDiet" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="226" width="414" height="636"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eea-oC-pjY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="567-0J-lwl"/>
+                <constraint firstItem="w4J-GH-Itd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Xt-eF-rjN"/>
+                <constraint firstItem="eea-oC-pjY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="8zM-L9-h7G"/>
+                <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="6yc-qH-OdR" secondAttribute="bottom" constant="8" symbolic="YES" id="DAe-Nk-gHF"/>
+                <constraint firstItem="w4J-GH-Itd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HC2-io-V98"/>
+                <constraint firstItem="ObX-6V-NGs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="RTU-2r-rtT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w4J-GH-Itd" secondAttribute="bottom" id="bz3-zl-9jN"/>
+                <constraint firstItem="6yc-qH-OdR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hKq-Sw-3rf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6yc-qH-OdR" secondAttribute="trailing" id="nlX-Je-Yqf"/>
+                <constraint firstItem="ObX-6V-NGs" firstAttribute="top" secondItem="eea-oC-pjY" secondAttribute="bottom" id="o5Q-ht-c1U"/>
+                <constraint firstItem="6yc-qH-OdR" firstAttribute="top" secondItem="ObX-6V-NGs" secondAttribute="bottom" constant="8" id="soH-86-xKm"/>
+                <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="182" id="thj-gx-6gx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
+        </view>
+    </objects>
+</document>

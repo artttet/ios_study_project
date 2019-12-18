@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="CardsPagerViewCell" customModule="MyDiet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-x9-VYY">
+                    <rect key="frame" x="8" y="0.0" width="398" height="872"/>
+                    <color key="backgroundColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il4-3B-YXh">
+                    <rect key="frame" x="40" y="32" width="93.5" height="33.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rH6-x9-VYY" secondAttribute="bottom" constant="24" id="Hyh-J1-fkU"/>
+                <constraint firstItem="rH6-x9-VYY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kx9-9i-7QQ"/>
+                <constraint firstItem="rH6-x9-VYY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="dbn-B8-bq4"/>
+                <constraint firstItem="il4-3B-YXh" firstAttribute="top" secondItem="rH6-x9-VYY" secondAttribute="top" constant="32" id="ec2-Wc-Tpr"/>
+                <constraint firstItem="il4-3B-YXh" firstAttribute="leading" secondItem="rH6-x9-VYY" secondAttribute="leading" constant="32" id="peM-GV-mHu"/>
+                <constraint firstAttribute="trailing" secondItem="rH6-x9-VYY" secondAttribute="trailing" constant="8" id="urk-UF-CR3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cardView" destination="rH6-x9-VYY" id="E8k-rQ-hL2"/>
+                <outlet property="dayNameLabel" destination="il4-3B-YXh" id="UOw-no-Mhn"/>
+            </connections>
+            <point key="canvasLocation" x="42.028985507246382" y="-300.66964285714283"/>
+        </view>
+    </objects>
+</document>
