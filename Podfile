@@ -7,6 +7,7 @@ target 'MyDiet' do
   use_frameworks!
   pod 'SVGKit'
   pod 'FSPagerView'
+  pod 'BEMCheckBox'
   # Pods for MyDiet
 
 end

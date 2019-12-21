@@ -11,9 +11,13 @@ import FSPagerView
 
 class CalendarPagerViewCell: FSPagerViewCell {
 
+    var number: Int = 0
     
     @IBOutlet weak var calendarView: UIView!
-    @IBOutlet weak var day: UILabel!
+    
+    @IBOutlet var dayNumberLabel: UILabel!
+    
+    @IBOutlet var dayNameLabel: UILabel!
     
     @IBOutlet var calendarViewConstraintTop: NSLayoutConstraint!
     @IBOutlet var calendarViewConstraintBottom: NSLayoutConstraint!
@@ -27,35 +31,55 @@ class CalendarPagerViewCell: FSPagerViewCell {
     }
     
     func setDay(dayNumber: Int) {
-        day.text = "\(dayNumber)"
+        
     }
     
-    func setupView(){
+    func setData(calendarDay: CalendarDay){
+        number = calendarDay.dayNumber
+        dayNumberLabel.text = "\(calendarDay.dayNumber)"
+        dayNameLabel.text = calendarDay.dayName
         
-        calendarView.layer.cornerRadius = 12.0
-        
-        if isSelect {
-            calendarView.toSelected()
-            day.textColor = .white
+        updateView(isCurrent: calendarDay.isSelected)
+    }
+    
+    func isCurrentView(isCurrent: Bool){
+        if isCurrent {
+            calendarView.backgroundColor = UIColor(named: "primaryColor")
+            
+            calendarView.layer.shadowColor = UIColor(named: "primaryColor")?.cgColor
+            calendarView.layer.shadowRadius = 4.0
+            calendarView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            calendarView.layer.shadowOpacity = 1.0
+            
+            dayNumberLabel.textColor = .white
+            dayNameLabel.textColor = .white
+            
+            calendarViewConstraintTop.constant = 10
+            calendarViewConstraintBottom.constant = 10
+            calendarViewConstraintLeft.constant = 4
+            calendarViewConstraintRight.constant = 4
+        }else {
+            calendarView.backgroundColor = UIColor(named: "primaryLightColor")
+            
+            calendarView.layer.shadowOpacity = 0.0
+            
+            dayNumberLabel.textColor = UIColor(named: "primaryColor")
+            dayNameLabel.textColor = UIColor(named: "primaryColor")
+            
             calendarViewConstraintTop.constant = 12
             calendarViewConstraintBottom.constant = 12
             calendarViewConstraintLeft.constant = 6
             calendarViewConstraintRight.constant = 6
-        }else {
-            calendarView.layer.shadowOpacity = 0.0
         }
+        
         
     }
     
-
-}
-
-extension UIView {
-    func toSelected(){
-        backgroundColor = UIColor(named: "primaryColor")
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowRadius = 4.0
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowOpacity = 1.0
+    func updateView(isCurrent: Bool){
+        calendarView.layer.cornerRadius = 12.0
+        
+        isCurrentView(isCurrent: isCurrent)
     }
 }
+
+

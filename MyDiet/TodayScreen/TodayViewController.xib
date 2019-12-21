@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="calendarPagerView" destination="6yc-qH-OdR" id="Gbg-PY-IdC"/>
                 <outlet property="cardsPagerView" destination="w4J-GH-Itd" id="aRu-rs-oKv"/>
+                <outlet property="monthLabel" destination="ObX-6V-NGs" id="rnR-xI-dK2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,14 +27,23 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Август" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObX-6V-NGs">
-                    <rect key="frame" x="32" y="117" width="56.5" height="20.5"/>
+                    <rect key="frame" x="32" y="125" width="56.5" height="20.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qH-OdR" customClass="CalendarPagerView" customModule="MyDiet" customModuleProvider="target">
+                <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qH-OdR" customClass="CalendarPagerView" customModule="MyDiet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="145.5" width="414" height="72.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="decelerationDistance">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bounces" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="interitemSpacing">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4J-GH-Itd" customClass="CardsPagerView" customModule="MyDiet" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="226" width="414" height="636"/>
@@ -56,8 +66,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w4J-GH-Itd" secondAttribute="bottom" id="bz3-zl-9jN"/>
                 <constraint firstItem="6yc-qH-OdR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hKq-Sw-3rf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6yc-qH-OdR" secondAttribute="trailing" id="nlX-Je-Yqf"/>
-                <constraint firstItem="ObX-6V-NGs" firstAttribute="top" secondItem="eea-oC-pjY" secondAttribute="bottom" id="o5Q-ht-c1U"/>
-                <constraint firstItem="6yc-qH-OdR" firstAttribute="top" secondItem="ObX-6V-NGs" secondAttribute="bottom" constant="8" id="soH-86-xKm"/>
+                <constraint firstItem="ObX-6V-NGs" firstAttribute="top" secondItem="eea-oC-pjY" secondAttribute="bottom" constant="8" id="o5Q-ht-c1U"/>
+                <constraint firstItem="6yc-qH-OdR" firstAttribute="top" secondItem="ObX-6V-NGs" secondAttribute="bottom" id="soH-86-xKm"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="182" id="thj-gx-6gx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

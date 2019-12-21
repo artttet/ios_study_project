@@ -1,32 +1,31 @@
-//
-//  MainCard.swift
-//  MyDiet
-//
-//  Created by Артем Чиглинцев on 16/12/2019.
-//  Copyright © 2019 Артем Чиглинцев. All rights reserved.
-//
-
 import UIKit
 import FSPagerView
 
 class CardsPagerViewCell: FSPagerViewCell {
+    var number: Int = 0
     
     @IBOutlet weak var dayNameLabel: UILabel!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardView: GradientView!
     
-    func setDay(dayName: String) {
-        dayNameLabel.text = dayName
+    @IBOutlet var breakfastLabel: UILabel!
+    @IBOutlet var dinnerLabel: UILabel!
+    @IBOutlet var dinner2Label: UILabel!
+    
+    func setData(cardDay: CardDay, monthNumber: Int, number: Int) {
+        self.number = number
+        dayNameLabel.text = "\(cardDay.weekdayName), \(number+1).\(monthNumber)"
+        breakfastLabel.text = cardDay.breakfast.dishName
+        dinnerLabel.text = cardDay.dinner.dishName
+        dinner2Label.text = cardDay.dinner2.dishName
+        
         setupView()
     }
     
     func setupView(){
-        cardView.layer.cornerRadius = 12.0
-        cardView.layer.shadowColor = UIColor.gray.cgColor
+        cardView.layer.shadowColor = UIColor(named: "primaryDarkColor")?.cgColor
         cardView.layer.shadowRadius = 4
-        cardView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 4	)
         cardView.layer.shadowOpacity = 1
-        
-        
     }
-    
+
 }

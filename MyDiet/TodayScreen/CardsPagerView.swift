@@ -3,39 +3,47 @@ import FSPagerView
 
 class CardsPagerView: FSPagerView, FSPagerViewDataSource, FSPagerViewDelegate {
     
-    var imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
+    let reuseId: String = "CardsPagerViewCell"
+    var cardDaysList: [CardDay] = []
+    var currentDay: Int = 0
+    var monthNumber: Int = 0
     
-    func setupView(){
+    func setupView(cardDaysList: [CardDay], currentDay: Int, monthNumber: Int){
         dataSource = self
         delegate = self
         
+        self.cardDaysList = cardDaysList
+        self.currentDay = currentDay
+        self.monthNumber = monthNumber
+        
         transformer = FSPagerViewTransformer(type: .linear)
         
-        //backgroundColor = UIColor.purple
-        
-        register(UINib(nibName: "CardsPagerViewCell", bundle: nil), forCellWithReuseIdentifier: "CardsPagerViewCell")
+        register(UINib(nibName: reuseId, bundle: nil), forCellWithReuseIdentifier: reuseId)
     }
     
     func setupTransform(){
-        let transform = CGAffineTransform(scaleX: 0.8, y: 1)
+        let transform = CGAffineTransform(scaleX: 0.75, y: 0.95)
         itemSize = frame.size.applying(transform)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
+        
+        scrollToItem(at: currentDay, animated: false)
     }
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return imageNames.count
+        return cardDaysList.count
     }
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         scrollToItem(at: index, animated: true)
+       
     }
 
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = self.dequeueReusableCell(withReuseIdentifier: "CardsPagerViewCell", at: index) as! CardsPagerViewCell
-        cell.setDay(dayName: imageNames[index])
+        let cell = self.dequeueReusableCell(withReuseIdentifier: reuseId, at: index) as! CardsPagerViewCell
+        cell.setData(cardDay: cardDaysList[index], monthNumber: self.monthNumber, number: index)
         return cell
+    }
+    
+    func didTap(index: Int){
+        scrollToItem(at: index, animated: true)
     }
 }

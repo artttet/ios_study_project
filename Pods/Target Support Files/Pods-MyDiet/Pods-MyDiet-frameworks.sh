@@ -161,11 +161,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework"
