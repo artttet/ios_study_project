@@ -32,14 +32,21 @@ class CardsPagerView: FSPagerView, FSPagerViewDataSource, FSPagerViewDelegate {
         return cardDaysList.count
     }
     
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        scrollToItem(at: index, animated: true)
-       
-    }
+    func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
+        let message:[String: Int] = ["index": pagerView.currentIndex]
 
+        NotificationCenter.default.post(name: .init("PagerViewsTapped"), object: nil, userInfo: message)
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+        //scrollToItem(at: index, animated: true)
+        print("didSelectItemAt")
+    }
+    
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: reuseId, at: index) as! CardsPagerViewCell
         cell.setData(cardDay: cardDaysList[index], monthNumber: self.monthNumber, number: index)
+        
         return cell
     }
     

@@ -18,7 +18,7 @@ struct Dish {
     var isEaten: Bool = false
 }
 
-class TodayViewDataController{
+class TodayScreenData {
     private let appCalendar: AppCalendar = AppCalendar()
     var calendarDaysList: [CalendarDay]
     var cardDaysList: [CardDay] = []
@@ -29,21 +29,47 @@ class TodayViewDataController{
         calendarDaysList = daysList.clendarDaysList
         currentDay = daysList.currentDay
         createCardDaysList(daysList.dayNamesList)
-        
-        
     }
     
-    func getMonth() -> (Int, String){
+    @objc func dishMarkOn(notifi: Notification) {
+        if let dayIndex = notifi.userInfo?["dayIndex"] as? Int{
+            if let dishIndex = notifi.userInfo?["dishIndex"] as? Int{
+                switch dishIndex {
+                case 0: cardDaysList[dayIndex].breakfast.isEaten = true
+                case 1: cardDaysList[dayIndex].dinner.isEaten = true
+                case 2: cardDaysList[dayIndex].dinner.isEaten = true
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+    @objc func dishMarkOff(notifi: Notification) {
+        if let dayIndex = notifi.userInfo?["dayIndex"] as? Int{
+            if let dishIndex = notifi.userInfo?["dishIndex"] as? Int{
+                switch dishIndex {
+                case 0: cardDaysList[dayIndex].breakfast.isEaten = false
+                case 1: cardDaysList[dayIndex].dinner.isEaten = false
+                case 2: cardDaysList[dayIndex].dinner.isEaten = false
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+    func getMonth() -> (Int, String) {
         let month = appCalendar.month
         return (month, appCalendar.getMonthFromNumber(monthNumber: month))
     }
     
-    func dishNameFromWeekday(dayName: String, dishCategory: Int) -> String{
+    func dishNameFromWeekday(dayName: String, dishCategory: Int) -> String {
         var name: String = ""
         switch dayName {
         case Weekdays.Monday.description(isShort: false), Weekdays.Tuesday.description(isShort: false), Weekdays.Wednesday.description(isShort: false):
             switch dishCategory {
-            case 0: name = "Овсянка с курицей"
+            case 0: name = "Овсянка с ягодой"
             case 1: name = "Гречка по-купечески"
             case 2: name = "Салат с чечевицой"
             default: break
@@ -69,7 +95,7 @@ class TodayViewDataController{
         return name
     }
     
-    func createCardDaysList(_ dayNamesList: [String]){
+    func createCardDaysList(_ dayNamesList: [String]) {
         
         for dayName in dayNamesList {
             let breakfast = Dish(dishName: dishNameFromWeekday(dayName: dayName, dishCategory: 0))
@@ -79,11 +105,6 @@ class TodayViewDataController{
             cardDaysList.append(CardDay(weekdayName: dayName, breakfast: breakfast, dinner: dinner, dinner2: dinner2))
         }
     }
-    
-    
-    
-    
-    
 }
 
 class AppCalendar {
@@ -140,7 +161,7 @@ class AppCalendar {
         return month
     }
     
-    func getWeekdayFromDay(dayNumber: Int, isShort: Bool) -> String{
+    func getWeekdayFromDay(dayNumber: Int, isShort: Bool) -> String {
         let dateComponents = DateComponents(year: year, month: month, day: dayNumber)
         let date = calendar.date(from: dateComponents)!
         let weekday = calendar.component(.weekday, from: date)
@@ -169,17 +190,17 @@ class AppCalendar {
         return strWeekday
     }
     
-    func createDaysList() -> (clendarDaysList: [CalendarDay], dayNamesList: [String], currentDay: Int){
+    func createDaysList() -> (clendarDaysList: [CalendarDay], dayNamesList: [String], currentDay: Int) {
         var currentDay: Int = 0
         var calendarDaysList: [CalendarDay] = []
         var dayNamesList: [String] = []
         
-        for dayNumber in 1...daysInMonth{
+        for dayNumber in 1...daysInMonth {
             let shortDayName = getWeekdayFromDay(dayNumber: dayNumber, isShort: true)
             let dayName = getWeekdayFromDay(dayNumber: dayNumber, isShort: false)
             
             var isSelected: Bool
-            if dayNumber == day{
+            if dayNumber == day {
                 currentDay = dayNumber-1
                 isSelected = true
             }else {

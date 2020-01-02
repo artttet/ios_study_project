@@ -3,16 +3,11 @@ import FSPagerView
 
 class TodayViewController: UIViewController {
     
-    let dataController: TodayViewDataController = TodayViewDataController()
-    var pagerViewsIndex: Int = 0
+    let dataController: TodayScreenData = TodayScreenData()
     
     @IBOutlet var cardsPagerView: CardsPagerView!
     @IBOutlet var calendarPagerView: CalendarPagerView!
     @IBOutlet var monthLabel: UILabel!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +18,11 @@ class TodayViewController: UIViewController {
         
         monthLabel.text = dataController.getMonth().1
         
-        
         calendarPagerView.setupView(calendarDaysList: calendarDaysList, currentDay: currentDay)
         cardsPagerView.setupView(cardDaysList: cardDaysList, currentDay: currentDay, monthNumber: dataController.getMonth().0)
         
         NotificationCenter.default.addObserver(self, selector: #selector(pagerViewsTapped), name: .init("PagerViewsTapped"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataController.dishMarkOn), name: .init("DishTapped"), object: nil)
     }
     
     @objc func pagerViewsTapped(notifi: Notification){

@@ -43,10 +43,10 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-hD-PQn">
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-hD-PQn">
                     <rect key="frame" x="32" y="73" width="203" height="306"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox3-OQ-1gu" customClass="BEMCheckBox">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox3-OQ-1gu" customClass="BEMCheckBox">
                             <rect key="frame" x="0.0" y="63.5" width="20" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,7 +76,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlr-tK-mRq" customClass="BEMCheckBox">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlr-tK-mRq" customClass="BEMCheckBox">
                             <rect key="frame" x="0.0" y="233.5" width="20" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
@@ -91,8 +91,11 @@
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="zxc:" destination="iN0-l3-epB" eventType="valueChanged" id="czh-bj-b7i"/>
+                            </connections>
                         </view>
-                        <view contentMode="scaleToFill" id="1jc-sP-vfV" customClass="BEMCheckBox">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="1jc-sP-vfV" customClass="BEMCheckBox">
                             <rect key="frame" x="0.0" y="143" width="20" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,19 +125,19 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Салат с шампиньонами и фасолью" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLu-Py-MIY">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Салат с шампиньонами и фасолью" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLu-Py-MIY">
                     <rect key="frame" x="68" y="284.5" width="167" height="64.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Грибной крем-суп" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-OT-Rwf">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Грибной крем-суп" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-OT-Rwf">
                     <rect key="frame" x="68" y="216" width="167" height="20.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Салат с грушей и рукколой" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Gr-Sd1">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Салат с грушей и рукколой" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Gr-Sd1">
                     <rect key="frame" x="68" y="125.5" width="167" height="42.5"/>
                     <accessibility key="accessibilityConfiguration" label="Завтрак"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -168,11 +171,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="breakfastCB" destination="ox3-OQ-1gu" id="gKk-aC-0Tg"/>
                 <outlet property="breakfastLabel" destination="fAb-Gr-Sd1" id="fGP-Ep-dem"/>
                 <outlet property="cardView" destination="rH6-x9-VYY" id="E8k-rQ-hL2"/>
                 <outlet property="dayNameLabel" destination="il4-3B-YXh" id="UOw-no-Mhn"/>
+                <outlet property="dinner2CB" destination="Hlr-tK-mRq" id="3iV-XM-Feq"/>
                 <outlet property="dinner2Label" destination="vLu-Py-MIY" id="3Fc-b4-udM"/>
+                <outlet property="dinnerCB" destination="1jc-sP-vfV" id="431-yM-emO"/>
                 <outlet property="dinnerLabel" destination="r1b-OT-Rwf" id="2Fl-5O-5lm"/>
+                <outlet property="view" destination="Ydn-hD-PQn" id="hPQ-es-bmy"/>
             </connections>
             <point key="canvasLocation" x="-61.600000000000001" y="-420.08995502248877"/>
         </view>

@@ -11,8 +11,6 @@ import SVGKit
 
 class TabBarViewController: UITabBarController {
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,13 +33,6 @@ class TabBarViewController: UITabBarController {
         tabBarItems[1].imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         tabBarItems[2].imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
     }
-    
-    
-    
-    
-    
-
-
 }
 
 
