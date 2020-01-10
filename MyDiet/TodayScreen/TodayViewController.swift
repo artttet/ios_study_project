@@ -8,9 +8,17 @@ class TodayViewController: UIViewController {
     @IBOutlet var cardsPagerView: CardsPagerView!
     @IBOutlet var calendarPagerView: CalendarPagerView!
     @IBOutlet var monthLabel: UILabel!
+    @IBOutlet var tittle: UILabel!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return self.style }
+    var style: UIStatusBarStyle = .default
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.style = .darkContent
+        setNeedsStatusBarAppearanceUpdate()
+        
+        
         
         let calendarDaysList = dataController.calendarDaysList
         let cardDaysList = dataController.cardDaysList
@@ -34,6 +42,8 @@ class TodayViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //navigationController?.navigationBar.barStyle = .white
         
         calendarPagerView.setupTransform()
         cardsPagerView.setupTransform()

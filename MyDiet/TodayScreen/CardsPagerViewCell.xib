@@ -46,8 +46,9 @@
                 <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-hD-PQn">
                     <rect key="frame" x="32" y="73" width="203" height="306"/>
                     <subviews>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox3-OQ-1gu" customClass="BEMCheckBox">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="ox3-OQ-1gu" customClass="BEMCheckBox">
                             <rect key="frame" x="0.0" y="63.5" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
@@ -76,8 +77,9 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlr-tK-mRq" customClass="BEMCheckBox">
+                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="Hlr-tK-mRq" customClass="BEMCheckBox">
                             <rect key="frame" x="0.0" y="233.5" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -131,13 +133,13 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Грибной крем-суп" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-OT-Rwf">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Грибной крем-суп" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-OT-Rwf">
                     <rect key="frame" x="68" y="216" width="167" height="20.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Салат с грушей и рукколой" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Gr-Sd1">
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Салат с грушей и рукколой" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Gr-Sd1">
                     <rect key="frame" x="68" y="125.5" width="167" height="42.5"/>
                     <accessibility key="accessibilityConfiguration" label="Завтрак"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>

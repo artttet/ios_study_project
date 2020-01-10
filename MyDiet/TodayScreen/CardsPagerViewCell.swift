@@ -21,9 +21,15 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     @IBOutlet var dinner2CB: BEMCheckBox!
     
     func setData(cardDay: CardDay, monthNumber: Int, number: Int) {
-        self.number = number
+        self.number = number+1
         
-        dayNameLabel.text = "\(cardDay.weekdayName), \(number+1).\(monthNumber)"
+        var monthNum: String
+        if monthNumber < 10 {
+            monthNum = "0\(monthNumber)"
+        } else {
+            monthNum = "\(monthNumber)"
+        }
+        dayNameLabel.text = "\(cardDay.weekdayName), \(self.number).\(monthNum)"
         breakfastLabel.text = cardDay.breakfast.dishName
         dinnerLabel.text = cardDay.dinner.dishName
         dinner2Label.text = cardDay.dinner2.dishName

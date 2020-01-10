@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,20 +22,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eea-oC-pjY">
-                    <rect key="frame" x="32" y="76" width="130.5" height="41"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <rect key="frame" x="32" y="76" width="150" height="44.5"/>
+                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
                     <color key="textColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Август" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObX-6V-NGs">
-                    <rect key="frame" x="32" y="125" width="56.5" height="20.5"/>
+                    <rect key="frame" x="32" y="128.5" width="56.5" height="20.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qH-OdR" customClass="CalendarPagerView" customModule="MyDiet" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="145.5" width="414" height="72.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="149" width="414" height="69"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="decelerationDistance">
                             <integer key="value" value="0"/>
@@ -55,7 +56,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="eea-oC-pjY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="567-0J-lwl"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Xt-eF-rjN"/>
@@ -74,4 +75,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

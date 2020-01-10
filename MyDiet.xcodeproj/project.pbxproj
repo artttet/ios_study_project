@@ -106,6 +106,9 @@
 		4F0AC8C923A12390007FF6F0 /* MyDiet */ = {
 			isa = PBXGroup;
 			children = (
+				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
+				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
+				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
 				4FD3CE9823BE085400A37A70 /* Data */,
 				4FD3CE9723BE084000A37A70 /* CustomViews */,
 				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
@@ -119,6 +122,13 @@
 				4F0AC8D823A12390007FF6F0 /* Info.plist */,
 			);
 			path = MyDiet;
+			sourceTree = "<group>";
+		};
+		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecipesScreen;
 			sourceTree = "<group>";
 		};
 		4FD3CE9723BE084000A37A70 /* CustomViews */ = {
@@ -142,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				4FDD47A823A65CCC00082D55 /* swift */,
-				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
 				4F0AC8E723A125AF007FF6F0 /* ProductsViewController.xib */,
 			);
 			path = MainViewControllers;
@@ -151,7 +160,6 @@
 		4FDD47A823A65CCC00082D55 /* swift */ = {
 			isa = PBXGroup;
 			children = (
-				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
 				4F0AC8E623A125AF007FF6F0 /* ProductsViewController.swift */,
 			);
 			path = swift;
