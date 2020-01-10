@@ -1,5 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyDiet/Pods-MyDiet-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework
-${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
-${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework

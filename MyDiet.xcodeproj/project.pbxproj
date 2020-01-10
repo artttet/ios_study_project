@@ -106,13 +106,11 @@
 		4F0AC8C923A12390007FF6F0 /* MyDiet */ = {
 			isa = PBXGroup;
 			children = (
-				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
-				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
+				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
 				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
+				4F20F07523C8FB7D005102EE /* ProductsScreen */,
 				4FD3CE9823BE085400A37A70 /* Data */,
 				4FD3CE9723BE084000A37A70 /* CustomViews */,
-				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
-				4FDD47A723A65C8B00082D55 /* MainViewControllers */,
 				4F0AC8CA23A12390007FF6F0 /* AppDelegate.swift */,
 				4F0AC8CC23A12390007FF6F0 /* SceneDelegate.swift */,
 				4F0AC8CE23A12390007FF6F0 /* TabBarViewController.swift */,
@@ -124,9 +122,20 @@
 			path = MyDiet;
 			sourceTree = "<group>";
 		};
+		4F20F07523C8FB7D005102EE /* ProductsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4F0AC8E623A125AF007FF6F0 /* ProductsViewController.swift */,
+				4F0AC8E723A125AF007FF6F0 /* ProductsViewController.xib */,
+			);
+			path = ProductsScreen;
+			sourceTree = "<group>";
+		};
 		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
+				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -146,23 +155,6 @@
 				4F92BA9E23AA460500843FEA /* TodayScreenData.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		4FDD47A723A65C8B00082D55 /* MainViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				4FDD47A823A65CCC00082D55 /* swift */,
-				4F0AC8E723A125AF007FF6F0 /* ProductsViewController.xib */,
-			);
-			path = MainViewControllers;
-			sourceTree = "<group>";
-		};
-		4FDD47A823A65CCC00082D55 /* swift */ = {
-			isa = PBXGroup;
-			children = (
-				4F0AC8E623A125AF007FF6F0 /* ProductsViewController.swift */,
-			);
-			path = swift;
 			sourceTree = "<group>";
 		};
 		4FFF51D023A9EFA600EE08E3 /* TodayScreen */ = {
