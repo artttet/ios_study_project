@@ -1,7 +1,6 @@
 
 
 import UIKit
-import SVGKit
 
 class TabBarViewController: UITabBarController {
     

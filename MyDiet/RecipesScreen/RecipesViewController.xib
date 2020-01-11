@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipesViewController" customModule="MyDiet" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="CWk-1g-kyL" id="yYy-HK-qkW"/>
                 <outlet property="iconSearch" destination="2WZ-QN-9YL" id="G3M-Jq-GOZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,13 +28,46 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-QN-9YL">
                     <rect key="frame" x="313" y="32" width="30" height="44.5"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" name="accentColor"/>
+                    </state>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-zG-5JJ">
+                    <rect key="frame" x="0.0" y="84.5" width="375" height="582.5"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-1g-kyL">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="582.5"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o7w-Y2-bVn">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="R9c-sq-vVP"/>
+                                <outlet property="delegate" destination="-1" id="e1C-ZW-GSD"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="CWk-1g-kyL" secondAttribute="bottom" id="HDB-xq-WUo"/>
+                        <constraint firstAttribute="trailing" secondItem="CWk-1g-kyL" secondAttribute="trailing" id="KbM-dD-LmS"/>
+                        <constraint firstItem="CWk-1g-kyL" firstAttribute="leading" secondItem="lX1-zG-5JJ" secondAttribute="leading" id="a4N-z3-jzB"/>
+                        <constraint firstItem="CWk-1g-kyL" firstAttribute="top" secondItem="lX1-zG-5JJ" secondAttribute="top" id="u5e-gs-q2A"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lX1-zG-5JJ" secondAttribute="trailing" id="6Ed-Ln-xvg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2WZ-QN-9YL" secondAttribute="trailing" constant="32" id="P9x-vj-9u8"/>
+                <constraint firstItem="lX1-zG-5JJ" firstAttribute="top" secondItem="XOA-CC-u1i" secondAttribute="bottom" constant="8" id="Taz-gl-wRj"/>
                 <constraint firstItem="XOA-CC-u1i" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="UrC-ln-KFn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lX1-zG-5JJ" secondAttribute="bottom" id="YRe-as-gRj"/>
                 <constraint firstItem="2WZ-QN-9YL" firstAttribute="centerY" secondItem="XOA-CC-u1i" secondAttribute="centerY" id="Yvr-YV-Eda"/>
+                <constraint firstItem="lX1-zG-5JJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bHl-D1-aCm"/>
                 <constraint firstItem="XOA-CC-u1i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="cHH-ra-TqT"/>
                 <constraint firstItem="2WZ-QN-9YL" firstAttribute="top" secondItem="XOA-CC-u1i" secondAttribute="top" id="d9W-4Q-r5x"/>
                 <constraint firstItem="2WZ-QN-9YL" firstAttribute="bottom" secondItem="XOA-CC-u1i" secondAttribute="bottom" id="m9K-ZZ-JFL"/>
@@ -43,6 +77,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="accentColor">
+            <color red="0.29499998688697815" green="0.73100000619888306" blue="0.64899998903274536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="backgroundColor">
             <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

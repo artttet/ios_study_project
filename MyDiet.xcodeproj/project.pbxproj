@@ -21,6 +21,12 @@
 		4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */; };
 		4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */; };
 		4F0E6D1623A786BE00B6BE04 /* CardsPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */; };
+		4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */; };
+		4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */; };
+		4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1323C9BB8E00180138 /* breakfast.jpg */; };
+		4F2CFA1623C9BC5700180138 /* dinner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1523C9BC5700180138 /* dinner.jpg */; };
+		4F2CFA1823C9BC5A00180138 /* dinner2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1723C9BC5A00180138 /* dinner2.jpg */; };
+		4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */; };
 		4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */; };
 		4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */; };
 		4F55304B23AB97260013DE64 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F55304A23AB97260013DE64 /* GradientView.swift */; };
@@ -62,6 +68,12 @@
 		4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
 		4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsPagerViewCell.xib; sourceTree = "<group>"; };
 		4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerViewCell.swift; sourceTree = "<group>"; };
+		4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCollectionViewCell.xib; sourceTree = "<group>"; };
+		4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F2CFA1323C9BB8E00180138 /* breakfast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = breakfast.jpg; sourceTree = "<group>"; };
+		4F2CFA1523C9BC5700180138 /* dinner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dinner.jpg; sourceTree = "<group>"; };
+		4F2CFA1723C9BC5A00180138 /* dinner2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dinner2.jpg; sourceTree = "<group>"; };
+		4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesScreenData.swift; sourceTree = "<group>"; };
 		4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerViewCell.swift; sourceTree = "<group>"; };
 		4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerView.swift; sourceTree = "<group>"; };
 		4F55304A23AB97260013DE64 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -106,6 +118,7 @@
 		4F0AC8C923A12390007FF6F0 /* MyDiet */ = {
 			isa = PBXGroup;
 			children = (
+				4F2CFA1223C9BB7D00180138 /* Pictures */,
 				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
 				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
 				4F20F07523C8FB7D005102EE /* ProductsScreen */,
@@ -131,11 +144,23 @@
 			path = ProductsScreen;
 			sourceTree = "<group>";
 		};
+		4F2CFA1223C9BB7D00180138 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				4F2CFA1723C9BC5A00180138 /* dinner2.jpg */,
+				4F2CFA1523C9BC5700180138 /* dinner.jpg */,
+				4F2CFA1323C9BB8E00180138 /* breakfast.jpg */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
 			isa = PBXGroup;
 			children = (
 				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
 				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
+				4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */,
+				4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -153,6 +178,7 @@
 			children = (
 				4FAB3D0D23AD057000F13390 /* Enums.swift */,
 				4F92BA9E23AA460500843FEA /* TodayScreenData.swift */,
+				4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -250,14 +276,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2CFA1623C9BC5700180138 /* dinner.jpg in Resources */,
 				4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */,
 				4F0AC8D723A12390007FF6F0 /* LaunchScreen.storyboard in Resources */,
+				4F2CFA1823C9BC5A00180138 /* dinner2.jpg in Resources */,
 				4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */,
 				4F0AC8F323A12E0A007FF6F0 /* RecipesViewController.xib in Resources */,
 				4F92BA9D23AA2BE800843FEA /* CalendarPagerViewCell.xib in Resources */,
 				4F0AC8E923A125AF007FF6F0 /* ProductsViewController.xib in Resources */,
 				4F0AC8D423A12390007FF6F0 /* Assets.xcassets in Resources */,
 				4F0AC8D223A12390007FF6F0 /* Main.storyboard in Resources */,
+				4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */,
+				4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +345,13 @@
 				4F55304B23AB97260013DE64 /* GradientView.swift in Sources */,
 				4F0AC8E823A125AF007FF6F0 /* ProductsViewController.swift in Sources */,
 				4F0E6CF823A7732700B6BE04 /* TodayViewController.swift in Sources */,
+				4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */,
 				4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */,
 				4F0AC8CF23A12390007FF6F0 /* TabBarViewController.swift in Sources */,
 				4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */,
 				4F0AC8CB23A12390007FF6F0 /* AppDelegate.swift in Sources */,
 				4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */,
+				4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */,
 				4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */,
 				4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */,
 				4F0AC8CD23A12390007FF6F0 /* SceneDelegate.swift in Sources */,
