@@ -30,10 +30,10 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         mainView.layer.cornerRadius = 14
         imageView.layer.cornerRadius = 14
         imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-        mainView.layer.shadowColor = UIColor.gray.cgColor
-        mainView.layer.shadowRadius = 5
-        mainView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        mainView.layer.shadowOpacity = 0.6
+//        mainView.layer.shadowColor = UIColor(named: "primaryColor")?.cgColor
+//        mainView.layer.shadowRadius = 5
+//        mainView.layer.shadowOffset = CGSize(width: 0, height: 5)
+//        mainView.layer.shadowOpacity = 1
     }
     
 }
