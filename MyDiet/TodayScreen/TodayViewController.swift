@@ -2,50 +2,50 @@ import UIKit
 import FSPagerView
 
 class TodayViewController: UIViewController {
-    
-    let dataController: TodayScreenData = TodayScreenData()
-    
     @IBOutlet var cardsPagerView: CardsPagerView!
     @IBOutlet var calendarPagerView: CalendarPagerView!
     @IBOutlet var monthLabel: UILabel!
-    @IBOutlet var tittle: UILabel!
+    
+    let dataController: TodayScreenData = TodayScreenData()
+    
+    static var selectedDay: Int = -1
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.style }
     var style: UIStatusBarStyle = .default
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.style = .darkContent
         setNeedsStatusBarAppearanceUpdate()
         
-        
-        
         let calendarDaysList = dataController.calendarDaysList
         let cardDaysList = dataController.cardDaysList
-        let currentDay = dataController.currentDay
+        TodayViewController.selectedDay = dataController.currentDay
         
-        monthLabel.text = dataController.getMonth().1
+        monthLabel.text = dataController.getMonth().str
         
-        calendarPagerView.setupView(calendarDaysList: calendarDaysList, currentDay: currentDay)
-        cardsPagerView.setupView(cardDaysList: cardDaysList, currentDay: currentDay, monthNumber: dataController.getMonth().0)
+        calendarPagerView.setupData(calendarDaysList: calendarDaysList)
+        cardsPagerView.setupData(cardDaysList: cardDaysList, monthNumber: dataController.getMonth().int, currentDay: TodayViewController.selectedDay)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(pagerViewsTapped), name: .init("PagerViewsTapped"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(needScroll), name: .init("NeedScroll"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataController.dishMarkOn), name: .init("DishTapped"), object: nil)
     }
     
-    @objc func pagerViewsTapped(notifi: Notification){
+    @objc func needScroll(notifi: Notification){
         if let index = notifi.userInfo?["index"] as? Int{
-            calendarPagerView.didTap(index: index)
-            cardsPagerView.didTap(index: index)
+            TodayViewController.selectedDay = index
+            calendarPagerView.pagerViewScrollTo(index: index)
+            cardsPagerView.pagerViewScrollTo(index: index)
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //navigationController?.navigationBar.barStyle = .white
-        
-        calendarPagerView.setupTransform()
-        cardsPagerView.setupTransform()
+        calendarPagerView.setupView()
+        cardsPagerView.setupView()
     }
 }
+
+
+

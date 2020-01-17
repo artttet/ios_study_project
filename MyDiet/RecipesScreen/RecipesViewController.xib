@@ -29,7 +29,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-QN-9YL">
                     <rect key="frame" x="313" y="32" width="30" height="44.5"/>
                     <state key="normal">
-                        <color key="titleShadowColor" name="accentColor"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-zG-5JJ">
@@ -119,9 +119,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="accentColor">
-            <color red="0.29499998688697815" green="0.73100000619888306" blue="0.64899998903274536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="backgroundColor">
             <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

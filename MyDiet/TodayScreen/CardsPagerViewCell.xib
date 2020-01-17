@@ -15,7 +15,158 @@
             <subviews>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-x9-VYY" customClass="GradientView" customModule="MyDiet" customModuleProvider="target">
                     <rect key="frame" x="8" y="0.0" width="243" height="452"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zct-qh-gQE">
+                            <rect key="frame" x="24" y="74.5" width="195" height="353.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58G-cb-uzF">
+                                    <rect key="frame" x="0.0" y="0.0" width="195" height="118"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eua-Ec-Ofr" customClass="BEMCheckBox">
+                                            <rect key="frame" x="0.0" y="45" width="28" height="28"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="5dA-8Z-IBS"/>
+                                                <constraint firstAttribute="width" constant="28" id="8e0-Sb-cJw"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Варенные яйца" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU5-wA-4Nz">
+                                            <rect key="frame" x="40" y="0.0" width="147" height="118"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="primaryColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="eua-Ec-Ofr" firstAttribute="centerY" secondItem="58G-cb-uzF" secondAttribute="centerY" id="1l2-3u-L1X"/>
+                                        <constraint firstItem="EU5-wA-4Nz" firstAttribute="top" secondItem="58G-cb-uzF" secondAttribute="top" id="IUF-hO-3mq"/>
+                                        <constraint firstItem="EU5-wA-4Nz" firstAttribute="leading" secondItem="eua-Ec-Ofr" secondAttribute="trailing" constant="12" id="Lyz-Tm-oCM"/>
+                                        <constraint firstAttribute="trailing" secondItem="EU5-wA-4Nz" secondAttribute="trailing" constant="8" id="V8B-hr-Oj9"/>
+                                        <constraint firstItem="eua-Ec-Ofr" firstAttribute="leading" secondItem="58G-cb-uzF" secondAttribute="leading" id="ZxP-Il-DXR"/>
+                                        <constraint firstAttribute="bottom" secondItem="EU5-wA-4Nz" secondAttribute="bottom" id="i75-DM-6dg"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcF-D4-fi4">
+                                    <rect key="frame" x="0.0" y="118" width="195" height="117.5"/>
+                                    <subviews>
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFd-99-00R" customClass="BEMCheckBox">
+                                            <rect key="frame" x="0.0" y="45" width="28" height="28"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="pGb-fe-b2k"/>
+                                                <constraint firstAttribute="width" constant="28" id="pJ1-d0-xTO"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грибной крем-суп" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nh-VS-5aT">
+                                            <rect key="frame" x="40" y="0.0" width="147" height="117.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="VFd-99-00R" firstAttribute="leading" secondItem="HcF-D4-fi4" secondAttribute="leading" id="9zR-ba-ERA"/>
+                                        <constraint firstAttribute="trailing" secondItem="2Nh-VS-5aT" secondAttribute="trailing" constant="8" id="RKO-12-TCj"/>
+                                        <constraint firstItem="2Nh-VS-5aT" firstAttribute="top" secondItem="HcF-D4-fi4" secondAttribute="top" id="ahc-Ul-9Kk"/>
+                                        <constraint firstAttribute="bottom" secondItem="2Nh-VS-5aT" secondAttribute="bottom" id="gIa-Ei-MeL"/>
+                                        <constraint firstItem="VFd-99-00R" firstAttribute="centerY" secondItem="HcF-D4-fi4" secondAttribute="centerY" id="uAT-mD-R2o"/>
+                                        <constraint firstItem="2Nh-VS-5aT" firstAttribute="leading" secondItem="VFd-99-00R" secondAttribute="trailing" constant="12" id="yeV-fD-Czc"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-Aw-8Ri">
+                                    <rect key="frame" x="0.0" y="235.5" width="195" height="118"/>
+                                    <subviews>
+                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m90-bB-X8E" customClass="BEMCheckBox">
+                                            <rect key="frame" x="0.0" y="45" width="28" height="28"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="28" id="UQX-du-78Y"/>
+                                                <constraint firstAttribute="height" constant="28" id="yLb-8D-zHU"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                    <color key="value" name="primaryColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат со свеклой и шпинатом" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-3l-zyo">
+                                            <rect key="frame" x="40" y="0.0" width="147" height="118"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="6Ns-3l-zyo" firstAttribute="leading" secondItem="m90-bB-X8E" secondAttribute="trailing" constant="12" id="0C4-y5-VIO"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Ns-3l-zyo" secondAttribute="trailing" constant="8" id="Uvk-V3-sNh"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Ns-3l-zyo" secondAttribute="bottom" id="cNK-iZ-dTu"/>
+                                        <constraint firstItem="6Ns-3l-zyo" firstAttribute="top" secondItem="hmD-Aw-8Ri" secondAttribute="top" id="gCC-xE-KCI"/>
+                                        <constraint firstItem="m90-bB-X8E" firstAttribute="centerY" secondItem="hmD-Aw-8Ri" secondAttribute="centerY" id="hGw-0q-q8N"/>
+                                        <constraint firstItem="m90-bB-X8E" firstAttribute="leading" secondItem="hmD-Aw-8Ri" secondAttribute="leading" id="l6o-JE-K8n"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
                     <color key="backgroundColor" red="0.11431389302015305" green="0.52106094360351562" blue="0.5071679949760437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="zct-qh-gQE" firstAttribute="leading" secondItem="rH6-x9-VYY" secondAttribute="leading" constant="24" id="6wF-Wu-5wt"/>
+                        <constraint firstAttribute="bottom" secondItem="zct-qh-gQE" secondAttribute="bottom" constant="24" id="95A-2T-Peh"/>
+                        <constraint firstAttribute="trailing" secondItem="zct-qh-gQE" secondAttribute="trailing" constant="24" id="DYA-b2-nr2"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowX">
                             <real key="value" value="0.0"/>
@@ -43,150 +194,41 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydn-hD-PQn">
-                    <rect key="frame" x="32" y="73" width="203" height="306"/>
-                    <subviews>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="ox3-OQ-1gu" customClass="BEMCheckBox">
-                            <rect key="frame" x="0.0" y="63.5" width="20" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                    <color key="value" red="0.044163204729557037" green="0.31624984741210938" blue="0.33129644393920898" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
-                                <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
-                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
-                                    <color key="value" name="primaryColor"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="Hlr-tK-mRq" customClass="BEMCheckBox">
-                            <rect key="frame" x="0.0" y="233.5" width="20" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                    <color key="value" name="primaryColor"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="zxc:" destination="iN0-l3-epB" eventType="valueChanged" id="czh-bj-b7i"/>
-                            </connections>
-                        </view>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="1jc-sP-vfV" customClass="BEMCheckBox">
-                            <rect key="frame" x="0.0" y="143" width="20" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                    <color key="value" name="primaryColor"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                    <real key="value" value="2"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="Hlr-tK-mRq" firstAttribute="leading" secondItem="Ydn-hD-PQn" secondAttribute="leading" id="Tk6-VZ-US4"/>
-                        <constraint firstItem="1jc-sP-vfV" firstAttribute="centerY" secondItem="Ydn-hD-PQn" secondAttribute="centerY" id="WZg-gc-epm"/>
-                        <constraint firstItem="1jc-sP-vfV" firstAttribute="leading" secondItem="Ydn-hD-PQn" secondAttribute="leading" id="daQ-d6-1f9"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Привет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il4-3B-YXh">
-                    <rect key="frame" x="32" y="24" width="73.5" height="26"/>
+                    <rect key="frame" x="32" y="24" width="73.5" height="26.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Салат с шампиньонами и фасолью" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLu-Py-MIY">
-                    <rect key="frame" x="68" y="284.5" width="167" height="64.5"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="Грибной крем-суп" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1b-OT-Rwf">
-                    <rect key="frame" x="68" y="216" width="167" height="20.5"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Салат с грушей и рукколой" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAb-Gr-Sd1">
-                    <rect key="frame" x="68" y="125.5" width="167" height="42.5"/>
-                    <accessibility key="accessibilityConfiguration" label="Завтрак"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                    <color key="textColor" name="primaryColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
-                <constraint firstItem="Ydn-hD-PQn" firstAttribute="centerY" secondItem="rH6-x9-VYY" secondAttribute="centerY" id="1aT-ET-Nxb"/>
-                <constraint firstItem="ox3-OQ-1gu" firstAttribute="leading" secondItem="il4-3B-YXh" secondAttribute="leading" id="3Gm-ww-yOD"/>
-                <constraint firstItem="Hlr-tK-mRq" firstAttribute="centerY" secondItem="vLu-Py-MIY" secondAttribute="centerY" id="6bO-yu-uip"/>
-                <constraint firstItem="vLu-Py-MIY" firstAttribute="top" secondItem="r1b-OT-Rwf" secondAttribute="bottom" constant="48" id="8Z7-ZT-ODb"/>
-                <constraint firstItem="r1b-OT-Rwf" firstAttribute="leading" secondItem="1jc-sP-vfV" secondAttribute="trailing" constant="16" id="DVT-92-xE7"/>
-                <constraint firstItem="Ydn-hD-PQn" firstAttribute="trailing" secondItem="rH6-x9-VYY" secondAttribute="trailing" constant="-16" id="IC0-3w-xJy"/>
                 <constraint firstItem="rH6-x9-VYY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kx9-9i-7QQ"/>
-                <constraint firstItem="r1b-OT-Rwf" firstAttribute="centerY" secondItem="Ydn-hD-PQn" secondAttribute="centerY" id="MOB-Yr-Idk"/>
-                <constraint firstItem="fAb-Gr-Sd1" firstAttribute="leading" secondItem="ox3-OQ-1gu" secondAttribute="trailing" constant="16" id="OHD-Hy-8IV"/>
-                <constraint firstItem="vLu-Py-MIY" firstAttribute="leading" secondItem="Hlr-tK-mRq" secondAttribute="trailing" constant="16" id="QKx-Eg-iTj"/>
+                <constraint firstItem="zct-qh-gQE" firstAttribute="top" secondItem="il4-3B-YXh" secondAttribute="bottom" constant="24" id="MVx-lr-BxJ"/>
                 <constraint firstItem="il4-3B-YXh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="Qx3-GD-yKv"/>
-                <constraint firstItem="ox3-OQ-1gu" firstAttribute="centerY" secondItem="fAb-Gr-Sd1" secondAttribute="centerY" id="Tak-co-RW4"/>
-                <constraint firstItem="Ydn-hD-PQn" firstAttribute="leading" secondItem="il4-3B-YXh" secondAttribute="leading" id="bgH-HX-0L0"/>
                 <constraint firstItem="rH6-x9-VYY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="dbn-B8-bq4"/>
-                <constraint firstItem="fAb-Gr-Sd1" firstAttribute="trailing" secondItem="Ydn-hD-PQn" secondAttribute="trailing" id="eO1-74-snv"/>
-                <constraint firstItem="vLu-Py-MIY" firstAttribute="trailing" secondItem="Ydn-hD-PQn" secondAttribute="trailing" id="hPt-ep-PEQ"/>
-                <constraint firstItem="r1b-OT-Rwf" firstAttribute="trailing" secondItem="Ydn-hD-PQn" secondAttribute="trailing" id="ipb-70-wZq"/>
                 <constraint firstAttribute="bottom" secondItem="rH6-x9-VYY" secondAttribute="bottom" constant="16" id="oSm-Zf-2ub"/>
-                <constraint firstItem="r1b-OT-Rwf" firstAttribute="top" secondItem="fAb-Gr-Sd1" secondAttribute="bottom" constant="48" id="oaa-xg-nBb"/>
                 <constraint firstItem="il4-3B-YXh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="qiK-lj-OBA"/>
                 <constraint firstAttribute="trailing" secondItem="rH6-x9-VYY" secondAttribute="trailing" constant="8" id="urk-UF-CR3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="breakfastCB" destination="ox3-OQ-1gu" id="gKk-aC-0Tg"/>
-                <outlet property="breakfastLabel" destination="fAb-Gr-Sd1" id="fGP-Ep-dem"/>
+                <outlet property="breakfastCB" destination="eua-Ec-Ofr" id="pTA-u7-47I"/>
+                <outlet property="breakfastLabel" destination="EU5-wA-4Nz" id="ltN-X9-KK0"/>
                 <outlet property="cardView" destination="rH6-x9-VYY" id="E8k-rQ-hL2"/>
                 <outlet property="dayNameLabel" destination="il4-3B-YXh" id="UOw-no-Mhn"/>
-                <outlet property="dinner2CB" destination="Hlr-tK-mRq" id="3iV-XM-Feq"/>
-                <outlet property="dinner2Label" destination="vLu-Py-MIY" id="3Fc-b4-udM"/>
-                <outlet property="dinnerCB" destination="1jc-sP-vfV" id="431-yM-emO"/>
-                <outlet property="dinnerLabel" destination="r1b-OT-Rwf" id="2Fl-5O-5lm"/>
-                <outlet property="view" destination="Ydn-hD-PQn" id="hPQ-es-bmy"/>
+                <outlet property="dinner2CB" destination="m90-bB-X8E" id="yi8-pM-bRb"/>
+                <outlet property="dinner2Label" destination="6Ns-3l-zyo" id="IjC-jD-KJV"/>
+                <outlet property="dinnerCB" destination="VFd-99-00R" id="8qY-rg-L3q"/>
+                <outlet property="dinnerLabel" destination="2Nh-VS-5aT" id="DUS-Er-pUB"/>
             </connections>
             <point key="canvasLocation" x="-61.600000000000001" y="-420.08995502248877"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="primaryColor">
             <color red="0.11400000005960464" green="0.52100002765655518" blue="0.50700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

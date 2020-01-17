@@ -10,13 +10,9 @@ import UIKit
 import FSPagerView
 
 class CalendarPagerViewCell: FSPagerViewCell {
-
-    var number: Int = 0
-    
     @IBOutlet weak var calendarView: UIView!
     
     @IBOutlet var dayNumberLabel: UILabel!
-    
     @IBOutlet var dayNameLabel: UILabel!
     
     @IBOutlet var calendarViewConstraintTop: NSLayoutConstraint!
@@ -24,24 +20,9 @@ class CalendarPagerViewCell: FSPagerViewCell {
     @IBOutlet var calendarViewConstraintLeft: NSLayoutConstraint!
     @IBOutlet var calendarViewConstraintRight: NSLayoutConstraint!
     
+    var number: Int = 0
     var isSelect: Bool = false
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    func setDay(dayNumber: Int) {
-        
-    }
-    
-    func setData(calendarDay: CalendarDay){
-        number = calendarDay.dayNumber
-        dayNumberLabel.text = "\(calendarDay.dayNumber)"
-        dayNameLabel.text = calendarDay.dayName
-        
-        updateView(isCurrent: calendarDay.isSelected)
-    }
-    
+
     func isCurrentView(isCurrent: Bool){
         if isCurrent {
             calendarView.backgroundColor = UIColor(named: "primaryColor")
@@ -71,13 +52,10 @@ class CalendarPagerViewCell: FSPagerViewCell {
             calendarViewConstraintLeft.constant = 6
             calendarViewConstraintRight.constant = 6
         }
-        
-        
     }
     
     func updateView(isCurrent: Bool){
         calendarView.layer.cornerRadius = 12.0
-        
         isCurrentView(isCurrent: isCurrent)
     }
 }

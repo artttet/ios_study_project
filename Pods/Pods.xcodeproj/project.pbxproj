@@ -56,15 +56,15 @@
 /* Begin PBXFileReference section */
 		03D20E5EAEE406FB0C71D8847F36E89A /* Pods-MyDiet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyDiet-umbrella.h"; sourceTree = "<group>"; };
 		09F93C1F815D49F00E0D74F8A4BA97C4 /* FSPagerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSPagerView-dummy.m"; sourceTree = "<group>"; };
-		0E791E782758ED9BB57EBF2679D28B05 /* Pods_MyDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyDiet.framework; path = "Pods-MyDiet.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSPagerView.framework; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E791E782758ED9BB57EBF2679D28B05 /* Pods_MyDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		112F49090C412DAC233DAF72956CB035 /* FSPagerViewLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPagerViewLayoutAttributes.swift; path = Sources/FSPagerViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		120858A936AE2D385B11EC532D99FB2E /* FSPagerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSPagerView.xcconfig; sourceTree = "<group>"; };
 		300BCED30E4465FC968263558AB3B9F7 /* BEMPathManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMPathManager.m; path = Classes/BEMPathManager.m; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		3782030DFC9042F49F297EA0118271FA /* FSPagerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSPagerView.modulemap; sourceTree = "<group>"; };
 		3C616998AF54EEF0B116C5E2CD65EF91 /* FSPagerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSPagerView-prefix.pch"; sourceTree = "<group>"; };
-		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEMCheckBox.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F282D213AB9D1ECA1228C986CC9D2BA /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		47B62F47CEBF7C864DBAE5C40B24B7D3 /* FSPagerViewObjcCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSPagerViewObjcCompat.h; path = Sources/FSPagerViewObjcCompat.h; sourceTree = "<group>"; };
 		52E9E31F7C75EF30E7EEC31B9D0A7746 /* Pods-MyDiet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyDiet-dummy.m"; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		870AB9286CA65EC5B7DDFFEDC5B34BBB /* BEMAnimationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMAnimationManager.h; path = Classes/BEMAnimationManager.h; sourceTree = "<group>"; };
 		8E7234B5611ADD8DA2D1F0335473011B /* BEMCheckBox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BEMCheckBox-Info.plist"; sourceTree = "<group>"; };
 		8ED0239CB979B5A5818214AF6E9CDBEE /* Pods-MyDiet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MyDiet.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A05453E581AD12D8A011374BF44DE680 /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBoxGroup.m; path = Classes/BEMCheckBoxGroup.m; sourceTree = "<group>"; };
 		A28BBFD720B102FC5E88B89E3F66DA0B /* BEMCheckBox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBox.m; path = Classes/BEMCheckBox.m; sourceTree = "<group>"; };
 		A39F674DDCCE774E2AFFB80E6F87A007 /* Pods-MyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyDiet.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 				F30AB3263E3DCAE23DAA32E7FEB37D16 /* FSPageViewTransformer.swift */,
 				E243BFD54229D0D537FBF222A6CCD54E /* Support Files */,
 			);
-			name = FSPagerView;
 			path = FSPagerView;
 			sourceTree = "<group>";
 		};
@@ -217,7 +216,6 @@
 				300BCED30E4465FC968263558AB3B9F7 /* BEMPathManager.m */,
 				62ADBE46D7857869D32A844BF06E85B9 /* Support Files */,
 			);
-			name = BEMCheckBox;
 			path = BEMCheckBox;
 			sourceTree = "<group>";
 		};
@@ -370,6 +368,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 4466298F94023CEEF45098B4D358C756 /* Products */;

@@ -3,14 +3,8 @@ import FSPagerView
 import BEMCheckBox
 
 class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
-    
-    var checkboxes: [BEMCheckBox]?
-    var number: Int = 0
-    
     @IBOutlet weak var dayNameLabel: UILabel!
     @IBOutlet weak var cardView: GradientView!
-    
-    @IBOutlet var view: UIView!
     
     @IBOutlet var breakfastLabel: UILabel!
     @IBOutlet var dinnerLabel: UILabel!
@@ -20,33 +14,42 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     @IBOutlet var dinnerCB: BEMCheckBox!
     @IBOutlet var dinner2CB: BEMCheckBox!
     
-    func setData(cardDay: CardDay, monthNumber: Int, number: Int) {
-        self.number = number+1
-        
-        var monthNum: String
-        if monthNumber < 10 {
-            monthNum = "0\(monthNumber)"
-        } else {
-            monthNum = "\(monthNumber)"
-        }
-        dayNameLabel.text = "\(cardDay.weekdayName), \(self.number).\(monthNum)"
-        breakfastLabel.text = cardDay.breakfast.dishName
-        dinnerLabel.text = cardDay.dinner.dishName
-        dinner2Label.text = cardDay.dinner2.dishName
-        
+    lazy var cardDidTap: UITapGestureRecognizer = {
+        let t = UITapGestureRecognizer(target: self, action: #selector(self.cardDidTap(_:)))
+        return t
+    }()
+    
+    weak var delegate: CardsPagerViewCellDelegate?
+    var checkboxes: [BEMCheckBox]?
+    var number: Int = 0
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         checkboxes = [breakfastCB, dinnerCB, dinner2CB]
         
-        setupView()
+        cardView.isUserInteractionEnabled = true
+        cardView.addGestureRecognizer(cardDidTap)
     }
     
     func setupView(){
+        
         cardView.layer.shadowColor = UIColor(named: "primaryDarkColor")?.cgColor
-        cardView.layer.shadowRadius = 4
-        cardView.layer.shadowOffset = CGSize(width: 0, height: 4	)
+        cardView.layer.shadowRadius = 8
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 8)
         cardView.layer.shadowOpacity = 1
+        
+    }
+   
+    @objc
+    func cardDidTap(_ sender: UITapGestureRecognizer) {
+        delegate?.cardDidTap(self)
     }
     
-    func didTap(_ checkBox: BEMCheckBox) {
+//    func didTap(_ checkBox: BEMCheckBox) {
+//        print("\(checkBox.tag)")
+//    }
+    
+    @objc func didTap(_ checkBox: BEMCheckBox) {
         let currentTag = checkBox.tag
         print("tapped")
         guard let checkboxes = checkboxes else{ return }
@@ -55,5 +58,14 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
             box.on = false
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.removeFromSuperview()
+    }
 
+}
+
+protocol CardsPagerViewCellDelegate: AnyObject {
+    func cardDidTap(_ collectionViewCell: CardsPagerViewCell)
 }

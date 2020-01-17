@@ -59,7 +59,7 @@ class TodayScreenData {
         }
     }
     
-    func getMonth() -> (Int, String) {
+    func getMonth() -> (int: Int, str: String) {
         let month = appCalendar.month
         return (month, appCalendar.getMonthFromNumber(monthNumber: month))
     }
