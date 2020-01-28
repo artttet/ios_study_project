@@ -1,13 +1,14 @@
-import UIKit
 import FSPagerView
+import UIKit
+import BEMCheckBox
+import CoreData
 
 class CardsPagerView: FSPagerView {
-    
-    var currentDay: Int = 0
-    
     let reuseId: String = "CardsPagerViewCell"
-    var cardDaysList: [CardDay] = []
+    
+    var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = NSFetchedResultsController()
     var monthNumber: Int = 0
+    var currentDay: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,39 +17,31 @@ class CardsPagerView: FSPagerView {
         transformer = FSPagerViewTransformer(type: .linear)
         register(UINib(nibName: reuseId, bundle: nil), forCellWithReuseIdentifier: reuseId)
     }
-    
-    func setupData(cardDaysList: [CardDay], monthNumber: Int, currentDay: Int){
-        self.cardDaysList = cardDaysList
-        self.monthNumber = monthNumber
-        self.currentDay = currentDay
-    }
-    
-    func setupView(){
+
+    func setupView() {
         let transform = CGAffineTransform(scaleX: 0.75, y: 0.95)
         itemSize = frame.size.applying(transform)
-        
-        scrollToItem(at: TodayViewController.selectedDay, animated: false)
-        self.isUserInteractionEnabled = true
     }
     
-    func pagerViewScrollTo(index: Int){
-        scrollToItem(at: index, animated: true)
+    fileprivate func postNeedScrollMessage(index: Int) {
+        let message: [String : Int] = ["index" : index]
+        NotificationCenter.default.post(name: .init("NeedScroll"), object: nil, userInfo: message)
     }
     
-    fileprivate func createAndPostMessage(index: Int, name: String) {
-        let message:[String: Int] = ["index": index]
-        NotificationCenter.default.post(name: .init(name), object: nil, userInfo: message)
+    fileprivate func postCheckBoxTapped(index: Int, checkBox: BEMCheckBox) {
+        let object: [String : Any] = ["index" : index, "checkBox" : checkBox]
+        NotificationCenter.default.post(name: .init("CheckBoxTapped"), object: object)
     }
-    
+
 }
 
 extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return cardDaysList.count
+        return fetchedResultController.fetchedObjects!.count
     }
     
-    private func createData(index: Int) -> (cardDay: CardDay, monthNumber: String) {
+    private func createData(index: Int) -> (appDay: AppDay, monthNumber: String) {
         var monthNum: String
         if self.monthNumber < 10 {
             monthNum = "0\(self.monthNumber)"
@@ -56,48 +49,62 @@ extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
             monthNum = "\(self.monthNumber)"
         }
         
-        return (self.cardDaysList[index], monthNum)
+        return (fetchedResultController.object(at: IndexPath.init(row: index, section: 0)) as! AppDay, monthNum)
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: reuseId, at: index) as! CardsPagerViewCell
         let data = createData(index: index)
-        let cardDay = data.cardDay
+        let appDay = data.appDay
         
-        cell.number = index
-        cell.dayNameLabel.text = "\(cardDay.weekdayName), \(index+1).\(data.monthNumber)"
-        cell.breakfastLabel.text = cardDay.breakfast.dishName
-        cell.dinnerLabel.text = cardDay.dinner.dishName
-        cell.dinner2Label.text = cardDay.dinner2.dishName
+        cell.number = Int(appDay.dayNumber)
+        let dayName = AppCalendar.instance.day(fromDayNumber: Int(appDay.dayNumber), isShort: false).dayName
+        cell.dayNameLabel.text = "\(dayName), \(appDay.dayNumber).\(data.monthNumber)"
+        
+        cell.breakfastLabel.text = appDay.breakfast!.name
+        cell.breakfastCB.on = appDay.breakfast!.isEaten
+        
+        cell.dinnerLabel.text = appDay.dinner!.name
+        cell.dinnerCB.on = appDay.dinner!.isEaten
+        
+        cell.dinner2Label.text = appDay.dinner2!.name
+        cell.dinner2CB.on = appDay.dinner2!.isEaten
         
         cell.delegate = self
         cell.setupView()
-        if index+1 < currentDay {
+        if cell.number < currentDay {
             cell.breakfastCB.isUserInteractionEnabled = false
             cell.dinnerCB.isUserInteractionEnabled = false
             cell.dinner2CB.isUserInteractionEnabled = false
+        } else {
+            cell.breakfastCB.isUserInteractionEnabled = true
+            cell.dinnerCB.isUserInteractionEnabled = true
+            cell.dinner2CB.isUserInteractionEnabled = true
         }
         
         return cell
-    }
-    
-    func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
-        self.isUserInteractionEnabled = true
-        createAndPostMessage(index: pagerView.currentIndex, name: "NeedScroll")
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
         self.isUserInteractionEnabled = false
     }
     
+    func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
+        self.isUserInteractionEnabled = true
+        postNeedScrollMessage(index: pagerView.currentIndex)
+    }
+    
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.isUserInteractionEnabled = true
     }
-    
 }
 
 extension CardsPagerView: CardsPagerViewCellDelegate {
     func cardDidTap(_ collectionViewCell: CardsPagerViewCell) {
-        createAndPostMessage(index: collectionViewCell.number, name: "NeedScroll")
+        postNeedScrollMessage(index: collectionViewCell.number-1)
+    }
+    
+    func checkBoxDidTap(_ checkBox: BEMCheckBox, dayNumber: Int) {
+        postCheckBoxTapped(index: dayNumber-1, checkBox: checkBox)
     }
 }

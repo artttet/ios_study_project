@@ -1,10 +1,11 @@
 import UIKit
 import FSPagerView
+import CoreData
 
 class CalendarPagerView: FSPagerView {
     
     let reuseId = "CalendarPagerViewCell"
-    var calendarDaysList: [CalendarDay] = []
+    var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = NSFetchedResultsController()
     var selectedDay: Int = 0
     
     override func awakeFromNib() {
@@ -12,11 +13,6 @@ class CalendarPagerView: FSPagerView {
         dataSource = self
         delegate = self
         register(UINib(nibName: reuseId, bundle: Bundle(identifier: reuseId)), forCellWithReuseIdentifier: reuseId)
-    }
-    
-    func setupData(calendarDaysList: [CalendarDay]){
-        self.calendarDaysList = calendarDaysList
-        self.selectedDay = TodayViewController.selectedDay
     }
     
     func setupView(){
@@ -30,13 +26,18 @@ class CalendarPagerView: FSPagerView {
         }else {
             scrollToItem(at: selectedDay, animated: false)
         }
-        self.isUserInteractionEnabled = true
     }
     
     func selectNew(index: Int){
-        calendarDaysList[selectedDay].isSelected = false
+        var indexPath = IndexPath.init(row: selectedDay, section: 0)
+        var appDay = fetchedResultController.object(at: indexPath) as! AppDay
+        appDay.isSelected = false
+        
         selectedDay = index
-        calendarDaysList[selectedDay].isSelected = true
+        
+        indexPath = IndexPath.init(row: selectedDay, section: 0)
+        appDay = fetchedResultController.object(at: indexPath) as! AppDay
+        appDay.isSelected = true
     }
     
     func pagerViewScrollTo(index: Int){
@@ -47,23 +48,22 @@ class CalendarPagerView: FSPagerView {
             scrollToItem(at: index+2, animated: true)
         }
     }
-    
 }
 
 extension CalendarPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return calendarDaysList.count
+        return fetchedResultController.fetchedObjects!.count
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: reuseId, at: index) as! CalendarPagerViewCell
-        let calendarDay = calendarDaysList[index]
+        let appDay = fetchedResultController.object(at: IndexPath(row: index, section: 0)) as! AppDay
         
         cell.number = index
-        cell.dayNameLabel.text = calendarDay.dayName
-        cell.dayNumberLabel.text = "\(calendarDay.dayNumber)"
+        cell.dayNameLabel.text = AppCalendar.instance.day(fromDayNumber: Int(appDay.dayNumber), isShort: true).dayName
+        cell.dayNumberLabel.text = "\(appDay.dayNumber)"
         
-        cell.updateView(isCurrent: calendarDay.isSelected)
+        cell.updateView(isCurrent: appDay.isSelected)
         
         return cell
     }
@@ -78,6 +78,10 @@ extension CalendarPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
+        self.isUserInteractionEnabled = true
+    }
+    
+    func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
         self.isUserInteractionEnabled = true
     }
 }

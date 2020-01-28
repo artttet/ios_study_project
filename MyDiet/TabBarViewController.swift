@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController {
         recipesViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "recipes"), selectedImage: nil)
         productsViewController.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "shopping-list"), selectedImage: nil)
         
-        viewControllers = [todayViewController,recipesViewController, productsViewController]
+        viewControllers = [todayViewController, recipesViewController, productsViewController]
     }
     
     override func viewWillAppear(_ animated: Bool) {

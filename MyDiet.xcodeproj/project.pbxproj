@@ -34,6 +34,12 @@
 		4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F92BA9E23AA460500843FEA /* TodayScreenData.swift */; };
 		4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */; };
 		4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB3D0D23AD057000F13390 /* Enums.swift */; };
+		4FD30FC723E02E7500135613 /* AppDayModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */; };
+		4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */; };
+		4FD30FCE23E0343500135613 /* AppDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */; };
+		4FD30FCF23E0343500135613 /* Dish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */; };
+		4FD30FD023E0343500135613 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */; };
+		4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FD123E0346300135613 /* CoreDataManager.swift */; };
 		92C02071A400721A0CB2CA98 /* Pods_MyDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A6747B272A11A6A429DF9C /* Pods_MyDiet.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +87,12 @@
 		4F92BA9E23AA460500843FEA /* TodayScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScreenData.swift; sourceTree = "<group>"; };
 		4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerView.swift; sourceTree = "<group>"; };
 		4FAB3D0D23AD057000F13390 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4FD30FC623E02E7500135613 /* AppDayModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDayModel.xcdatamodel; sourceTree = "<group>"; };
+		4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4FD30FD123E0346300135613 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8364C402A3B0EBCB40A913A4 /* Pods-MyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiet.release.xcconfig"; path = "Target Support Files/Pods-MyDiet/Pods-MyDiet.release.xcconfig"; sourceTree = "<group>"; };
 		8E6CEBC526D1AD0BB6318600 /* Pods-MyDiet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiet.debug.xcconfig"; path = "Target Support Files/Pods-MyDiet/Pods-MyDiet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +130,7 @@
 		4F0AC8C923A12390007FF6F0 /* MyDiet */ = {
 			isa = PBXGroup;
 			children = (
+				4FD30FC823E0327300135613 /* CoreData */,
 				4F2CFA1223C9BB7D00180138 /* Pictures */,
 				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
 				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
@@ -163,6 +176,19 @@
 				4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */,
 			);
 			path = RecipesScreen;
+			sourceTree = "<group>";
+		};
+		4FD30FC823E0327300135613 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */,
+				4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */,
+				4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */,
+				4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */,
+				4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */,
+				4FD30FD123E0346300135613 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		4FD3CE9723BE084000A37A70 /* CustomViews */ = {
@@ -340,19 +366,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD30FC723E02E7500135613 /* AppDayModel.xcdatamodeld in Sources */,
 				4F0E6D1623A786BE00B6BE04 /* CardsPagerViewCell.swift in Sources */,
 				4F0AC8F223A12E0A007FF6F0 /* RecipesViewController.swift in Sources */,
+				4FD30FCF23E0343500135613 /* Dish+CoreDataClass.swift in Sources */,
 				4F55304B23AB97260013DE64 /* GradientView.swift in Sources */,
 				4F0AC8E823A125AF007FF6F0 /* ProductsViewController.swift in Sources */,
 				4F0E6CF823A7732700B6BE04 /* TodayViewController.swift in Sources */,
 				4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */,
 				4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */,
 				4F0AC8CF23A12390007FF6F0 /* TabBarViewController.swift in Sources */,
+				4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */,
 				4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */,
 				4F0AC8CB23A12390007FF6F0 /* AppDelegate.swift in Sources */,
 				4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */,
+				4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */,
+				4FD30FCE23E0343500135613 /* AppDay+CoreDataProperties.swift in Sources */,
 				4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */,
 				4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */,
+				4FD30FD023E0343500135613 /* Dish+CoreDataProperties.swift in Sources */,
 				4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */,
 				4F0AC8CD23A12390007FF6F0 /* SceneDelegate.swift in Sources */,
 			);
@@ -558,6 +590,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FD30FC623E02E7500135613 /* AppDayModel.xcdatamodel */,
+			);
+			currentVersion = 4FD30FC623E02E7500135613 /* AppDayModel.xcdatamodel */;
+			path = AppDayModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4F0AC8BF23A12390007FF6F0 /* Project object */;
 }
