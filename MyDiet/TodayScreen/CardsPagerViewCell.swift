@@ -35,7 +35,9 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     }()
     
     weak var delegate: CardsPagerViewCellDelegate?
+    
     var checkboxes: [BEMCheckBox]?
+    
     var number: Int = 0
     
     override func awakeFromNib() {
@@ -49,7 +51,15 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         breakfastCB.addGestureRecognizer(breakfastCheckBoxDidTap)
         dinnerCB.addGestureRecognizer(dinnerCheckBoxDidTap)
         dinner2CB.addGestureRecognizer(dinner2CheckBoxDidTap)
-        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.removeFromSuperview()
+    }
+    
+    func setupView(){
+        perform(#selector(addShadow), with: nil, afterDelay: 0.0)
     }
     
     @objc
@@ -96,20 +106,10 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         cardView.layer.shadowOpacity = 1
     }
     
-    func setupView(){
-        perform(#selector(addShadow), with: nil, afterDelay: 0.0)
-    }
-   
     @objc
     func cardDidTap(_ sender: UITapGestureRecognizer) {
         delegate?.cardDidTap(self)
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.removeFromSuperview()
-    }
-
 }
 
 extension CardsPagerViewCell: UIGestureRecognizerDelegate {

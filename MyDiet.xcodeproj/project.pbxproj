@@ -181,12 +181,12 @@
 		4FD30FC823E0327300135613 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4FD30FD123E0346300135613 /* CoreDataManager.swift */,
+				4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */,
 				4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */,
 				4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */,
 				4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */,
 				4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */,
-				4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */,
-				4FD30FD123E0346300135613 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

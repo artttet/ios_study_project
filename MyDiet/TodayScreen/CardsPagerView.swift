@@ -4,10 +4,13 @@ import BEMCheckBox
 import CoreData
 
 class CardsPagerView: FSPagerView {
+    
     let reuseId: String = "CardsPagerViewCell"
     
-    var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult> = NSFetchedResultsController()
+    var appDaysList:[AppDay] = []
+    
     var monthNumber: Int = 0
+    
     var currentDay: Int = 0
     
     override func awakeFromNib() {
@@ -17,10 +20,13 @@ class CardsPagerView: FSPagerView {
         transformer = FSPagerViewTransformer(type: .linear)
         register(UINib(nibName: reuseId, bundle: nil), forCellWithReuseIdentifier: reuseId)
     }
+    
+    
 
     func setupView() {
         let transform = CGAffineTransform(scaleX: 0.75, y: 0.95)
         itemSize = frame.size.applying(transform)
+        scrollToItem(at: TodayViewController.selectedDay, animated: false)
     }
     
     fileprivate func postNeedScrollMessage(index: Int) {
@@ -35,10 +41,10 @@ class CardsPagerView: FSPagerView {
 
 }
 
-extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
+extension CardsPagerView: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return fetchedResultController.fetchedObjects!.count
+        return appDaysList.count
     }
     
     private func createData(index: Int) -> (appDay: AppDay, monthNumber: String) {
@@ -49,7 +55,15 @@ extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
             monthNum = "\(self.monthNumber)"
         }
         
-        return (fetchedResultController.object(at: IndexPath.init(row: index, section: 0)) as! AppDay, monthNum)
+        return (appDaysList[index], monthNum)
+    }
+    
+    private func setTextColor(_ isEaten: Bool) -> UIColor {
+        if isEaten {
+            return UIColor(named: "primaryColor")!
+        }else {
+            return UIColor.white
+        }
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
@@ -58,20 +72,26 @@ extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
         let appDay = data.appDay
         
         cell.number = Int(appDay.dayNumber)
+        
         let dayName = AppCalendar.instance.day(fromDayNumber: Int(appDay.dayNumber), isShort: false).dayName
         cell.dayNameLabel.text = "\(dayName), \(appDay.dayNumber).\(data.monthNumber)"
         
         cell.breakfastLabel.text = appDay.breakfast!.name
+        cell.breakfastLabel.textColor = setTextColor(appDay.breakfast!.isEaten)
         cell.breakfastCB.on = appDay.breakfast!.isEaten
         
         cell.dinnerLabel.text = appDay.dinner!.name
+        cell.dinnerLabel.textColor = setTextColor(appDay.dinner!.isEaten)
         cell.dinnerCB.on = appDay.dinner!.isEaten
         
         cell.dinner2Label.text = appDay.dinner2!.name
+        cell.dinner2Label.textColor = setTextColor(appDay.dinner2!.isEaten)
         cell.dinner2CB.on = appDay.dinner2!.isEaten
         
         cell.delegate = self
+        
         cell.setupView()
+        
         if cell.number < currentDay {
             cell.breakfastCB.isUserInteractionEnabled = false
             cell.dinnerCB.isUserInteractionEnabled = false
@@ -84,9 +104,13 @@ extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
         
         return cell
     }
+}
+
+extension CardsPagerView: FSPagerViewDelegate {
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
         self.isUserInteractionEnabled = false
+        
     }
     
     func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
@@ -100,6 +124,7 @@ extension CardsPagerView: FSPagerViewDataSource, FSPagerViewDelegate {
 }
 
 extension CardsPagerView: CardsPagerViewCellDelegate {
+    
     func cardDidTap(_ collectionViewCell: CardsPagerViewCell) {
         postNeedScrollMessage(index: collectionViewCell.number-1)
     }

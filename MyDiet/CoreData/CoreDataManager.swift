@@ -4,8 +4,6 @@ import CoreData
 class CoreDataManager {
     
     static let instance = CoreDataManager()
-    
-    //let managedObjectContext = instance.persistentContainer.viewContext
 
     private init() {}
     
