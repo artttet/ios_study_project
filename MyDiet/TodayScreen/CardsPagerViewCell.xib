@@ -14,10 +14,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-x9-VYY" customClass="GradientView" customModule="MyDiet" customModuleProvider="target">
-                    <rect key="frame" x="8" y="0.0" width="243" height="452"/>
+                    <rect key="frame" x="8" y="6" width="243" height="446"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zct-qh-gQE">
-                            <rect key="frame" x="24" y="74.5" width="195" height="353.5"/>
+                            <rect key="frame" x="24" y="68.5" width="195" height="353.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58G-cb-uzF">
                                     <rect key="frame" x="0.0" y="0.0" width="195" height="118"/>
@@ -176,9 +176,6 @@
                         <constraint firstAttribute="trailing" secondItem="zct-qh-gQE" secondAttribute="trailing" constant="24" id="DYA-b2-nr2"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowX">
-                            <real key="value" value="0.0"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="topColor">
                             <color key="value" name="primaryColor"/>
                         </userDefinedRuntimeAttribute>
@@ -200,6 +197,9 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="18"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" name="backgroundColor"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Привет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il4-3B-YXh">
@@ -211,7 +211,7 @@
             </subviews>
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
-                <constraint firstItem="rH6-x9-VYY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kx9-9i-7QQ"/>
+                <constraint firstItem="rH6-x9-VYY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="Kx9-9i-7QQ"/>
                 <constraint firstItem="zct-qh-gQE" firstAttribute="top" secondItem="il4-3B-YXh" secondAttribute="bottom" constant="24" id="MVx-lr-BxJ"/>
                 <constraint firstItem="il4-3B-YXh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="Qx3-GD-yKv"/>
                 <constraint firstItem="rH6-x9-VYY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="dbn-B8-bq4"/>

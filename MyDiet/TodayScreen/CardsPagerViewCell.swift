@@ -48,6 +48,8 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         cardView.isUserInteractionEnabled = true
         cardView.addGestureRecognizer(cardDidTap)
         
+        //perform(#selector(setupView), with: nil, afterDelay: 0.1)
+        
         breakfastCB.addGestureRecognizer(breakfastCheckBoxDidTap)
         dinnerCB.addGestureRecognizer(dinnerCheckBoxDidTap)
         dinner2CB.addGestureRecognizer(dinner2CheckBoxDidTap)
@@ -58,8 +60,9 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         contentView.removeFromSuperview()
     }
     
-    func setupView(){
-        perform(#selector(addShadow), with: nil, afterDelay: 0.0)
+    @objc
+    func setupView() {
+        addShadow()
     }
     
     @objc
@@ -101,9 +104,9 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     @objc
     func addShadow() {
         cardView.layer.shadowColor = UIColor(named: "primaryDarkColor")?.cgColor
-        cardView.layer.shadowRadius = 8
+        cardView.layer.shadowRadius = 10
         cardView.layer.shadowOffset = CGSize(width: 0, height: 8)
-        cardView.layer.shadowOpacity = 1
+        cardView.layer.shadowOpacity = 0.8
     }
     
     @objc

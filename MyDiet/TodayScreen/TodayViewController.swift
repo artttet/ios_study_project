@@ -27,7 +27,7 @@ class TodayViewController: UIViewController {
         self.style = .darkContent
         setNeedsStatusBarAppearanceUpdate()
         
-        let appDaysList = fetchedResultsController.fetchedObjects as! [AppDay]
+        //let appDaysList = fetchedResultsController.fetchedObjects as! [AppDay]
         
         TodayViewController.selectedDay = AppCalendar.instance.day - 1
         
@@ -44,8 +44,6 @@ class TodayViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        calendarPagerView.setupView()
-        cardsPagerView.setupView()
         perform(#selector(isUserEnable), with: nil, afterDelay: 0.0)
     }
     

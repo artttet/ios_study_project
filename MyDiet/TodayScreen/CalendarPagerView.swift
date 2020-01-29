@@ -12,8 +12,10 @@ class CalendarPagerView: FSPagerView {
         dataSource = self
         delegate = self
         register(UINib(nibName: reuseId, bundle: Bundle(identifier: reuseId)), forCellWithReuseIdentifier: reuseId)
+        perform(#selector(setupView), with: nil, afterDelay: 0.0)
     }
     
+    @objc
     func setupView(){
         let transform = CGAffineTransform(scaleX: 0.16, y: 1)
         itemSize = frame.size.applying(transform)
@@ -29,14 +31,13 @@ class CalendarPagerView: FSPagerView {
     }
     
     func selectNew(index: Int){
-        print("index - \(index), selectedDay - \(TodayViewController.selectedDay)")
         appDaysList[TodayViewController.selectedDay].isSelected = false
-        TodayViewController.selectedDay = index
+        
         appDaysList[index].isSelected = true
     }
     
     func scrollTo(index: Int){
-        selectNew(index: index)
+        TodayViewController.selectedDay = index
         reloadData()
         let countItems = numberOfItems(in: self)
         if index != countItems-1 && index != countItems-2 {

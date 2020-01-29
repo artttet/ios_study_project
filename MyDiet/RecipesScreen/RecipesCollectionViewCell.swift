@@ -5,48 +5,36 @@ protocol RecipesCollectionViewCellDelegate: AnyObject {
 }
 
 class RecipesCollectionViewCell: UICollectionViewCell {
-    
-    
     @IBOutlet var imageView: UIImageView!
-   
-    lazy var tap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.hearthTapped(_:)))
-        return t
-    }()
+    @IBOutlet var recipeNameLabel: UILabel!
+    @IBOutlet var recipeCategory: UILabel!
+    
+//    lazy var tap: UITapGestureRecognizer = {
+//        let t = UITapGestureRecognizer(target: self, action: #selector(self.hearthTapped(_:)))
+//        return t
+//    }()
     
     var index: Int = -1
+    
     weak var delegate: RecipesCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //self.button.addTarget(self, action: #selector(self.hearthTapped(_:)), for: .touchUpInside)
-        
+        imageView.layer.cornerRadius = 14
+        imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tap)
-    }
-    
-    @objc
-    func hearthTapped(_ sender: UITapGestureRecognizer) {
-        print("hearth")
-        self.delegate?.recipesCollectionViewCellDidTap(self)
+        //imageView.addGestureRecognizer(tap)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         contentView.removeFromSuperview()
     }
     
-    func setData(index: Int) {
-        self.index = index
-        setupView()
-    }
-    
     func setupView() {
-        imageView.layer.cornerRadius = 14
-        imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
     }
     
 }

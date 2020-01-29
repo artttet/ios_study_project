@@ -61,7 +61,7 @@
                 <constraint firstItem="eea-oC-pjY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="567-0J-lwl"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Xt-eF-rjN"/>
                 <constraint firstItem="eea-oC-pjY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="8zM-L9-h7G"/>
-                <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="6yc-qH-OdR" secondAttribute="bottom" constant="8" symbolic="YES" id="DAe-Nk-gHF"/>
+                <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="6yc-qH-OdR" secondAttribute="bottom" constant="8" id="DAe-Nk-gHF"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HC2-io-V98"/>
                 <constraint firstItem="ObX-6V-NGs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="RTU-2r-rtT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w4J-GH-Itd" secondAttribute="bottom" id="bz3-zl-9jN"/>

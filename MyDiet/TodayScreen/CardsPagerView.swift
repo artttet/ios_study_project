@@ -19,10 +19,10 @@ class CardsPagerView: FSPagerView {
         delegate = self
         transformer = FSPagerViewTransformer(type: .linear)
         register(UINib(nibName: reuseId, bundle: nil), forCellWithReuseIdentifier: reuseId)
+        perform(#selector(setupView), with: nil, afterDelay: 0.0)
     }
     
-    
-
+    @objc
     func setupView() {
         let transform = CGAffineTransform(scaleX: 0.75, y: 0.95)
         itemSize = frame.size.applying(transform)
@@ -92,7 +92,7 @@ extension CardsPagerView: FSPagerViewDataSource {
         
         cell.setupView()
         
-        if cell.number < currentDay {
+        if cell.number < AppCalendar.instance.day {
             cell.breakfastCB.isUserInteractionEnabled = false
             cell.dinnerCB.isUserInteractionEnabled = false
             cell.dinner2CB.isUserInteractionEnabled = false
