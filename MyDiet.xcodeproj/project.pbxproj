@@ -41,6 +41,8 @@
 		4FD30FD023E0343500135613 /* Dish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */; };
 		4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FD123E0346300135613 /* CoreDataManager.swift */; };
 		4FD30FD423E1452900135613 /* PlusRecipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FD323E1452900135613 /* PlusRecipeButton.swift */; };
+		4FD30FD723E1C88000135613 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */; };
+		4FD30FD823E1C88000135613 /* AddRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */; };
 		92C02071A400721A0CB2CA98 /* Pods_MyDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A6747B272A11A6A429DF9C /* Pods_MyDiet.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,8 @@
 		4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4FD30FD123E0346300135613 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4FD30FD323E1452900135613 /* PlusRecipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusRecipeButton.swift; sourceTree = "<group>"; };
+		4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
+		4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeViewController.xib; sourceTree = "<group>"; };
 		8364C402A3B0EBCB40A913A4 /* Pods-MyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiet.release.xcconfig"; path = "Target Support Files/Pods-MyDiet/Pods-MyDiet.release.xcconfig"; sourceTree = "<group>"; };
 		8E6CEBC526D1AD0BB6318600 /* Pods-MyDiet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDiet.debug.xcconfig"; path = "Target Support Files/Pods-MyDiet/Pods-MyDiet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +180,8 @@
 				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
 				4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */,
 				4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */,
+				4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */,
+				4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				4F0AC8D223A12390007FF6F0 /* Main.storyboard in Resources */,
 				4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */,
 				4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */,
+				4FD30FD823E1C88000135613 /* AddRecipeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +384,7 @@
 				4F0AC8E823A125AF007FF6F0 /* ProductsViewController.swift in Sources */,
 				4F0E6CF823A7732700B6BE04 /* TodayViewController.swift in Sources */,
 				4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */,
+				4FD30FD723E1C88000135613 /* AddRecipeViewController.swift in Sources */,
 				4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */,
 				4F0AC8CF23A12390007FF6F0 /* TabBarViewController.swift in Sources */,
 				4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */,
