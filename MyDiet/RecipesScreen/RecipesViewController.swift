@@ -11,21 +11,32 @@ class RecipesViewController: UIViewController {
     
     var buttonState = -1;
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+    }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.style = .darkContent
         setNeedsStatusBarAppearanceUpdate()
         
         collectionView.register(UINib(nibName: "RecipesCollectionViewCell", bundle: Bundle(identifier: "RecipesCollectionViewCell")), forCellWithReuseIdentifier: "RecipesCollectionViewCell")
         collectionView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 8, right: 0)
         
-        
-        
         let image = UIImage(named: "search")
         let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         iconSearch.setImage(tintedImage, for: .normal)
         iconSearch.tintColor = UIColor(named: "primaryColor")
         
-        super.viewDidLoad()
+        plusButtonView.addTarget(self, action: #selector(plusButtonTap(_:)), for: .touchUpInside)
+    }
+    
+    @objc
+    func plusButtonTap(_ sender: PlusRecipeButton) {
+        let destinationVC = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
+        self.present(destinationVC, animated: true, completion: nil)
     }
 }
 
@@ -62,7 +73,6 @@ extension RecipesViewController: UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(buttonState)
         if collectionView.indexPathsForVisibleItems.contains(IndexPath(row: 0, section: 0)) {
             if buttonState == 0 {
                 temp(true)
@@ -92,3 +102,4 @@ extension RecipesViewController: RecipesCollectionViewCellDelegate {
         print("recipesCollectionViewCellDidTap")
     }
 }
+

@@ -27,15 +27,17 @@ class PlusRecipeButton: UIButton {
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         super .endTracking(touch, with: event)
 
-        UIView.animateKeyframes(withDuration: 0.2,
-                                delay: 0.0,
-                                options: [.beginFromCurrentState,
-                                          .allowUserInteraction],
-                                animations: {
-                                    self.backgroundColor = UIColor(named: "accentColor")
-                                    self.layer.shadowColor = UIColor(named: "accentColor")?.cgColor
-                                    
-        })
+        UIView.animate(
+            withDuration: 0.2,
+            delay: 0.0,
+            options: [.beginFromCurrentState, .allowUserInteraction],
+            animations: {
+                self.backgroundColor = UIColor(named: "accentColor")
+                self.layer.shadowColor = UIColor(named: "accentColor")?.cgColor
+                
+                
+            }
+        )
     }
     
     override var isHighlighted: Bool {
@@ -53,7 +55,6 @@ class PlusRecipeButton: UIButton {
         let highlightedColor = UIColor(named: "accentPlusButtonHighlightedColor")?.cgColor
         layer.backgroundColor = highlightedColor
         layer.shadowColor = highlightedColor
-        //layer.backgroundColor = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
     }
     
     func touchUp() {

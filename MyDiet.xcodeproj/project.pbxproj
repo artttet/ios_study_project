@@ -29,6 +29,7 @@
 		4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */; };
 		4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */; };
 		4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */; };
+		4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */; };
 		4F55304B23AB97260013DE64 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F55304A23AB97260013DE64 /* GradientView.swift */; };
 		4F92BA9D23AA2BE800843FEA /* CalendarPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */; };
 		4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F92BA9E23AA460500843FEA /* TodayScreenData.swift */; };
@@ -85,6 +86,7 @@
 		4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesScreenData.swift; sourceTree = "<group>"; };
 		4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerViewCell.swift; sourceTree = "<group>"; };
 		4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerView.swift; sourceTree = "<group>"; };
+		4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		4F55304A23AB97260013DE64 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarPagerViewCell.xib; sourceTree = "<group>"; };
 		4F92BA9E23AA460500843FEA /* TodayScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScreenData.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */,
 				4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */,
 				4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */,
+				4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				4F2CFA1623C9BC5700180138 /* dinner.jpg in Resources */,
 				4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */,
 				4F0AC8D723A12390007FF6F0 /* LaunchScreen.storyboard in Resources */,
+				4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */,
 				4F2CFA1823C9BC5A00180138 /* dinner2.jpg in Resources */,
 				4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */,
 				4F0AC8F323A12E0A007FF6F0 /* RecipesViewController.xib in Resources */,
