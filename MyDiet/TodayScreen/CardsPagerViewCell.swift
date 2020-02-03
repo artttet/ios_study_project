@@ -48,7 +48,7 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         cardView.isUserInteractionEnabled = true
         cardView.addGestureRecognizer(cardDidTap)
         
-        //perform(#selector(setupView), with: nil, afterDelay: 0.1)
+        perform(#selector(setupView), with: nil, afterDelay: 0.1)
         
         breakfastCB.addGestureRecognizer(breakfastCheckBoxDidTap)
         dinnerCB.addGestureRecognizer(dinnerCheckBoxDidTap)

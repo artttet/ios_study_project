@@ -21,6 +21,7 @@
 		4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */; };
 		4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */; };
 		4F0E6D1623A786BE00B6BE04 /* CardsPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */; };
+		4F16917A23E70C41004D8E09 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F16917923E70C41004D8E09 /* TextTableViewCell.xib */; };
 		4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */; };
 		4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */; };
 		4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1323C9BB8E00180138 /* breakfast.jpg */; };
@@ -78,6 +79,7 @@
 		4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
 		4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsPagerViewCell.xib; sourceTree = "<group>"; };
 		4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerViewCell.swift; sourceTree = "<group>"; };
+		4F16917923E70C41004D8E09 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F2CFA1323C9BB8E00180138 /* breakfast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = breakfast.jpg; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */,
 				4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */,
 				4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */,
+				4F16917923E70C41004D8E09 /* TextTableViewCell.xib */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				4F0AC8E923A125AF007FF6F0 /* ProductsViewController.xib in Resources */,
 				4F0AC8D423A12390007FF6F0 /* Assets.xcassets in Resources */,
 				4F0AC8D223A12390007FF6F0 /* Main.storyboard in Resources */,
+				4F16917A23E70C41004D8E09 /* TextTableViewCell.xib in Resources */,
 				4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */,
 				4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */,
 				4FD30FD823E1C88000135613 /* AddRecipeViewController.xib in Resources */,

@@ -47,9 +47,10 @@
                         <constraint firstAttribute="height" constant="1" id="Z0z-sv-c4D"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="OuD-Yv-X3s">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="OuD-Yv-X3s">
                     <rect key="frame" x="0.0" y="43.5" width="375" height="623.5"/>
                     <color key="backgroundColor" name="backgroundColor2"/>
+                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="3TX-TW-cPL"/>
                         <outlet property="delegate" destination="-1" id="ZyS-qE-IqU"/>
@@ -124,7 +125,7 @@
                 <constraint firstItem="ZHp-eE-xE8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8fw-sk-lj6"/>
                 <constraint firstItem="IuJ-GZ-U63" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AgJ-Q6-UEN"/>
                 <constraint firstItem="OuD-Yv-X3s" firstAttribute="top" secondItem="5hw-HC-FJO" secondAttribute="bottom" id="Bbb-0B-ZHV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l2I-kD-sgY" secondAttribute="bottom" id="CWR-BS-Yib"/>
+                <constraint firstAttribute="bottom" secondItem="l2I-kD-sgY" secondAttribute="bottom" id="CWR-BS-Yib"/>
                 <constraint firstItem="5hw-HC-FJO" firstAttribute="top" secondItem="IuJ-GZ-U63" secondAttribute="bottom" constant="8" id="GxS-bF-aiN"/>
                 <constraint firstItem="jed-FF-vEW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="8" id="K3w-xX-jdO"/>
                 <constraint firstItem="l2I-kD-sgY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="L6O-xN-e4e"/>

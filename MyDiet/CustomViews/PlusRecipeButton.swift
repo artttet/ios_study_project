@@ -24,41 +24,24 @@ class PlusRecipeButton: UIButton {
         setup()
     }
     
-    override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        super .endTracking(touch, with: event)
-
-        UIView.animate(
-            withDuration: 0.2,
-            delay: 0.0,
-            options: [.beginFromCurrentState, .allowUserInteraction],
-            animations: {
-                self.backgroundColor = UIColor(named: "accentColor")
-                self.layer.shadowColor = UIColor(named: "accentColor")?.cgColor
-                
-                
-            }
-        )
-    }
-    
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
                 touchDown()
             } else {
-                cancelTracking(with: nil)
                 touchUp()
             }
         }
     }
     
     func touchDown() {
-        let highlightedColor = UIColor(named: "accentPlusButtonHighlightedColor")?.cgColor
-        layer.backgroundColor = highlightedColor
-        layer.shadowColor = highlightedColor
+        let plusImage = subviews.first
+        plusImage?.tintColor = UIColor.white.withAlphaComponent(0.6)
     }
     
     func touchUp() {
-        
+        let plusImage = subviews.first
+        plusImage?.tintColor = UIColor.white.withAlphaComponent(1.0)
     }
     
     func setup() {

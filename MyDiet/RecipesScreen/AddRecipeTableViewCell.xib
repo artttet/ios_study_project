@@ -14,9 +14,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xM9-i4-lJP">
-                    <rect key="frame" x="20" y="44" width="505" height="54"/>
+                    <rect key="frame" x="20" y="44" width="473" height="54"/>
                     <color key="tintColor" name="primaryColor"/>
-                    <color key="textColor" name="primaryColor"/>
+                    <color key="textColor" name="accentPlusButtonHighlightedColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                 </textField>
@@ -26,7 +26,7 @@
                 <constraint firstItem="xM9-i4-lJP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="KOm-4H-lSc"/>
                 <constraint firstAttribute="bottomMargin" secondItem="xM9-i4-lJP" secondAttribute="bottom" id="SUA-BZ-EzN"/>
                 <constraint firstItem="xM9-i4-lJP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="bTx-Pb-ymL"/>
-                <constraint firstAttribute="trailingMargin" secondItem="xM9-i4-lJP" secondAttribute="trailing" id="ecq-VI-zxp"/>
+                <constraint firstAttribute="trailingMargin" secondItem="xM9-i4-lJP" secondAttribute="trailing" constant="32" id="ecq-VI-zxp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -36,6 +36,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="accentPlusButtonHighlightedColor">
+            <color red="0.36000001430511475" green="0.62400001287460327" blue="0.56499999761581421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="primaryColor">
             <color red="0.11400000005960464" green="0.52100002765655518" blue="0.50700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
