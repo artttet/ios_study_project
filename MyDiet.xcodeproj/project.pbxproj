@@ -21,21 +21,23 @@
 		4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */; };
 		4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */; };
 		4F0E6D1623A786BE00B6BE04 /* CardsPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */; };
+		4F0ED71923E9A5E8003A3985 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ED71723E9A5E8003A3985 /* Recipe+CoreDataClass.swift */; };
+		4F0ED71A23E9A5E8003A3985 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ED71823E9A5E8003A3985 /* Recipe+CoreDataProperties.swift */; };
+		4F0ED71C23E9A72D003A3985 /* AppDayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ED71B23E9A72D003A3985 /* AppDayDataManager.swift */; };
+		4F0ED71E23E9A7B6003A3985 /* RecipeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0ED71D23E9A7B6003A3985 /* RecipeDataManager.swift */; };
 		4F16917A23E70C41004D8E09 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F16917923E70C41004D8E09 /* TextTableViewCell.xib */; };
 		4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */; };
 		4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */; };
-		4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1323C9BB8E00180138 /* breakfast.jpg */; };
-		4F2CFA1623C9BC5700180138 /* dinner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1523C9BC5700180138 /* dinner.jpg */; };
-		4F2CFA1823C9BC5A00180138 /* dinner2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1723C9BC5A00180138 /* dinner2.jpg */; };
-		4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */; };
+		4F2CFA1A23C9BC9F00180138 /* RecipesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1923C9BC9F00180138 /* RecipesData.swift */; };
 		4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */; };
 		4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */; };
 		4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */; };
 		4F55304B23AB97260013DE64 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F55304A23AB97260013DE64 /* GradientView.swift */; };
 		4F92BA9D23AA2BE800843FEA /* CalendarPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */; };
-		4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F92BA9E23AA460500843FEA /* TodayScreenData.swift */; };
+		4F92BA9F23AA460500843FEA /* TodayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F92BA9E23AA460500843FEA /* TodayData.swift */; };
 		4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */; };
 		4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB3D0D23AD057000F13390 /* Enums.swift */; };
+		4FB304C723E9811C00A68F45 /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FB304C523E9811C00A68F45 /* RecipeModel.xcdatamodeld */; };
 		4FD30FC723E02E7500135613 /* AppDayModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */; };
 		4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */; };
 		4FD30FCE23E0343500135613 /* AppDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */; };
@@ -79,21 +81,23 @@
 		4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
 		4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsPagerViewCell.xib; sourceTree = "<group>"; };
 		4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerViewCell.swift; sourceTree = "<group>"; };
+		4F0ED71723E9A5E8003A3985 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4F0ED71823E9A5E8003A3985 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4F0ED71B23E9A72D003A3985 /* AppDayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDayDataManager.swift; sourceTree = "<group>"; };
+		4F0ED71D23E9A7B6003A3985 /* RecipeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataManager.swift; sourceTree = "<group>"; };
 		4F16917923E70C41004D8E09 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipesCollectionViewCell.xib; sourceTree = "<group>"; };
 		4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewCell.swift; sourceTree = "<group>"; };
-		4F2CFA1323C9BB8E00180138 /* breakfast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = breakfast.jpg; sourceTree = "<group>"; };
-		4F2CFA1523C9BC5700180138 /* dinner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dinner.jpg; sourceTree = "<group>"; };
-		4F2CFA1723C9BC5A00180138 /* dinner2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dinner2.jpg; sourceTree = "<group>"; };
-		4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesScreenData.swift; sourceTree = "<group>"; };
+		4F2CFA1923C9BC9F00180138 /* RecipesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesData.swift; sourceTree = "<group>"; };
 		4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerViewCell.swift; sourceTree = "<group>"; };
 		4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerView.swift; sourceTree = "<group>"; };
 		4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeTableViewCell.xib; sourceTree = "<group>"; };
 		4F55304A23AB97260013DE64 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarPagerViewCell.xib; sourceTree = "<group>"; };
-		4F92BA9E23AA460500843FEA /* TodayScreenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayScreenData.swift; sourceTree = "<group>"; };
+		4F92BA9E23AA460500843FEA /* TodayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayData.swift; sourceTree = "<group>"; };
 		4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerView.swift; sourceTree = "<group>"; };
 		4FAB3D0D23AD057000F13390 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		4FD30FC623E02E7500135613 /* AppDayModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDayModel.xcdatamodel; sourceTree = "<group>"; };
 		4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -140,12 +144,9 @@
 		4F0AC8C923A12390007FF6F0 /* MyDiet */ = {
 			isa = PBXGroup;
 			children = (
-				4FD30FC823E0327300135613 /* CoreData */,
-				4F2CFA1223C9BB7D00180138 /* Pictures */,
-				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
-				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
-				4F20F07523C8FB7D005102EE /* ProductsScreen */,
 				4FD3CE9823BE085400A37A70 /* Data */,
+				4FC3D4EA23E9F6B800C95AA9 /* Screens */,
+				4F20F07523C8FB7D005102EE /* ProductsScreen */,
 				4FD3CE9723BE084000A37A70 /* CustomViews */,
 				4F0AC8CA23A12390007FF6F0 /* AppDelegate.swift */,
 				4F0AC8CC23A12390007FF6F0 /* SceneDelegate.swift */,
@@ -167,27 +168,95 @@
 			path = ProductsScreen;
 			sourceTree = "<group>";
 		};
-		4F2CFA1223C9BB7D00180138 /* Pictures */ = {
+		4FB304C323E980E400A68F45 /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				4F2CFA1723C9BC5A00180138 /* dinner2.jpg */,
-				4F2CFA1523C9BC5700180138 /* dinner.jpg */,
-				4F2CFA1323C9BB8E00180138 /* breakfast.jpg */,
+				4F0ED71B23E9A72D003A3985 /* AppDayDataManager.swift */,
+				4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */,
+				4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */,
+				4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */,
+				4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */,
+				4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */,
 			);
-			path = Pictures;
+			path = Today;
 			sourceTree = "<group>";
 		};
-		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
+		4FB304C423E980F800A68F45 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				4F0ED71D23E9A7B6003A3985 /* RecipeDataManager.swift */,
+				4FB304C523E9811C00A68F45 /* RecipeModel.xcdatamodeld */,
+				4F0ED71723E9A5E8003A3985 /* Recipe+CoreDataClass.swift */,
+				4F0ED71823E9A5E8003A3985 /* Recipe+CoreDataProperties.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		4FC3D4EA23E9F6B800C95AA9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
+				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4FC3D4EB23E9F70100C95AA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FC3D4EC23E9F71700C95AA9 /* CardsPagerView */,
+				4FC3D4ED23E9F72700C95AA9 /* CalendarPagerView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FC3D4EC23E9F71700C95AA9 /* CardsPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */,
+				4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */,
+				4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */,
+			);
+			path = CardsPagerView;
+			sourceTree = "<group>";
+		};
+		4FC3D4ED23E9F72700C95AA9 /* CalendarPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */,
+				4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */,
+				4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */,
+			);
+			path = CalendarPagerView;
+			sourceTree = "<group>";
+		};
+		4FC3D4EE23E9F73D00C95AA9 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
 				4F0AC8F023A12E0A007FF6F0 /* RecipesViewController.swift */,
 				4F0AC8F123A12E0A007FF6F0 /* RecipesViewController.xib */,
 				4F2CFA1023C9BA4D00180138 /* RecipesCollectionViewCell.swift */,
 				4F2CFA0E23C9B96E00180138 /* RecipesCollectionViewCell.xib */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
+		4FC3D4EF23E9F75D00C95AA9 /* AddRecipes */ = {
+			isa = PBXGroup;
+			children = (
 				4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */,
 				4FD30FD623E1C88000135613 /* AddRecipeViewController.xib */,
 				4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */,
 				4F16917923E70C41004D8E09 /* TextTableViewCell.xib */,
+			);
+			path = AddRecipes;
+			sourceTree = "<group>";
+		};
+		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4FC3D4EE23E9F73D00C95AA9 /* Recipes */,
+				4FC3D4EF23E9F75D00C95AA9 /* AddRecipes */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -196,11 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				4FD30FD123E0346300135613 /* CoreDataManager.swift */,
-				4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */,
-				4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */,
-				4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */,
-				4FD30FCB23E0343500135613 /* Dish+CoreDataClass.swift */,
-				4FD30FCC23E0343500135613 /* Dish+CoreDataProperties.swift */,
+				4FB304C323E980E400A68F45 /* Today */,
+				4FB304C423E980F800A68F45 /* Recipes */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -217,9 +283,10 @@
 		4FD3CE9823BE085400A37A70 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4FD30FC823E0327300135613 /* CoreData */,
 				4FAB3D0D23AD057000F13390 /* Enums.swift */,
-				4F92BA9E23AA460500843FEA /* TodayScreenData.swift */,
-				4F2CFA1923C9BC9F00180138 /* RecipesScreenData.swift */,
+				4F92BA9E23AA460500843FEA /* TodayData.swift */,
+				4F2CFA1923C9BC9F00180138 /* RecipesData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,12 +296,7 @@
 			children = (
 				4F0E6CF623A7732700B6BE04 /* TodayViewController.swift */,
 				4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */,
-				4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */,
-				4F0E6D1523A786BE00B6BE04 /* CardsPagerViewCell.swift */,
-				4F0E6D0F23A7807900B6BE04 /* CardsPagerViewCell.xib */,
-				4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */,
-				4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */,
-				4F92BA9C23AA2BE800843FEA /* CalendarPagerViewCell.xib */,
+				4FC3D4EB23E9F70100C95AA9 /* Views */,
 			);
 			path = TodayScreen;
 			sourceTree = "<group>";
@@ -317,11 +379,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F2CFA1623C9BC5700180138 /* dinner.jpg in Resources */,
 				4F0E6D1023A7807900B6BE04 /* CardsPagerViewCell.xib in Resources */,
 				4F0AC8D723A12390007FF6F0 /* LaunchScreen.storyboard in Resources */,
 				4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */,
-				4F2CFA1823C9BC5A00180138 /* dinner2.jpg in Resources */,
 				4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */,
 				4F0AC8F323A12E0A007FF6F0 /* RecipesViewController.xib in Resources */,
 				4F92BA9D23AA2BE800843FEA /* CalendarPagerViewCell.xib in Resources */,
@@ -330,7 +390,6 @@
 				4F0AC8D223A12390007FF6F0 /* Main.storyboard in Resources */,
 				4F16917A23E70C41004D8E09 /* TextTableViewCell.xib in Resources */,
 				4F2CFA0F23C9B96E00180138 /* RecipesCollectionViewCell.xib in Resources */,
-				4F2CFA1423C9BB8E00180138 /* breakfast.jpg in Resources */,
 				4FD30FD823E1C88000135613 /* AddRecipeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,22 +450,27 @@
 				4F55304B23AB97260013DE64 /* GradientView.swift in Sources */,
 				4F0AC8E823A125AF007FF6F0 /* ProductsViewController.swift in Sources */,
 				4F0E6CF823A7732700B6BE04 /* TodayViewController.swift in Sources */,
-				4F2CFA1A23C9BC9F00180138 /* RecipesScreenData.swift in Sources */,
+				4F2CFA1A23C9BC9F00180138 /* RecipesData.swift in Sources */,
 				4FD30FD723E1C88000135613 /* AddRecipeViewController.swift in Sources */,
 				4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */,
+				4F0ED71923E9A5E8003A3985 /* Recipe+CoreDataClass.swift in Sources */,
 				4F0AC8CF23A12390007FF6F0 /* TabBarViewController.swift in Sources */,
 				4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */,
 				4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */,
 				4F0AC8CB23A12390007FF6F0 /* AppDelegate.swift in Sources */,
+				4F0ED71E23E9A7B6003A3985 /* RecipeDataManager.swift in Sources */,
+				4F0ED71C23E9A72D003A3985 /* AppDayDataManager.swift in Sources */,
 				4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */,
 				4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */,
 				4FD30FD423E1452900135613 /* PlusRecipeButton.swift in Sources */,
+				4FB304C723E9811C00A68F45 /* RecipeModel.xcdatamodeld in Sources */,
 				4FD30FCE23E0343500135613 /* AppDay+CoreDataProperties.swift in Sources */,
 				4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */,
-				4F92BA9F23AA460500843FEA /* TodayScreenData.swift in Sources */,
+				4F92BA9F23AA460500843FEA /* TodayData.swift in Sources */,
 				4FD30FD023E0343500135613 /* Dish+CoreDataProperties.swift in Sources */,
 				4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */,
 				4F0AC8CD23A12390007FF6F0 /* SceneDelegate.swift in Sources */,
+				4F0ED71A23E9A5E8003A3985 /* Recipe+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +676,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		4FB304C523E9811C00A68F45 /* RecipeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */,
+			);
+			currentVersion = 4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */;
+			path = RecipeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

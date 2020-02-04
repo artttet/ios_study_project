@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         
-        CoreDataManager.instance.saveContext()
+        CoreDataManager.instance.saveContext(forEntity: nil)
     }
 
     // MARK: UISceneSession Lifecycle
