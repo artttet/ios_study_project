@@ -20,17 +20,29 @@
                             <rect key="frame" x="0.0" y="0.0" width="124.5" height="103"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="N05-eY-9fb">
-                            <rect key="frame" x="132.5" y="8" width="236.5" height="87"/>
+                            <rect key="frame" x="132.5" y="12" width="228.5" height="79"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат с шампиньонами и фасолью" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-4U-tne">
-                                    <rect key="frame" x="0.0" y="0.0" width="236.5" height="42.5"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eKa-De-R6p">
+                                    <rect key="frame" x="0.0" y="0.0" width="228.5" height="42.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат с шампиньонами и фасолью" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-4U-tne">
+                                            <rect key="frame" x="0.0" y="0.0" width="206.5" height="42.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xed-r7-G05">
+                                            <rect key="frame" x="206.5" y="6" width="22" height="7.5"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="heavy">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            </preferredSymbolConfiguration>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завтрак" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-xt-V1a">
-                                    <rect key="frame" x="0.0" y="69" width="236.5" height="18"/>
+                                    <rect key="frame" x="0.0" y="61" width="228.5" height="18"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -41,13 +53,13 @@
                     <color key="backgroundColor" name="primaryLightColor"/>
                     <constraints>
                         <constraint firstItem="8cZ-wr-kJE" firstAttribute="width" secondItem="obo-Ek-fjh" secondAttribute="width" multiplier="0.33" id="2F3-Al-Jrn"/>
-                        <constraint firstItem="N05-eY-9fb" firstAttribute="top" secondItem="obo-Ek-fjh" secondAttribute="top" constant="8" id="8BH-CB-6cu"/>
+                        <constraint firstItem="N05-eY-9fb" firstAttribute="top" secondItem="obo-Ek-fjh" secondAttribute="top" constant="12" id="8BH-CB-6cu"/>
                         <constraint firstItem="8cZ-wr-kJE" firstAttribute="top" secondItem="obo-Ek-fjh" secondAttribute="top" id="9kf-85-QnE"/>
                         <constraint firstItem="8cZ-wr-kJE" firstAttribute="leading" secondItem="obo-Ek-fjh" secondAttribute="leading" id="BP1-lc-L6P"/>
-                        <constraint firstAttribute="bottom" secondItem="N05-eY-9fb" secondAttribute="bottom" constant="8" id="N3L-oo-e4y"/>
+                        <constraint firstAttribute="bottom" secondItem="N05-eY-9fb" secondAttribute="bottom" constant="12" id="N3L-oo-e4y"/>
                         <constraint firstAttribute="bottom" secondItem="8cZ-wr-kJE" secondAttribute="bottom" id="XD8-eU-fnh"/>
                         <constraint firstItem="N05-eY-9fb" firstAttribute="leading" secondItem="8cZ-wr-kJE" secondAttribute="trailing" constant="8" id="dx0-zN-aWe"/>
-                        <constraint firstAttribute="trailing" secondItem="N05-eY-9fb" secondAttribute="trailing" constant="8" id="kcY-sP-EPg"/>
+                        <constraint firstAttribute="trailing" secondItem="N05-eY-9fb" secondAttribute="trailing" constant="16" id="kcY-sP-EPg"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="topColor">
@@ -86,14 +98,17 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imageView" destination="8cZ-wr-kJE" id="FCb-Ds-vVe"/>
+                <outlet property="moreView" destination="Xed-r7-G05" id="8XJ-QE-DsY"/>
                 <outlet property="recipeCategory" destination="tEd-xt-V1a" id="aI5-i6-keA"/>
                 <outlet property="recipeNameLabel" destination="dXs-4U-tne" id="HyW-OP-xh9"/>
+                <outlet property="view" destination="obo-Ek-fjh" id="3UL-em-nM0"/>
             </connections>
             <point key="canvasLocation" x="-84" y="-8.5457271364317844"/>
         </view>
     </objects>
     <resources>
         <image name="dinner2.jpg" width="550" height="367"/>
+        <image name="ellipsis" catalog="system" width="64" height="18"/>
         <namedColor name="backgroundColor">
             <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

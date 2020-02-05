@@ -40,6 +40,12 @@ import UIKit
         }
     }
     
+    @IBInspectable var shadowOpacity: Float = 1 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     @IBInspectable var startPointX: CGFloat = 0 {
         didSet {
             setNeedsLayout()
@@ -83,7 +89,7 @@ import UIKit
         self.layer.shadowColor = shadowColor.cgColor
         self.layer.shadowOffset = CGSize(width: shadowX, height: shadowY)
         self.layer.shadowRadius = shadowBlur
-        self.layer.shadowOpacity = 1
+        self.layer.shadowOpacity = shadowOpacity
         
     }
     

@@ -47,7 +47,6 @@ enum Weekdays{
         case .Sunday:
             if isShort { return "Вс" }
             else { return "Воскресенье" }
-        default: break
         }
     }
 }

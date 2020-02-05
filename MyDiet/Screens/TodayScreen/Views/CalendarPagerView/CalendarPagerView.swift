@@ -73,7 +73,7 @@ extension CalendarPagerView: FSPagerViewDataSource{
 extension CalendarPagerView: FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        let object: [String : Int] = ["index" : index]
+        let object: [String : Any] = ["index" : index]
         NotificationCenter.default.post(name: .init(Notifications.ScrollPagerViews.rawValue), object: object)
     }
     

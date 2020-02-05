@@ -12,10 +12,13 @@ class CoreDataManager {
             fetchedResultsController = AppDayDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
         case Entity.Recipe:
             fetchedResultsController = RecipeDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
-        default: break
         }
         
         return fetchedResultsController!
+    }
+    
+    func deleteRecipeObject(object: NSManagedObject) {
+        RecipeDataManager.instance.deleteObject(object: object)
     }
     
     func saveContext(forEntity: Entity?) {

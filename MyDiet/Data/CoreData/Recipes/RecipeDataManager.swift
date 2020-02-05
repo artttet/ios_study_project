@@ -27,6 +27,11 @@ class RecipeDataManager {
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }
+    
+    func deleteObject(object: NSManagedObject) {
+        persistentContainer.viewContext.delete(object)
+        saveContext()
+    }
 
     func saveContext () {
       let context = persistentContainer.viewContext

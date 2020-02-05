@@ -5,8 +5,8 @@ class RecipesScreenDataManager {
     
     static let instance = RecipesScreenDataManager()
     
-    func getRecipeList(withSortKey sortKey: String) -> [Recipe] {
-        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: sortKey)
+    func getRecipeList(withSortKey key: String) -> [Recipe] {
+        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: key)
     
         do {
             try fetchedController.performFetch()
@@ -27,5 +27,17 @@ class RecipesScreenDataManager {
         fetchedObjects.append(recipe)
         
         CoreDataManager.instance.saveContext(forEntity: Entity.Recipe)
+    }
+    
+    func deleteRecipe(at index: Int, withSortKey key: String) {
+        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: key)
+        
+        do {
+            try fetchedController.performFetch()
+        } catch { print(error) }
+        
+        let managedObject = fetchedController.object(at: IndexPath(row: index, section: 0)) as! NSManagedObject
+        
+        CoreDataManager.instance.deleteRecipeObject(object: managedObject)
     }
 }

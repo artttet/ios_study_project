@@ -26,13 +26,13 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func readyButtonAction(_ sender: Any) {
-        var alert = UIAlertController(title: "Ошибка!", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка!", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { action in
             return
         }))
         alert.view.tintColor = UIColor(named: "primaryColor")
         
-        if recipeName == nil {
+        if recipeName == nil || recipeName == "Название рецепта" {
             alert.message = "Необходимо ввести название рецепта"
             
             self.present(alert, animated: true)
@@ -554,7 +554,7 @@ extension AddRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = pickerViewTitles[row]
-        let attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "primaryColor")])
+        let attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "primaryColor")!])
         
         return attributedTitle
     }
@@ -606,7 +606,7 @@ class AddRecipeTableViewCell: UITableViewCell, UITextFieldDelegate {
             accessoryView = imageView
         }
         
-        let object = ["indexPath" : self.indexPath!, "item" : text] as [String : Any]
+        let object = ["indexPath" : self.indexPath!, "item" : text!] as [String : Any]
         NotificationCenter.default.post(name: .init(Notifications.ChangeText.rawValue), object: object)
     }
     

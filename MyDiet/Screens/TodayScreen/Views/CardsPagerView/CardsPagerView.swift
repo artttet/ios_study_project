@@ -17,22 +17,35 @@ class CardsPagerView: FSPagerView {
         delegate = self
         transformer = FSPagerViewTransformer(type: .linear)
         register(UINib(nibName: reuseId, bundle: nil), forCellWithReuseIdentifier: reuseId)
-        perform(#selector(setupView), with: nil, afterDelay: 0.0)
+
+        // Устанавливает размер карточек после того, как CardsPagerView "загрузится"
+        perform(#selector(setupCards), with: nil, afterDelay: 0.0)
     }
     
     @objc
-    func setupView() {
+    func setupCards() {
         let transform = CGAffineTransform(scaleX: 0.75, y: 0.95)
-        itemSize = frame.size.applying(transform)
+        self.itemSize = self.frame.size.applying(transform)
+        isHidden = true
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.0,
+            options: .curveEaseIn,
+            animations: {
+                self.isHidden = false
+            },
+            completion: nil
+        )
         scrollToItem(at: TodayViewController.selectedDay, animated: false)
     }
     
     private func postScrollPagerViewsNotification(index: Int) {
-        let object: [String : Int] = ["index" : index]
+        let object: [String : Any] = ["index" : index]
         NotificationCenter.default.post(name: .init(Notifications.ScrollPagerViews.rawValue), object: object)
     }
 }
 
+// MARK: - FSPagerViewDataSource
 extension CardsPagerView: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -82,8 +95,6 @@ extension CardsPagerView: FSPagerViewDataSource {
         
         cell.delegate = self
         
-        //cell.setupView()
-        
         if cell.number != AppCalendar.instance.day {
             cell.breakfastCB.isUserInteractionEnabled = false
             cell.dinnerCB.isUserInteractionEnabled = false
@@ -98,6 +109,7 @@ extension CardsPagerView: FSPagerViewDataSource {
     }
 }
 
+// MARK: - FSPagerViewDelegate
 extension CardsPagerView: FSPagerViewDelegate {
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
@@ -115,6 +127,7 @@ extension CardsPagerView: FSPagerViewDelegate {
     }
 }
 
+// MARK: - CardsPagerViewCellDelegate
 extension CardsPagerView: CardsPagerViewCellDelegate {
     
     func cardTapped(_ collectionViewCell: CardsPagerViewCell) {
@@ -122,7 +135,7 @@ extension CardsPagerView: CardsPagerViewCellDelegate {
     }
     
     func checkboxTapped(_ checkBox: BEMCheckBox, dayNumber: Int) {
-        let object: [String : Any] = ["index" : index, "checkBox" : checkBox]
+        let object: [String : Any] = ["index" : dayNumber-1, "checkBox" : checkBox]
         NotificationCenter.default.post(name: .init(Notifications.CheckboxTapped.rawValue), object: object)
     }
 }

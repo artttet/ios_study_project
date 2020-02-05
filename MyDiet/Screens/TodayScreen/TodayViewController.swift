@@ -13,6 +13,8 @@ class TodayViewController: UIViewController {
     
     var style: UIStatusBarStyle = .default
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return self.style }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

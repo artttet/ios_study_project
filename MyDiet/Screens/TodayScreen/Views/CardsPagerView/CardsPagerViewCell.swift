@@ -2,6 +2,11 @@ import UIKit
 import FSPagerView
 import BEMCheckBox
 
+protocol CardsPagerViewCellDelegate: AnyObject {
+    func cardTapped(_ collectionViewCell: CardsPagerViewCell)
+    func checkboxTapped(_ checkBox: BEMCheckBox, dayNumber: Int)
+}
+
 class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     @IBOutlet weak var dayNameLabel: UILabel!
     @IBOutlet weak var cardView: GradientView!
@@ -45,10 +50,7 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         
         checkboxes = [breakfastCB, dinnerCB, dinner2CB]
         
-        cardView.isUserInteractionEnabled = true
-        cardView.addGestureRecognizer(cardDidTap)
-        
-        perform(#selector(setupView), with: nil, afterDelay: 0.1)
+        setupCardView()
         
         breakfastCB.addGestureRecognizer(breakfastCheckBoxDidTap)
         dinnerCB.addGestureRecognizer(dinnerCheckBoxDidTap)
@@ -63,8 +65,15 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
     }
     
     @objc
-    func setupView() {
-        addShadow()
+    func setupCardView() {
+        cardView.shadowColor = UIColor(named: "primaryDarkColor")!
+        cardView.shadowBlur = 10
+        cardView.shadowX = 0
+        cardView.shadowY = 8
+        cardView.shadowOpacity = 0.8
+        
+        cardView.isUserInteractionEnabled = true
+        cardView.addGestureRecognizer(cardDidTap)
     }
     
     @objc
@@ -108,13 +117,7 @@ class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
         delegate?.checkboxTapped(checkBox, dayNumber: number)
     }
     
-    @objc
-    func addShadow() {
-        cardView.layer.shadowColor = UIColor(named: "primaryDarkColor")?.cgColor
-        cardView.layer.shadowRadius = 10
-        cardView.layer.shadowOffset = CGSize(width: 0, height: 8)
-        cardView.layer.shadowOpacity = 0.8
-    }
+    
     
     
 }
@@ -126,7 +129,4 @@ extension CardsPagerViewCell: UIGestureRecognizerDelegate {
 }
 
 
-protocol CardsPagerViewCellDelegate: AnyObject {
-    func cardTapped(_ collectionViewCell: CardsPagerViewCell)
-    func checkboxTapped(_ checkBox: BEMCheckBox, dayNumber: Int)
-}
+
