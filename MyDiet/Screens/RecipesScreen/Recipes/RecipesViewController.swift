@@ -39,6 +39,8 @@ class RecipesViewController: UIViewController {
     
     var fullRecipeList: [Recipe] = []
     
+    var recipePageViewController: RecipePageViewController?
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.style }
     
     override func viewDidLoad() {
@@ -66,6 +68,8 @@ class RecipesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        recipePageViewController = RecipePageViewController()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateRecipesCollectionView(_:)), name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
     }
@@ -253,6 +257,18 @@ extension RecipesViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension RecipesViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         recipePageViewController?.recipe = recipeList[indexPath.row]
+//        let transition = CATransition()
+//        transition.duration = 0.4
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        view.window!.layer.add(transition, forKey: kCATransition)
+        recipePageViewController?.modalPresentationStyle = .fullScreen
+        self.present(recipePageViewController!, animated: true, completion: nil)
+        
+    }
     
     func showPlusButton(_ state: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .beginFromCurrentState, animations: {

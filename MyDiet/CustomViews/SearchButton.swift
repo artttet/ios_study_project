@@ -2,12 +2,18 @@ import UIKit
 
 class SearchButton: UIButton {
     
-    var imageTintColor: UIColor = UIColor(named: "primaryColor")!
+    var subviewColor: UIColor = UIColor(named: "primaryColor")!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if let subview = subviews.first as? UIImageView {
+            subviewColor = subview.tintColor
+        }
         
+        if let subview = subviews.first as? UILabel {
+            subviewColor = subview.textColor
+        }
     }
     
     override var isHighlighted: Bool {
@@ -21,13 +27,23 @@ class SearchButton: UIButton {
     }
     
     func touchDown() {
-        let imageView = subviews.first
-        imageView?.tintColor = imageTintColor.withAlphaComponent(0.6)
+        if let subview = subviews.first as? UIImageView {
+            subview.tintColor = subviewColor.withAlphaComponent(0.6)
+        }
+        
+        if let subview = subviews.first as? UILabel {
+            subview.textColor = subviewColor.withAlphaComponent(0.6)
+        }
     }
     
     func touchUp() {
-        let imageView = subviews.first
-        imageView?.tintColor = imageTintColor
+        if let subview = subviews.first as? UIImageView {
+            subview.tintColor = subviewColor
+        }
+        
+        if let subview = subviews.first as? UILabel {
+            subview.textColor = subviewColor
+        }
     }
     
 }

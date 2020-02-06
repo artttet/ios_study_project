@@ -57,7 +57,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-zG-5JJ">
                     <rect key="frame" x="0.0" y="84.5" width="375" height="582.5"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-1g-kyL">
+                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-1g-kyL">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="582.5"/>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="o7w-Y2-bVn">
