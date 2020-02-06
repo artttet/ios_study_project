@@ -38,6 +38,6 @@ class RecipesScreenDataManager {
         
         let managedObject = fetchedController.object(at: IndexPath(row: index, section: 0)) as! NSManagedObject
         
-        CoreDataManager.instance.deleteRecipeObject(object: managedObject)
+        CoreDataManager.instance.deleteObject(forEntity: Entity.Recipe, object: managedObject)
     }
 }

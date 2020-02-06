@@ -1,11 +1,11 @@
 import CoreData
 
-class RecipeDataManager {
+class ProductDataManager {
     
-    static let instance = RecipeDataManager()
+    static let instance = ProductDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: Entity.Recipe.modelName())
+        let container = NSPersistentContainer(name: Entity.Product.modelName())
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -13,7 +13,7 @@ class RecipeDataManager {
         })
         return container
     }()
-    
+        
     private init() {}
     
     func entityDescription(forEntityName name: String) -> NSEntityDescription {
@@ -34,15 +34,17 @@ class RecipeDataManager {
     }
 
     func saveContext () {
-      let context = persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         
-      if context.hasChanges {
-          do {
-              try context.save()
-          } catch {
-              let nserror = error as NSError
-              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-          }
-      }
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 }
+    
+

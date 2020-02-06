@@ -54,6 +54,7 @@ class RecipesViewController: UIViewController {
         , constant: 32)
         updateRecipesCollectionView(nil)
         
+        
         collectionView.register(UINib(nibName: "RecipesCollectionViewCell", bundle: Bundle(identifier: "RecipesCollectionViewCell")), forCellWithReuseIdentifier: "RecipesCollectionViewCell")
         collectionView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 8, right: 0)
         
@@ -61,6 +62,10 @@ class RecipesViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         plusButtonView.addTarget(self, action: #selector(plusButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateRecipesCollectionView(_:)), name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
     }
@@ -162,7 +167,7 @@ class RecipesViewController: UIViewController {
         iconSearchOriginX = iconSearch.frame.origin.x
         
         UIView.animate(
-            withDuration: 0.25,
+            withDuration: 0.4,
             delay: 0.0,
             usingSpringWithDamping: 1.0,
             initialSpringVelocity: 1.0,

@@ -3,12 +3,15 @@ import UIKit
 enum Entity: String {
     case AppDay = "AppDay"
     case Recipe = "Recipe"
+    case Product = "Product"
     func modelName() -> String {
         switch self {
         case .AppDay:
             return "AppDayModel"
         case .Recipe:
             return "RecipeModel"
+        case .Product:
+            return "ProductModel"
         }
     }
 }

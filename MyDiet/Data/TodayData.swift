@@ -26,14 +26,10 @@ class TodayScreenDataManager {
         let appDay = fetchedController.object(at: IndexPath(row: index, section: 0)) as! AppDay
         
         switch tag {
-        case 0:
-            appDay.breakfast!.isEaten = state
-        case 1:
-            appDay.dinner!.isEaten = state
-        case 2:
-            appDay.dinner2!.isEaten = state
-        default:
-            break
+        case 0: appDay.breakfast!.isEaten = state
+        case 1: appDay.dinner!.isEaten = state
+        case 2: appDay.dinner2!.isEaten = state
+        default: break
         }
         
         CoreDataManager.instance.saveContext(forEntity: Entity.AppDay)

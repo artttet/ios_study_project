@@ -39,6 +39,11 @@
 		4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB3D0D23AD057000F13390 /* Enums.swift */; };
 		4FB304C723E9811C00A68F45 /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FB304C523E9811C00A68F45 /* RecipeModel.xcdatamodeld */; };
 		4FC2BAAB23EAB71600D5225B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAA23EAB71600D5225B /* SearchButton.swift */; };
+		4FC2BAAE23EC281100D5225B /* ProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAD23EC281100D5225B /* ProductDataManager.swift */; };
+		4FC2BAB123EC285000D5225B /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAF23EC285000D5225B /* ProductModel.xcdatamodeld */; };
+		4FC2BAB423EC297900D5225B /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAB223EC297900D5225B /* Product+CoreDataClass.swift */; };
+		4FC2BAB523EC297900D5225B /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAB323EC297900D5225B /* Product+CoreDataProperties.swift */; };
+		4FC2BAB723EC2AD600D5225B /* ProductsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAB623EC2AD600D5225B /* ProductsData.swift */; };
 		4FD30FC723E02E7500135613 /* AppDayModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC523E02E7500135613 /* AppDayModel.xcdatamodeld */; };
 		4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */; };
 		4FD30FCE23E0343500135613 /* AppDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */; };
@@ -100,6 +105,11 @@
 		4FAB3D0D23AD057000F13390 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		4FC2BAAA23EAB71600D5225B /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
+		4FC2BAAD23EC281100D5225B /* ProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataManager.swift; sourceTree = "<group>"; };
+		4FC2BAB023EC285000D5225B /* ProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductModel.xcdatamodel; sourceTree = "<group>"; };
+		4FC2BAB223EC297900D5225B /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4FC2BAB323EC297900D5225B /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4FC2BAB623EC2AD600D5225B /* ProductsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsData.swift; sourceTree = "<group>"; };
 		4FD30FC623E02E7500135613 /* AppDayModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDayModel.xcdatamodel; sourceTree = "<group>"; };
 		4FD30FC923E0343500135613 /* AppDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4FD30FCA23E0343500135613 /* AppDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -148,7 +158,6 @@
 			children = (
 				4FD3CE9823BE085400A37A70 /* Data */,
 				4FC3D4EA23E9F6B800C95AA9 /* Screens */,
-				4F20F07523C8FB7D005102EE /* ProductsScreen */,
 				4FD3CE9723BE084000A37A70 /* CustomViews */,
 				4F0AC8CA23A12390007FF6F0 /* AppDelegate.swift */,
 				4F0AC8CC23A12390007FF6F0 /* SceneDelegate.swift */,
@@ -194,11 +203,23 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
+		4FC2BAAC23EC27B800D5225B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FC2BAAD23EC281100D5225B /* ProductDataManager.swift */,
+				4FC2BAAF23EC285000D5225B /* ProductModel.xcdatamodeld */,
+				4FC2BAB223EC297900D5225B /* Product+CoreDataClass.swift */,
+				4FC2BAB323EC297900D5225B /* Product+CoreDataProperties.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		4FC3D4EA23E9F6B800C95AA9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				4FFF51D023A9EFA600EE08E3 /* TodayScreen */,
 				4FC6313F23C88ACF00D707A4 /* RecipesScreen */,
+				4F20F07523C8FB7D005102EE /* ProductsScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -243,7 +264,7 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
-		4FC3D4EF23E9F75D00C95AA9 /* AddRecipes */ = {
+		4FC3D4EF23E9F75D00C95AA9 /* AddRecipe */ = {
 			isa = PBXGroup;
 			children = (
 				4FD30FD523E1C88000135613 /* AddRecipeViewController.swift */,
@@ -251,14 +272,14 @@
 				4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */,
 				4F16917923E70C41004D8E09 /* TextTableViewCell.xib */,
 			);
-			path = AddRecipes;
+			path = AddRecipe;
 			sourceTree = "<group>";
 		};
 		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
 			isa = PBXGroup;
 			children = (
 				4FC3D4EE23E9F73D00C95AA9 /* Recipes */,
-				4FC3D4EF23E9F75D00C95AA9 /* AddRecipes */,
+				4FC3D4EF23E9F75D00C95AA9 /* AddRecipe */,
 			);
 			path = RecipesScreen;
 			sourceTree = "<group>";
@@ -269,6 +290,7 @@
 				4FD30FD123E0346300135613 /* CoreDataManager.swift */,
 				4FB304C323E980E400A68F45 /* Today */,
 				4FB304C423E980F800A68F45 /* Recipes */,
+				4FC2BAAC23EC27B800D5225B /* Products */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -290,6 +312,7 @@
 				4FAB3D0D23AD057000F13390 /* Enums.swift */,
 				4F92BA9E23AA460500843FEA /* TodayData.swift */,
 				4F2CFA1923C9BC9F00180138 /* RecipesData.swift */,
+				4FC2BAB623EC2AD600D5225B /* ProductsData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -455,10 +478,13 @@
 				4F0E6CF823A7732700B6BE04 /* TodayViewController.swift in Sources */,
 				4F2CFA1A23C9BC9F00180138 /* RecipesData.swift in Sources */,
 				4FD30FD723E1C88000135613 /* AddRecipeViewController.swift in Sources */,
+				4FC2BAAE23EC281100D5225B /* ProductDataManager.swift in Sources */,
 				4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */,
 				4F0ED71923E9A5E8003A3985 /* Recipe+CoreDataClass.swift in Sources */,
 				4F0AC8CF23A12390007FF6F0 /* TabBarViewController.swift in Sources */,
 				4FD30FD223E0346300135613 /* CoreDataManager.swift in Sources */,
+				4FC2BAB523EC297900D5225B /* Product+CoreDataProperties.swift in Sources */,
+				4FC2BAB723EC2AD600D5225B /* ProductsData.swift in Sources */,
 				4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */,
 				4F0AC8CB23A12390007FF6F0 /* AppDelegate.swift in Sources */,
 				4F0ED71E23E9A7B6003A3985 /* RecipeDataManager.swift in Sources */,
@@ -472,8 +498,10 @@
 				4F2CFA1123C9BA4D00180138 /* RecipesCollectionViewCell.swift in Sources */,
 				4F92BA9F23AA460500843FEA /* TodayData.swift in Sources */,
 				4FD30FD023E0343500135613 /* Dish+CoreDataProperties.swift in Sources */,
+				4FC2BAB423EC297900D5225B /* Product+CoreDataClass.swift in Sources */,
 				4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */,
 				4F0AC8CD23A12390007FF6F0 /* SceneDelegate.swift in Sources */,
+				4FC2BAB123EC285000D5225B /* ProductModel.xcdatamodeld in Sources */,
 				4F0ED71A23E9A5E8003A3985 /* Recipe+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +715,16 @@
 			);
 			currentVersion = 4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */;
 			path = RecipeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		4FC2BAAF23EC285000D5225B /* ProductModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FC2BAB023EC285000D5225B /* ProductModel.xcdatamodel */,
+			);
+			currentVersion = 4FC2BAB023EC285000D5225B /* ProductModel.xcdatamodel */;
+			path = ProductModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -12,13 +12,19 @@ class CoreDataManager {
             fetchedResultsController = AppDayDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
         case Entity.Recipe:
             fetchedResultsController = RecipeDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
+        case .Product:
+            fetchedResultsController = ProductDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
         }
         
         return fetchedResultsController!
     }
     
-    func deleteRecipeObject(object: NSManagedObject) {
-        RecipeDataManager.instance.deleteObject(object: object)
+    func deleteObject(forEntity entity: Entity, object: NSManagedObject) {
+        switch entity {
+        case .Recipe: RecipeDataManager.instance.deleteObject(object: object)
+        case .Product: ProductDataManager.instance.deleteObject(object: object)
+        default: break }
+        
     }
     
     func saveContext(forEntity: Entity?) {
@@ -29,10 +35,13 @@ class CoreDataManager {
                 AppDayDataManager.instance.saveContext()
             case Entity.Recipe:
                 RecipeDataManager.instance.saveContext()
+            case .Product:
+                ProductDataManager.instance.saveContext()
             }
         } else {
             AppDayDataManager.instance.saveContext()
             RecipeDataManager.instance.saveContext()
+            ProductDataManager.instance.saveContext()
         }
     }
 }

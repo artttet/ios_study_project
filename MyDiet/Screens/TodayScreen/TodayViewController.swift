@@ -31,14 +31,14 @@ class TodayViewController: UIViewController {
         
         cardsPagerView.appDayList = appDayList
         cardsPagerView.monthNumber = AppCalendar.instance.getMonth().number
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(scrollPagerViews(_:)), name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(checkboxTapped(_:)), name: .init(Notifications.CheckboxTapped.rawValue), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         perform(#selector(userInteractionEnable), with: nil, afterDelay: 0.0)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollPagerViews(_:)), name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkboxTapped(_:)), name: .init(Notifications.CheckboxTapped.rawValue), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,8 +55,8 @@ class TodayViewController: UIViewController {
     }
     
     @objc func scrollPagerViews(_ notification: Notification) {
-        let object = notification.object as! [String : Int]
-        if let index = object["index"] {
+        let object = notification.object as! [String : Any]
+        if let index = object["index"] as? Int{
             calendarPagerView.scrollTo(index: index)
             TodayViewController.selectedDay = index
             cardsPagerView.scrollToItem(at: index, animated: true)
