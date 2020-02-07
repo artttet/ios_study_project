@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="MyDiet" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerStackView" destination="Sig-83-Fcg" id="pS3-sB-znz"/>
+                <outlet property="pickerView" destination="5Zx-DU-DFf" id="yQG-A1-grE"/>
+                <outlet property="pickerViewBackground" destination="2lq-rO-V9d" id="vrV-ZS-yba"/>
+                <outlet property="tableView" destination="eTP-Jl-8Xh" id="Pxv-dT-VW9"/>
+                <outlet property="topViewPickerStackView" destination="wy3-mV-1oV" id="73m-ek-xuF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="346" height="645"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-iJ-Bmr">
+                    <rect key="frame" x="283" y="8" width="51" height="32"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                    <state key="normal" title="Готово">
+                        <color key="titleColor" name="primaryColor"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="BOZ-IQ-g1l"/>
+                        <action selector="readyButtonAction:" destination="-1" eventType="touchUpInside" id="unR-o9-cAM"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXm-7j-WIs">
+                    <rect key="frame" x="127.5" y="14" width="91.5" height="20.5"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <color key="textColor" name="primaryColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELw-Hv-a5F" userLabel="Separator">
+                    <rect key="frame" x="0.0" y="42.5" width="346" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jMp-8P-Ygz"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7C-pC-Oz4">
+                    <rect key="frame" x="12" y="8" width="59" height="32"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                    <state key="normal" title="Отмена">
+                        <color key="titleColor" name="primaryColor"/>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="4" sectionFooterHeight="4" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-Jl-8Xh">
+                    <rect key="frame" x="0.0" y="43.5" width="346" height="601.5"/>
+                    <color key="backgroundColor" name="backgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="lLi-sx-2gZ"/>
+                        <outlet property="delegate" destination="-1" id="KIi-mf-k70"/>
+                    </connections>
+                </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lq-rO-V9d" userLabel="Picker View Background">
+                    <rect key="frame" x="0.0" y="0.0" width="346" height="645"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-83-Fcg">
+                    <rect key="frame" x="0.0" y="419.5" width="346" height="225.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wy3-mV-1oV">
+                            <rect key="frame" x="0.0" y="0.0" width="346" height="37"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udA-3Y-x46">
+                                    <rect key="frame" x="276" y="2" width="54" height="33"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Готово">
+                                        <color key="titleColor" name="primaryColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pickerReadyButtonAction:" destination="-1" eventType="touchUpInside" id="L02-Wz-jta"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1D-uV-BLQ">
+                                    <rect key="frame" x="16" y="2" width="62" height="33"/>
+                                    <color key="backgroundColor" name="backgroundColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Отмена">
+                                        <color key="titleColor" name="primaryColor"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pickerCancelButtonAction:" destination="-1" eventType="touchUpInside" id="TGw-y9-op0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" name="backgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="M1D-uV-BLQ" firstAttribute="top" secondItem="wy3-mV-1oV" secondAttribute="top" constant="2" id="NqM-m1-j1s"/>
+                                <constraint firstAttribute="bottom" secondItem="udA-3Y-x46" secondAttribute="bottom" constant="2" id="Rde-Oe-QmL"/>
+                                <constraint firstItem="udA-3Y-x46" firstAttribute="top" secondItem="wy3-mV-1oV" secondAttribute="top" constant="2" id="X30-hp-gj1"/>
+                                <constraint firstAttribute="trailing" secondItem="udA-3Y-x46" secondAttribute="trailing" constant="16" id="Zrj-cj-4Qy"/>
+                                <constraint firstItem="M1D-uV-BLQ" firstAttribute="leading" secondItem="wy3-mV-1oV" secondAttribute="leading" constant="16" id="gOA-gA-U5V"/>
+                                <constraint firstAttribute="bottom" secondItem="M1D-uV-BLQ" secondAttribute="bottom" constant="2" id="mQr-EB-JAg"/>
+                            </constraints>
+                        </view>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zx-DU-DFf">
+                            <rect key="frame" x="0.0" y="37" width="346" height="188.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="XXy-F9-aT0"/>
+                                <outlet property="delegate" destination="-1" id="tca-pD-nO0"/>
+                            </connections>
+                        </pickerView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="a05-qb-WzW"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="backgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="t8c-iJ-Bmr" secondAttribute="trailing" constant="12" id="1iL-95-0TZ"/>
+                <constraint firstItem="2lq-rO-V9d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CWn-6l-URw"/>
+                <constraint firstItem="ELw-Hv-a5F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IfW-PK-Bip"/>
+                <constraint firstItem="ELw-Hv-a5F" firstAttribute="top" secondItem="YXm-7j-WIs" secondAttribute="bottom" constant="8" id="Jgu-tp-iMM"/>
+                <constraint firstItem="t8c-iJ-Bmr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="LMN-V1-IDb"/>
+                <constraint firstItem="YXm-7j-WIs" firstAttribute="centerY" secondItem="t8c-iJ-Bmr" secondAttribute="centerY" id="NsP-kI-Sp4"/>
+                <constraint firstAttribute="bottom" secondItem="Sig-83-Fcg" secondAttribute="bottom" id="Nwp-CP-X6L"/>
+                <constraint firstItem="Sig-83-Fcg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ON0-Vh-Gxy"/>
+                <constraint firstAttribute="trailing" secondItem="eTP-Jl-8Xh" secondAttribute="trailing" id="Qv5-Wy-IaL"/>
+                <constraint firstAttribute="bottom" secondItem="eTP-Jl-8Xh" secondAttribute="bottom" id="R8X-c4-2YE"/>
+                <constraint firstItem="2lq-rO-V9d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TWZ-wt-Ddd"/>
+                <constraint firstAttribute="trailing" secondItem="ELw-Hv-a5F" secondAttribute="trailing" id="dM2-Z2-8n0"/>
+                <constraint firstAttribute="trailing" secondItem="Sig-83-Fcg" secondAttribute="trailing" id="dja-b8-cB0"/>
+                <constraint firstAttribute="bottom" secondItem="2lq-rO-V9d" secondAttribute="bottom" id="e2K-2g-CPr"/>
+                <constraint firstItem="eTP-Jl-8Xh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="exp-Vc-b1g"/>
+                <constraint firstItem="YXm-7j-WIs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gvJ-h4-sEs"/>
+                <constraint firstAttribute="trailing" secondItem="2lq-rO-V9d" secondAttribute="trailing" id="h20-M5-nDR"/>
+                <constraint firstItem="eTP-Jl-8Xh" firstAttribute="top" secondItem="ELw-Hv-a5F" secondAttribute="bottom" id="hpo-iF-iWQ"/>
+                <constraint firstItem="K7C-pC-Oz4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="pIC-oY-Sxt"/>
+                <constraint firstItem="K7C-pC-Oz4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="z2W-QK-2CE"/>
+                <constraint firstItem="Sig-83-Fcg" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.35" id="z4P-bc-XLx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hd6-3H-YmC"/>
+            <point key="canvasLocation" x="88.405797101449281" y="52.566964285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.11400000005960464" green="0.52100002765655518" blue="0.50700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

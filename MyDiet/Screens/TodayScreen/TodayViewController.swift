@@ -10,7 +10,8 @@ class TodayViewController: UIViewController {
     
     
     @IBAction func settingsButtonAction(_ sender: Any) {
-        print("settings")
+        let destinationVC = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        self.present(destinationVC, animated: true, completion: nil)
     }
     
     

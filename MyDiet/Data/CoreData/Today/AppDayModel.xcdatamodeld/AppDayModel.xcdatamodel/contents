@@ -3,6 +3,7 @@
     <entity name="AppDay" representedClassName="AppDay" syncable="YES">
         <attribute name="dayNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="breakfast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dish"/>
         <relationship name="dinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dish"/>
         <relationship name="dinner2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dish"/>
@@ -12,7 +13,7 @@
         <attribute name="name" attributeType="String" minValueString="3"/>
     </entity>
     <elements>
-        <element name="AppDay" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="AppDay" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Dish" positionX="-54" positionY="27" width="128" height="73"/>
     </elements>
 </model>

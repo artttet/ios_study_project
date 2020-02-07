@@ -41,6 +41,7 @@ extension TodayScreenDataManager {
     
     func dishName(fromWeekday weekday: Int, dishCategory: Int) -> String {
         var name: String = ""
+        
         switch weekday {
         case 2, 3, 4:
             switch dishCategory {
@@ -84,6 +85,7 @@ extension TodayScreenDataManager {
             }
             
             let weekday = appCalendar.getWeekday(fromDayNumber: dayNumber, isShort: false).number
+            appDay.weekday = Int16(weekday)
             
             let breakfast = Dish()
             breakfast.name = dishName(fromWeekday: weekday, dishCategory: 0)

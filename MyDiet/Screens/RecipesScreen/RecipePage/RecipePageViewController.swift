@@ -9,8 +9,8 @@ class RecipePageViewController: UIViewController {
 
     @IBOutlet var topView: UIView!
     @IBOutlet var recipeNameLabel: UILabel!
-    @IBOutlet var ingredientsButtonView: SearchButton!
-    @IBOutlet var stepsButtonView: SearchButton!
+    @IBOutlet var ingredientsButtonView: MyButton!
+    @IBOutlet var stepsButtonView: MyButton!
     @IBOutlet var ingredientsTextView: UITextView!
     @IBOutlet var stepsTextView: UITextView!
     @IBOutlet var stackView: UIStackView!

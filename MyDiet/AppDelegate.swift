@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  MyDiet
-//
-//  Created by Артем Чиглинцев on 11/12/2019.
-//  Copyright © 2019 Артем Чиглинцев. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

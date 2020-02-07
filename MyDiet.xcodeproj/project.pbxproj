@@ -31,6 +31,8 @@
 		4F2CFA1A23C9BC9F00180138 /* RecipesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CFA1923C9BC9F00180138 /* RecipesData.swift */; };
 		4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */; };
 		4F2F976B23AA18F400BBA8C1 /* CalendarPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */; };
+		4F493AB923ED62010027ED5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F493AB723ED62010027ED5A /* SettingsViewController.swift */; };
+		4F493ABA23ED62010027ED5A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F493AB823ED62010027ED5A /* SettingsViewController.xib */; };
 		4F4A208A23EC3C1C0073D1E1 /* RecipePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4A208823EC3C1C0073D1E1 /* RecipePageViewController.swift */; };
 		4F4A208B23EC3C1C0073D1E1 /* RecipePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4A208923EC3C1C0073D1E1 /* RecipePageViewController.xib */; };
 		4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */; };
@@ -99,6 +101,8 @@
 		4F2CFA1923C9BC9F00180138 /* RecipesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesData.swift; sourceTree = "<group>"; };
 		4F2F976623AA17DF00BBA8C1 /* CalendarPagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerViewCell.swift; sourceTree = "<group>"; };
 		4F2F976A23AA18F400BBA8C1 /* CalendarPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPagerView.swift; sourceTree = "<group>"; };
+		4F493AB723ED62010027ED5A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4F493AB823ED62010027ED5A /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4F4A208823EC3C1C0073D1E1 /* RecipePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePageViewController.swift; sourceTree = "<group>"; };
 		4F4A208923EC3C1C0073D1E1 /* RecipePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipePageViewController.xib; sourceTree = "<group>"; };
 		4F4A8FF023E58DC600620CDE /* AddRecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeTableViewCell.xib; sourceTree = "<group>"; };
@@ -181,6 +185,15 @@
 				4F0AC8E723A125AF007FF6F0 /* ProductsViewController.xib */,
 			);
 			path = ProductsScreen;
+			sourceTree = "<group>";
+		};
+		4F493AB623ED61E40027ED5A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4F493AB723ED62010027ED5A /* SettingsViewController.swift */,
+				4F493AB823ED62010027ED5A /* SettingsViewController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		4F4A208723EC3BC70073D1E1 /* RecipePage */ = {
@@ -336,6 +349,7 @@
 			children = (
 				4F0E6CF623A7732700B6BE04 /* TodayViewController.swift */,
 				4F0E6CF723A7732700B6BE04 /* TodayViewController.xib */,
+				4F493AB623ED61E40027ED5A /* Settings */,
 				4FC3D4EB23E9F70100C95AA9 /* Views */,
 			);
 			path = TodayScreen;
@@ -424,6 +438,7 @@
 				4F4A8FF123E58DC600620CDE /* AddRecipeTableViewCell.xib in Resources */,
 				4F0E6CF923A7732700B6BE04 /* TodayViewController.xib in Resources */,
 				4F0AC8F323A12E0A007FF6F0 /* RecipesViewController.xib in Resources */,
+				4F493ABA23ED62010027ED5A /* SettingsViewController.xib in Resources */,
 				4F92BA9D23AA2BE800843FEA /* CalendarPagerViewCell.xib in Resources */,
 				4F0AC8E923A125AF007FF6F0 /* ProductsViewController.xib in Resources */,
 				4F0AC8D423A12390007FF6F0 /* Assets.xcassets in Resources */,
@@ -519,6 +534,7 @@
 				4F0AC8CD23A12390007FF6F0 /* SceneDelegate.swift in Sources */,
 				4FC2BAB123EC285000D5225B /* ProductModel.xcdatamodeld in Sources */,
 				4F0ED71A23E9A5E8003A3985 /* Recipe+CoreDataProperties.swift in Sources */,
+				4F493AB923ED62010027ED5A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,5 +11,6 @@ extension AppDay {
     @NSManaged public var dinner: Dish?
     @NSManaged public var breakfast: Dish?
     @NSManaged public var dinner2: Dish?
+    @NSManaged public var weekday: Int16
 
 }

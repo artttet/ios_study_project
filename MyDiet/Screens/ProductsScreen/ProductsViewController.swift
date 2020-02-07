@@ -5,7 +5,7 @@ class ProductsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var plusButtonView: SearchButton!
+    @IBOutlet var plusButtonView: MyButton!
     
     @IBAction func plusButtonAction(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: "Добавить продукт", preferredStyle: .alert)

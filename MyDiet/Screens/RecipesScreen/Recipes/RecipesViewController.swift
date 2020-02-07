@@ -1,7 +1,7 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
-    @IBOutlet var iconSearch: SearchButton!
+    @IBOutlet var iconSearch: MyButton!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var plusButtonView: PlusRecipeButton!
     @IBOutlet var needRecipeLabel: UILabel!
