@@ -24,15 +24,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-iJ-Bmr">
-                    <rect key="frame" x="283" y="8" width="51" height="32"/>
+                    <rect key="frame" x="271" y="8" width="63" height="32"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                    <state key="normal" title="Готово">
+                    <state key="normal" title="Закрыть">
                         <color key="titleColor" name="primaryColor"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                     </state>
                     <connections>
-                        <action selector="cancelButtonAction:" destination="-1" eventType="touchUpInside" id="BOZ-IQ-g1l"/>
-                        <action selector="readyButtonAction:" destination="-1" eventType="touchUpInside" id="unR-o9-cAM"/>
+                        <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="Bgc-LY-iZl"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXm-7j-WIs">
@@ -48,16 +47,10 @@
                         <constraint firstAttribute="height" constant="1" id="jMp-8P-Ygz"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7C-pC-Oz4">
-                    <rect key="frame" x="12" y="8" width="59" height="32"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                    <state key="normal" title="Отмена">
-                        <color key="titleColor" name="primaryColor"/>
-                    </state>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="4" sectionFooterHeight="4" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-Jl-8Xh">
                     <rect key="frame" x="0.0" y="43.5" width="346" height="601.5"/>
                     <color key="backgroundColor" name="backgroundColor"/>
+                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lLi-sx-2gZ"/>
                         <outlet property="delegate" destination="-1" id="KIi-mf-k70"/>
@@ -92,7 +85,7 @@
                                         <color key="titleColor" name="primaryColor"/>
                                     </state>
                                     <connections>
-                                        <action selector="pickerCancelButtonAction:" destination="-1" eventType="touchUpInside" id="TGw-y9-op0"/>
+                                        <action selector="pickerCancelButtonAction:" destination="-1" eventType="touchUpInside" id="vbV-9w-2om"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -138,8 +131,6 @@
                 <constraint firstItem="YXm-7j-WIs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gvJ-h4-sEs"/>
                 <constraint firstAttribute="trailing" secondItem="2lq-rO-V9d" secondAttribute="trailing" id="h20-M5-nDR"/>
                 <constraint firstItem="eTP-Jl-8Xh" firstAttribute="top" secondItem="ELw-Hv-a5F" secondAttribute="bottom" id="hpo-iF-iWQ"/>
-                <constraint firstItem="K7C-pC-Oz4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="pIC-oY-Sxt"/>
-                <constraint firstItem="K7C-pC-Oz4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="z2W-QK-2CE"/>
                 <constraint firstItem="Sig-83-Fcg" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.35" id="z4P-bc-XLx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

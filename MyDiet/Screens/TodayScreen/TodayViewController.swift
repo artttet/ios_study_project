@@ -44,8 +44,12 @@ class TodayViewController: UIViewController {
         super.viewDidAppear(animated)
         perform(#selector(userInteractionEnable), with: nil, afterDelay: 0.0)
         
+        reloadPagerViews()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(scrollPagerViews(_:)), name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(checkboxTapped(_:)), name: .init(Notifications.CheckboxTapped.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadPagerViews), name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openRecipePage(_:)), name: .init(Notifications.OpenRecipePage.rawValue), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -53,6 +57,8 @@ class TodayViewController: UIViewController {
         
         NotificationCenter.default.removeObserver(self, name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
         NotificationCenter.default.removeObserver(self, name: .init( Notifications.CheckboxTapped.rawValue), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .init( Notifications.ReloadPagerViews.rawValue), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .init(Notifications.OpenRecipePage.rawValue), object: nil)
     }
     
     @objc
@@ -61,7 +67,8 @@ class TodayViewController: UIViewController {
         cardsPagerView.isUserInteractionEnabled = true
     }
     
-    @objc func scrollPagerViews(_ notification: Notification) {
+    @objc
+    func scrollPagerViews(_ notification: Notification) {
         let object = notification.object as! [String : Any]
         if let index = object["index"] as? Int{
             calendarPagerView.scrollTo(index: index)
@@ -70,7 +77,8 @@ class TodayViewController: UIViewController {
         }
     }
     
-    @objc func checkboxTapped(_ notification: Notification) {
+    @objc
+    func checkboxTapped(_ notification: Notification) {
         let object = notification.object as! [String : Any]
         let checkBox = object["checkBox"] as! BEMCheckBox
         let index = object["index"] as! Int
@@ -78,7 +86,10 @@ class TodayViewController: UIViewController {
         TodayScreenDataManager.instance.changeIsEaten(in: index, withTag: checkBox.tag, state: checkBox.on)
     }
     
+    @objc
     func reloadPagerViews() {
+        TodayScreenDataManager.instance.updateDishes()
+        
         let appDayList = TodayScreenDataManager.instance.getAppDayList(withSortKey: "dayNumber")
         
         calendarPagerView.appDayList = appDayList
@@ -86,6 +97,28 @@ class TodayViewController: UIViewController {
         
         cardsPagerView.appDayList = appDayList
         cardsPagerView.reloadData()
+    }
+    
+    @objc
+    func openRecipePage(_ notification: Notification) {
+        var recipeForPresent: Recipe!
+        
+        let object = notification.object as! [String : Any?]
+        let recipeName = object["recipeName"] as! String
+        
+        let recipeList = RecipesScreenDataManager.instance.getRecipeList(withSortKey: "name")
+           
+        recipeList.forEach({ recipe in
+            if recipe.name == recipeName {
+                recipeForPresent = recipe
+            }
+        })
+           
+        let recipePageViewController = RecipePageViewController(nibName: "RecipePageViewController", bundle: nil)
+        recipePageViewController.recipe = recipeForPresent
+        recipePageViewController.modalPresentationStyle = .fullScreen
+           
+        self.present(recipePageViewController, animated: true, completion: nil)
     }
 }
 

@@ -5,6 +5,21 @@ import CoreData
 
 class CardsPagerView: FSPagerView {
     
+    lazy var breakfastLabelTap: UITapGestureRecognizer = {
+        let t = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        return t
+    }()
+    
+    lazy var dinnerLabelTap: UITapGestureRecognizer = {
+        let t = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        return t
+    }()
+    
+    lazy var dinner2LabelTap: UITapGestureRecognizer = {
+        let t = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        return t
+    }()
+    
     let reuseId: String = "CardsPagerViewCell"
     
     var appDayList: [AppDay] = []
@@ -20,6 +35,13 @@ class CardsPagerView: FSPagerView {
 
         // Устанавливает размер карточек после того, как CardsPagerView "загрузится"
         perform(#selector(setupCards), with: nil, afterDelay: 0.0)
+    }
+    
+    @objc
+    func labelTapped(_ sender: UITapGestureRecognizer) {
+        let senderView = sender.view as! UILabel
+        let object: [String : Any?] = ["recipeName" : senderView.text]
+        NotificationCenter.default.post(name: .init(Notifications.OpenRecipePage.rawValue), object: object)
     }
     
     @objc
@@ -81,28 +103,85 @@ extension CardsPagerView: FSPagerViewDataSource {
         let dayName = AppCalendar.instance.getWeekday(fromDayNumber: Int(appDay.dayNumber), isShort: false).name
         cell.dayNameLabel.text = "\(dayName), \(appDay.dayNumber).\(data.monthNumber)"
         
-        cell.breakfastLabel.text = appDay.breakfast!.name
-        cell.breakfastLabel.textColor = setTextColor(appDay.breakfast!.isEaten)
-        cell.breakfastCB.on = appDay.breakfast!.isEaten
+        if let dish = appDay.breakfast {
+            cell.breakfastLabel.text = dish.name
+            if dish.name != "Не выбрано" {
+                cell.breakfastLabel.textColor = setTextColor(dish.isEaten)
+                
+                cell.breakfastCB.tintColor = UIColor(named: "primaryColor")!
+                cell.breakfastCB.on = dish.isEaten
+                
+                if cell.number != AppCalendar.instance.day {
+                    cell.breakfastLabel.isUserInteractionEnabled = false
+                    cell.breakfastCB.isUserInteractionEnabled = false
+                } else {
+                    cell.breakfastLabel.isUserInteractionEnabled = true
+                    cell.breakfastLabel.addGestureRecognizer(breakfastLabelTap)
+                    
+                    cell.breakfastCB.isUserInteractionEnabled = true
+                }
+            } else {
+                cell.breakfastLabel.textColor = UIColor.lightGray
+                cell.breakfastLabel.isUserInteractionEnabled = false
+                
+                cell.breakfastCB.tintColor = UIColor.lightGray
+                cell.breakfastCB.isUserInteractionEnabled = false
+                cell.breakfastCB.on = false
+            }
+        }
         
-        cell.dinnerLabel.text = appDay.dinner!.name
-        cell.dinnerLabel.textColor = setTextColor(appDay.dinner!.isEaten)
-        cell.dinnerCB.on = appDay.dinner!.isEaten
-        
-        cell.dinner2Label.text = appDay.dinner2!.name
-        cell.dinner2Label.textColor = setTextColor(appDay.dinner2!.isEaten)
-        cell.dinner2CB.on = appDay.dinner2!.isEaten
-        
-        cell.delegate = self
-        
-        if cell.number != AppCalendar.instance.day {
-            cell.breakfastCB.isUserInteractionEnabled = false
-            cell.dinnerCB.isUserInteractionEnabled = false
-            cell.dinner2CB.isUserInteractionEnabled = false
-        } else {
-            cell.breakfastCB.isUserInteractionEnabled = true
-            cell.dinnerCB.isUserInteractionEnabled = true
-            cell.dinner2CB.isUserInteractionEnabled = true
+        if let dish = appDay.dinner {
+            cell.dinnerLabel.text = dish.name
+            if dish.name != "Не выбрано" {
+                cell.dinnerLabel.textColor = setTextColor(dish.isEaten)
+                
+                cell.dinnerCB.tintColor = UIColor(named: "primaryColor")!
+                cell.dinnerCB.on = dish.isEaten
+                
+                if cell.number != AppCalendar.instance.day {
+                    cell.dinnerLabel.isUserInteractionEnabled = false
+                    cell.dinnerCB.isUserInteractionEnabled = false
+                } else {
+                    cell.dinnerLabel.isUserInteractionEnabled = true
+                    cell.dinnerLabel.addGestureRecognizer(dinnerLabelTap)
+                    
+                    cell.dinnerCB.isUserInteractionEnabled = true
+                }
+            } else {
+                cell.dinnerLabel.textColor = UIColor.lightGray
+                cell.dinnerLabel.isUserInteractionEnabled = false
+                
+                cell.dinnerCB.tintColor = UIColor.lightGray
+                cell.dinnerCB.isUserInteractionEnabled = false
+                cell.dinnerCB.on = false
+            }
+        }
+    
+        if let dish = appDay.dinner2 {
+            cell.dinner2Label.text = dish.name
+            if dish.name != "Не выбрано" {
+                cell.dinner2Label.textColor = setTextColor(dish.isEaten)
+                
+                cell.dinner2CB.tintColor = UIColor(named: "primaryColor")!
+                cell.dinner2CB.on = dish.isEaten
+                
+                if cell.number != AppCalendar.instance.day {
+                    cell.dinner2Label.isUserInteractionEnabled = false
+                    cell.dinner2CB.isUserInteractionEnabled = false
+                } else {
+                    cell.dinner2Label.isUserInteractionEnabled = true
+                    cell.dinner2Label.addGestureRecognizer(dinner2LabelTap)
+                    
+                    cell.dinner2CB.isUserInteractionEnabled = true
+                }
+            } else {
+                cell.dinner2Label.textColor = UIColor.lightGray
+                cell.dinner2Label.isUserInteractionEnabled = false
+                
+                cell.dinner2CB.tintColor = UIColor.lightGray
+                cell.dinner2CB.isUserInteractionEnabled = false
+                cell.dinner2CB.on = false
+            }
         }
         
         return cell

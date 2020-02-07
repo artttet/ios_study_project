@@ -23,6 +23,8 @@ enum Notifications: String {
     case ChangeText = "ChangeText"
     case UpdateTableView = "UpdateTableView"
     case LastActiveTextIndexPath = "LastActiveTextIndexPath"
+    case ReloadPagerViews = "ReloadPagerViews"
+    case OpenRecipePage = "OpenRecipePage"
 }
 
 enum Weekdays{

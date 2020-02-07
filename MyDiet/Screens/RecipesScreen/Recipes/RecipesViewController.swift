@@ -8,6 +8,7 @@ class RecipesViewController: UIViewController {
     @IBOutlet var recipesLabel: UILabel!
     @IBOutlet var textField: UITextField!
     @IBOutlet var xmark: UIImageView!
+    @IBOutlet var topBackgroundView: UIView!
     
     @IBOutlet var iconSearchViewConstraintRight: NSLayoutConstraint!
     
@@ -52,14 +53,13 @@ class RecipesViewController: UIViewController {
         xmark.isUserInteractionEnabled = true
         xmark.addGestureRecognizer(xmarkAction)
         
-        iconSearchViewConstraintLeft = iconSearch.leadingAnchor.constraint(equalTo: self.view.leadingAnchor
-        , constant: 32)
         updateRecipesCollectionView(nil)
         
         
         collectionView.register(UINib(nibName: "RecipesCollectionViewCell", bundle: Bundle(identifier: "RecipesCollectionViewCell")), forCellWithReuseIdentifier: "RecipesCollectionViewCell")
         collectionView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 8, right: 0)
         
+        textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: "Название рецепта", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
@@ -78,6 +78,17 @@ class RecipesViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         NotificationCenter.default.removeObserver(self, name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let contraint = iconSearchViewConstraintLeft {
+            return
+        } else {
+            iconSearchViewConstraintLeft = iconSearch.leadingAnchor.constraint(equalTo: topBackgroundView.leadingAnchor
+            , constant: 32)
+        }
     }
     
     @objc
@@ -153,7 +164,7 @@ extension RecipesViewController {
                 self.textField.isHidden = false
                 self.xmark.isHidden = false
             
-                self.iconSearchViewConstraintLeft.isActive = true
+                //self.iconSearchViewConstraintLeft.isActive = true
                 self.iconSearchViewConstraintRight.isActive = false
             }
         )
@@ -171,7 +182,7 @@ extension RecipesViewController {
         self.xmark.isHidden = true
         
         UIView.animate(
-            withDuration: 0.35,
+            withDuration: 0.25,
             delay: 0.0,
             options: [ .curveEaseIn],
             animations: {
@@ -224,12 +235,8 @@ extension RecipesViewController: UICollectionViewDataSource {
 extension RecipesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         recipePageViewController?.recipe = recipeList[indexPath.row]
-//        let transition = CATransition()
-//        transition.duration = 0.4
-//        transition.type = CATransitionType.push
-//        transition.subtype = CATransitionSubtype.fromRight
-//        view.window!.layer.add(transition, forKey: kCATransition)
+        recipePageViewController?.recipe = recipeList[indexPath.row]
+
         recipePageViewController?.modalPresentationStyle = .fullScreen
         self.present(recipePageViewController!, animated: true, completion: nil)
         
@@ -339,7 +346,7 @@ extension RecipesViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        self.textField.resignFirstResponder()
         
         return true
     }

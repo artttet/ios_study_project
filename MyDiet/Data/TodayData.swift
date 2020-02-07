@@ -4,6 +4,8 @@ class TodayScreenDataManager {
     
     static let instance = TodayScreenDataManager()
     
+    static let WeekdayKeys = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
     func getAppDayList(withSortKey sortKey: String) -> [AppDay]{
         let fetchedResultsController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.AppDay, keyForSort: sortKey)
         
@@ -12,6 +14,32 @@ class TodayScreenDataManager {
         } catch { print(error) }
         
         return fetchedResultsController.fetchedObjects as! [AppDay]
+    }
+    
+    func updateDishes() {
+        let fetchedResultsController = CoreDataManager.instance.getFetchedResultsController(forEntity: .AppDay, keyForSort: "dayNumber")
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch { print(error) }
+        
+        let appDayList = fetchedResultsController.fetchedObjects as! [AppDay]
+        
+        appDayList.forEach({ appDay in
+            let breakfast = appDay.breakfast
+            breakfast!.name = dishName(fromWeekday: Int(appDay.weekday), dishCategory: 0)
+            appDay.breakfast = breakfast
+            
+            let dinner = appDay.dinner
+            dinner!.name = dishName(fromWeekday: Int(appDay.weekday), dishCategory: 1)
+            appDay.dinner = dinner
+            
+            let dinner2 = appDay.dinner2
+            dinner2!.name = dishName(fromWeekday: Int(appDay.weekday), dishCategory: 2)
+            appDay.dinner2 = dinner2
+        })
+        
+        CoreDataManager.instance.saveContext(forEntity: .AppDay)
     }
     
     func changeIsEaten(in index: Int, withTag tag: Int, state: Bool) {
@@ -39,36 +67,38 @@ class TodayScreenDataManager {
 
 extension TodayScreenDataManager {
     
-    func dishName(fromWeekday weekday: Int, dishCategory: Int) -> String {
-        var name: String = ""
+    func createStartDishes() {
+        let names = [
+            "Овсянка с ягодами",
+            "Гречка по-купечески",
+            "Салат с чечевицой",
+            "Варенные яйца",
+            "Грибной крем-суп",
+            "Салат со свеклой и шпинатом",
+            "Салат с творогом",
+            "Салат с шампиньонами и фасолью",
+            "Салат с рукколой и грушей",
+        ]
         
-        switch weekday {
-        case 2, 3, 4:
-            switch dishCategory {
-            case 0: name = "Овсянка с ягодой"
-            case 1: name = "Гречка по-купечески"
-            case 2: name = "Салат с чечевицой"
-            default: break
-            }
-        case 5, 6:
-            switch dishCategory {
-            case 0: name = "Варенные яйца"
-            case 1: name = "Грибной крем-суп"
-            case 2: name = "Салат со свеклой и шпинатом"
-            default: break
-            }
+        UserDefaults.standard.set([names[6], names[7], names[8]], forKey: TodayScreenDataManager.WeekdayKeys[0])
+        UserDefaults.standard.set([names[0], names[1], names[2]], forKey: TodayScreenDataManager.WeekdayKeys[1])
+        UserDefaults.standard.set([names[0], names[1], names[2]], forKey: TodayScreenDataManager.WeekdayKeys[2])
+        UserDefaults.standard.set([names[0], names[1], names[2]], forKey: TodayScreenDataManager.WeekdayKeys[3])
+        UserDefaults.standard.set([names[3], names[4], names[5]], forKey: TodayScreenDataManager.WeekdayKeys[4])
+        UserDefaults.standard.set([names[3], names[4], names[5]], forKey: TodayScreenDataManager.WeekdayKeys[5])
+        UserDefaults.standard.set([names[6], names[7], names[8]], forKey: TodayScreenDataManager.WeekdayKeys[6])
+    }
+    
+    func changeDish(on newDish: String, inCategory category: Int, forKey weekdayKey: String) {
+        var dishes = UserDefaults.standard.array(forKey: weekdayKey)
+        dishes![category] = newDish
+        UserDefaults.standard.set(dishes, forKey: weekdayKey)
+    }
+    
+    func dishName(fromWeekday weekday: Int, dishCategory: Int) -> String {
+        let names = UserDefaults.standard.array(forKey: TodayScreenDataManager.WeekdayKeys[weekday-1]) as! [String]
 
-        case 7, 1:
-            switch dishCategory {
-            case 0: name = "Салат с творогом"
-            case 1: name = "Салат с шампиньонами и фасолью"
-            case 2: name = "Салат с рукколой и грушей"
-            default: break
-            }
-        default: break
-        }
-
-        return name
+        return names[dishCategory]
     }
     
     func createAppDays() {

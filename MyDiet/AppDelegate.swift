@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }else {
             UserDefaults.standard.setValue(true, forKey: firstLaunchKey)
+            RecipesScreenDataManager.instance.createStartRecipes()
+            TodayScreenDataManager.instance.createStartDishes()
             TodayScreenDataManager.instance.createAppDays()
         }
         

@@ -12,13 +12,14 @@
             <connections>
                 <outlet property="collectionView" destination="CWk-1g-kyL" id="yYy-HK-qkW"/>
                 <outlet property="iconSearch" destination="yFd-Yb-2IO" id="sFH-8m-LyD"/>
-                <outlet property="iconSearchViewConstraintRight" destination="DlK-OT-Xzn" id="HTh-zj-jGM"/>
+                <outlet property="iconSearchViewConstraintRight" destination="DlK-OT-Xzn" id="6hy-yo-Rrt"/>
                 <outlet property="needRecipeLabel" destination="w7H-fP-hgS" id="qul-dQ-F6G"/>
                 <outlet property="plusButtonView" destination="wZ7-WQ-v6F" id="vqE-oB-qGU"/>
-                <outlet property="recipesLabel" destination="XOA-CC-u1i" id="cEx-yQ-XuM"/>
-                <outlet property="textField" destination="P3M-13-ZOG" id="M6V-Z9-vhq"/>
+                <outlet property="recipesLabel" destination="XOA-CC-u1i" id="sVp-xo-Wp5"/>
+                <outlet property="textField" destination="P3M-13-ZOG" id="gMp-b5-NKi"/>
+                <outlet property="topBackgroundView" destination="nQl-0r-0Se" id="H4G-kp-PVr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="uS2-KY-iRQ"/>
-                <outlet property="xmark" destination="gmX-rS-ytn" id="2F3-nr-3M7"/>
+                <outlet property="xmark" destination="gmX-rS-ytn" id="gCS-qb-XCm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -183,7 +184,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="gmX-rS-ytn" secondAttribute="trailing" constant="32" id="8xh-O6-Nbj"/>
                         <constraint firstItem="P3M-13-ZOG" firstAttribute="leading" secondItem="nQl-0r-0Se" secondAttribute="leading" constant="72" id="Apc-J4-NI8"/>
-                        <constraint firstAttribute="trailing" secondItem="yFd-Yb-2IO" secondAttribute="trailing" constant="32" id="DlK-OT-Xzn"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="yFd-Yb-2IO" secondAttribute="trailing" constant="24" id="DlK-OT-Xzn"/>
                         <constraint firstItem="XOA-CC-u1i" firstAttribute="leading" secondItem="nQl-0r-0Se" secondAttribute="leading" constant="32" id="JGp-D8-oIc"/>
                         <constraint firstItem="P3M-13-ZOG" firstAttribute="centerY" secondItem="XOA-CC-u1i" secondAttribute="centerY" id="PXM-4E-4PL"/>
                         <constraint firstItem="XOA-CC-u1i" firstAttribute="top" secondItem="nQl-0r-0Se" secondAttribute="topMargin" constant="24" id="c2g-u5-3pm"/>
@@ -197,7 +198,7 @@
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lX1-zG-5JJ" secondAttribute="trailing" id="6Ed-Ln-xvg"/>
-                <constraint firstAttribute="trailing" secondItem="nQl-0r-0Se" secondAttribute="trailing" id="7wy-gh-EEk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nQl-0r-0Se" secondAttribute="trailing" id="7wy-gh-EEk"/>
                 <constraint firstItem="nQl-0r-0Se" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UpE-yc-Me4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lX1-zG-5JJ" secondAttribute="bottom" id="YRe-as-gRj"/>
                 <constraint firstItem="lX1-zG-5JJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bHl-D1-aCm"/>

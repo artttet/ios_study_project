@@ -7,11 +7,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet var pickerViewBackground: UIView!
     @IBOutlet var topViewPickerStackView: UIView!
     
-    @IBAction func cancelButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func readyButtonAction(_ sender: Any) {
+    @IBAction func closeButtonAction(_ sender: Any) {
+        NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -20,10 +17,31 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func pickerReadyButtonAction(_ sender: Any) {
+        let cell = tableView.cellForRow(at: lastSelectedIndexPath)
+        
+        let newRecipeName = pickerViewTitles[pickerView.selectedRow(inComponent: 0)]
+        if newRecipeName == "Не выбрано" {
+            cell?.textLabel?.textColor = UIColor.lightGray
+        } else {
+            cell?.textLabel?.textColor = UIColor(named: "primaryPlusColor")
+        }
+        cell?.textLabel?.text = newRecipeName
+        
+        var key: Int!
+        if lastSelectedIndexPath.section == 6 {
+            key = 0
+        } else {
+            key = lastSelectedIndexPath.section + 1
+        }
+        
+        TodayScreenDataManager.instance.changeDish(on: newRecipeName, inCategory: lastSelectedIndexPath.row, forKey: TodayScreenDataManager.WeekdayKeys[key])
+        
         pickerViewAnimation()
     }
     
     let weekdays: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    
+    var lastSelectedIndexPath: IndexPath!
     
     var pickerViewTitles: [String]!
     
@@ -134,11 +152,29 @@ extension SettingsViewController: UITableViewDataSource {
         3
     }
     
+    func getRecipeName(for indexPath: IndexPath) -> String {
+        var key: Int!
+        if indexPath.section == 6 {
+            key = 0
+        } else {
+            key = indexPath.section + 1
+        }
+        
+        let names = UserDefaults.standard.array(forKey: TodayScreenDataManager.WeekdayKeys[key]) as! [String]
+        
+        return names[indexPath.row]
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath)
         
-        cell.textLabel?.text = "\(indexPath.row) --- \(indexPath.section)"
-        cell.textLabel?.textColor = UIColor(named: "primaryPlusColor")
+        cell.backgroundColor = UIColor.white
+        cell.textLabel?.text = getRecipeName(for: indexPath)
+        if cell.textLabel?.text == "Не выбрано" {
+            cell.textLabel?.textColor = UIColor.lightGray
+        } else {
+            cell.textLabel?.textColor = UIColor(named: "primaryPlusColor")
+        }
         
         return cell
     }
@@ -148,27 +184,39 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let titleInRow = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        var selectedTitle: Int!
         
-        pickerViewTitles = []
+        pickerViewTitles = ["Не выбрано"]
         switch indexPath.row {
         case 0:
             breakfastList.forEach({ recipe in
                 pickerViewTitles.append(recipe.name!)
+                if pickerViewTitles.contains(recipe.name!) {
+                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
+                }
             })
         case 1:
             dinnerList.forEach({ recipe in
                 pickerViewTitles.append(recipe.name!)
+                if pickerViewTitles.contains(recipe.name!) {
+                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
+                }
             })
         case 2:
             dinner2List.forEach({ recipe in
                 pickerViewTitles.append(recipe.name!)
+                if pickerViewTitles.contains(recipe.name!) {
+                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
+                }
             })
             
         default: break
         }
         
         pickerView.reloadComponent(0)
-        print(pickerView.numberOfRows(inComponent: 0))
+        pickerView.selectRow(selectedTitle, inComponent: 0, animated: false)
+        lastSelectedIndexPath = indexPath
         pickerViewAnimation()
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -194,12 +242,10 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = pickerViewTitles[row]
-        let attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : UIColor(named: "primaryColor") as Any])
+        
+        let color = title == "Не выбрано" ? UIColor.lightGray : UIColor(named: "primaryColor")
+        let attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : color as Any])
         
         return attributedTitle
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return pickerViewTitles[row]
-//    }
 }

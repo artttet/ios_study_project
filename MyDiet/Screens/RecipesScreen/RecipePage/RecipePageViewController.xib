@@ -74,7 +74,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cJ1-tv-Zva">
                     <rect key="frame" x="0.0" y="203" width="375" height="60.333333333333314"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfN-Tu-ksC" userLabel="Ingredients Button" customClass="SearchButton" customModule="MyDiet" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfN-Tu-ksC" userLabel="Ingredients Button" customClass="MyButton" customModule="MyDiet" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="188" height="60.333333333333336"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ингредиенты" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cu-rf-pxg">
@@ -96,7 +96,7 @@
                                 <action selector="ingredientsButtonAction:" destination="-1" eventType="touchUpInside" id="4PA-dE-3ri"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-cH-Y7X" userLabel="Steps Button" customClass="SearchButton" customModule="MyDiet" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-cH-Y7X" userLabel="Steps Button" customClass="MyButton" customModule="MyDiet" customModuleProvider="target">
                             <rect key="frame" x="187" y="0.0" width="188" height="60.333333333333336"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приготовление" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSN-DU-wYw">
