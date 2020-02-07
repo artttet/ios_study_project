@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchButton: UIButton {
+class MyButton: UIButton {
     
     var subviewColor: UIColor = UIColor(named: "primaryColor")!
     

@@ -80,41 +80,6 @@ class RecipesViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
     }
     
-    // MARK: - TextFieldDidChange
-    @objc
-    func textFieldDidChange(_ textField: UITextField) {
-        recipeList.removeAll()
-        
-        if textField.text!.isEmpty {
-            recipeList = fullRecipeList
-            
-        } else {
-            fullRecipeList.forEach({ recipe in
-                if let name = recipe.name {
-                    if name.lowercased().contains(textField.text!.lowercased()) {
-                        recipeList.append(recipe)
-                    }
-                }
-            })
-        }
-        
-        if !textField.text!.isEmpty {
-            if recipeList.count == 0 {
-                needRecipeLabel.text = "Рецепты не найдены"
-                needRecipeLabel.isHidden = false
-            } else {
-                needRecipeLabel.isHidden = true
-            }
-        } else {
-            needRecipeLabel.text = "Необходимо добавить хотя бы один рецепт..."
-            if recipeList.count != 0 {
-                needRecipeLabel.isHidden = true
-            }
-        }
-        
-        collectionView.reloadData()
-    }
-    
     @objc
     func plusButtonTapped(_ sender: PlusRecipeButton) {
         let destinationVC = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
@@ -135,6 +100,15 @@ class RecipesViewController: UIViewController {
     
         self.collectionView.reloadData()
     }
+    
+    func deleteCell(at index: Int) {
+        RecipesScreenDataManager.instance.deleteRecipe(at: index, withSortKey: "name")
+        updateRecipesCollectionView(nil)
+    }
+}
+
+// MARK: - Search Functions
+extension RecipesViewController {
     
     @objc
     func xmarkTapped() {
@@ -158,11 +132,6 @@ class RecipesViewController: UIViewController {
         }
     }
     
-    func deleteCell(at index: Int) {
-        RecipesScreenDataManager.instance.deleteRecipe(at: index, withSortKey: "name")
-        updateRecipesCollectionView(nil)
-    }
-    
     func openSearch() {
         searchIsOpen = true
         
@@ -171,11 +140,9 @@ class RecipesViewController: UIViewController {
         iconSearchOriginX = iconSearch.frame.origin.x
         
         UIView.animate(
-            withDuration: 0.4,
+            withDuration: 0.3,
             delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: [ .curveEaseIn],
+            options: [ .curveEaseOut],
             animations: {
                 self.iconSearch.frame.origin.x = self.recipesLabel.frame.origin.x
                 
@@ -204,10 +171,8 @@ class RecipesViewController: UIViewController {
         self.xmark.isHidden = true
         
         UIView.animate(
-            withDuration: 0.25,
+            withDuration: 0.35,
             delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
             options: [ .curveEaseIn],
             animations: {
                 
@@ -338,6 +303,40 @@ extension RecipesViewController: RecipesCollectionViewCellDelegate {
 
 // MARK: - UITextFiledDelegate
 extension RecipesViewController: UITextFieldDelegate {
+    
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
+        recipeList.removeAll()
+        
+        if textField.text!.isEmpty {
+            recipeList = fullRecipeList
+            
+        } else {
+            fullRecipeList.forEach({ recipe in
+                if let name = recipe.name {
+                    if name.lowercased().contains(textField.text!.lowercased()) {
+                        recipeList.append(recipe)
+                    }
+                }
+            })
+        }
+        
+        if !textField.text!.isEmpty {
+            if recipeList.count == 0 {
+                needRecipeLabel.text = "Рецепты не найдены"
+                needRecipeLabel.isHidden = false
+            } else {
+                needRecipeLabel.isHidden = true
+            }
+        } else {
+            needRecipeLabel.text = "Необходимо добавить хотя бы один рецепт..."
+            if recipeList.count != 0 {
+                needRecipeLabel.isHidden = true
+            }
+        }
+        
+        collectionView.reloadData()
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

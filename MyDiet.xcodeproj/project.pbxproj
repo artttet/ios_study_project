@@ -40,7 +40,7 @@
 		4F9B205523A92DF2000F5CEE /* CardsPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */; };
 		4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB3D0D23AD057000F13390 /* Enums.swift */; };
 		4FB304C723E9811C00A68F45 /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FB304C523E9811C00A68F45 /* RecipeModel.xcdatamodeld */; };
-		4FC2BAAB23EAB71600D5225B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAA23EAB71600D5225B /* SearchButton.swift */; };
+		4FC2BAAB23EAB71600D5225B /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAA23EAB71600D5225B /* MyButton.swift */; };
 		4FC2BAAE23EC281100D5225B /* ProductDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAD23EC281100D5225B /* ProductDataManager.swift */; };
 		4FC2BAB123EC285000D5225B /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAAF23EC285000D5225B /* ProductModel.xcdatamodeld */; };
 		4FC2BAB423EC297900D5225B /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2BAB223EC297900D5225B /* Product+CoreDataClass.swift */; };
@@ -108,7 +108,7 @@
 		4F9B205423A92DF2000F5CEE /* CardsPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPagerView.swift; sourceTree = "<group>"; };
 		4FAB3D0D23AD057000F13390 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4FB304C623E9811C00A68F45 /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
-		4FC2BAAA23EAB71600D5225B /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
+		4FC2BAAA23EAB71600D5225B /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		4FC2BAAD23EC281100D5225B /* ProductDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataManager.swift; sourceTree = "<group>"; };
 		4FC2BAB023EC285000D5225B /* ProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductModel.xcdatamodel; sourceTree = "<group>"; };
 		4FC2BAB223EC297900D5225B /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 			children = (
 				4F55304A23AB97260013DE64 /* GradientView.swift */,
 				4FD30FD323E1452900135613 /* PlusRecipeButton.swift */,
-				4FC2BAAA23EAB71600D5225B /* SearchButton.swift */,
+				4FC2BAAA23EAB71600D5225B /* MyButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 				4FAB3D0E23AD057000F13390 /* Enums.swift in Sources */,
 				4F0AC8CB23A12390007FF6F0 /* AppDelegate.swift in Sources */,
 				4F0ED71E23E9A7B6003A3985 /* RecipeDataManager.swift in Sources */,
-				4FC2BAAB23EAB71600D5225B /* SearchButton.swift in Sources */,
+				4FC2BAAB23EAB71600D5225B /* MyButton.swift in Sources */,
 				4F0ED71C23E9A72D003A3985 /* AppDayDataManager.swift in Sources */,
 				4F2F976823AA17DF00BBA8C1 /* CalendarPagerViewCell.swift in Sources */,
 				4FD30FCD23E0343500135613 /* AppDay+CoreDataClass.swift in Sources */,
