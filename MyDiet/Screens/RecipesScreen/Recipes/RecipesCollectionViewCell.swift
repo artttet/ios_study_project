@@ -9,16 +9,14 @@ class RecipesCollectionViewCell: UICollectionViewCell {
     @IBOutlet var recipeNameLabel: UILabel!
     @IBOutlet var recipeCategory: UILabel!
     @IBOutlet var view: GradientView!
-    @IBOutlet var moreView: UIImageView!
     
-    lazy var tap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(_:)))
-        return t
-    }()
+    @IBAction func moreButtonAction(_ sender: Any) {
+        delegate?.viewTapped(self)
+    }
     
     var delegate: RecipesCollectionViewCellDelegate?
     
-    var index: Int = -1
+    var index: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,15 +29,7 @@ class RecipesCollectionViewCell: UICollectionViewCell {
         contentView.removeFromSuperview()
     }
     
-    @objc
-    func viewTapped(_ sender: UITapGestureRecognizer) {
-        delegate?.viewTapped(self)
-    }
-    
     func setupView() {
-        moreView.isUserInteractionEnabled = true
-        moreView.addGestureRecognizer(tap)
-        
         imageView.layer.cornerRadius = 14
         imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
     }

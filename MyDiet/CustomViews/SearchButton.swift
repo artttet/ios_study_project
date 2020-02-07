@@ -27,12 +27,15 @@ class SearchButton: UIButton {
     }
     
     func touchDown() {
+        
         if let subview = subviews.first as? UIImageView {
-            subview.tintColor = subviewColor.withAlphaComponent(0.6)
+            let tmpColor = subview.tintColor
+            subview.tintColor = tmpColor!.withAlphaComponent(0.6)
         }
         
         if let subview = subviews.first as? UILabel {
-            subview.textColor = subviewColor.withAlphaComponent(0.6)
+            let tmpColor = subview.textColor
+            subview.textColor = tmpColor!.withAlphaComponent(0.6)
         }
     }
     

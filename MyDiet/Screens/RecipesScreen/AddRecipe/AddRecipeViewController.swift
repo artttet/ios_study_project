@@ -606,8 +606,10 @@ class AddRecipeTableViewCell: UITableViewCell, UITextFieldDelegate {
             accessoryView = imageView
         }
         
-        let object = ["indexPath" : self.indexPath!, "item" : text!] as [String : Any]
-        NotificationCenter.default.post(name: .init(Notifications.ChangeText.rawValue), object: object)
+        if let finalText = text {
+            let object = ["indexPath" : self.indexPath!, "item" : text] as [String : Any]
+            NotificationCenter.default.post(name: .init(Notifications.ChangeText.rawValue), object: object)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
