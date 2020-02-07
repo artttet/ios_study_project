@@ -304,8 +304,8 @@
 		4FC6313F23C88ACF00D707A4 /* RecipesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4F4A208723EC3BC70073D1E1 /* RecipePage */,
 				4FC3D4EE23E9F73D00C95AA9 /* Recipes */,
+				4F4A208723EC3BC70073D1E1 /* RecipePage */,
 				4FC3D4EF23E9F75D00C95AA9 /* AddRecipe */,
 			);
 			path = RecipesScreen;

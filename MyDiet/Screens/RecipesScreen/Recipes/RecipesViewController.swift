@@ -298,9 +298,24 @@ extension RecipesViewController: RecipesCollectionViewCellDelegate {
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { action in
             
+            
         }))
         alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { action in
             self.deleteCell(at: collectionViewCell.index)
+            
+            let cell = collectionViewCell as! RecipesCollectionViewCell
+            
+            TodayScreenDataManager.WeekdayKeys.forEach({ key in
+                let dishes = UserDefaults.standard.array(forKey: key) as! [String]
+                dishes.forEach({ dish in
+                    if dish == cell.recipeNameLabel.text {
+                        TodayScreenDataManager.instance.changeDish(on: "Не выбрано", inCategory: dishes.firstIndex(of: dish)!, forKey: key)
+                    }
+                })
+            })
+            
+            //TodayScreenDataManager.instance.updateDishes()
+            NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
         }))
         
         alert.view.tintColor = UIColor(named: "primaryColor")
