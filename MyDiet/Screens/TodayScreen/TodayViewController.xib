@@ -55,6 +55,30 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-Dq-XOi" customClass="SearchButton" customModule="MyDiet" customModuleProvider="target">
+                    <rect key="frame" x="350" y="82.5" width="32" height="32"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cxf-cy-OE3">
+                            <rect key="frame" x="0.0" y="-1.5" width="32" height="35.5"/>
+                            <color key="tintColor" name="primaryColor"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium">
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
+                            </preferredSymbolConfiguration>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" name="backgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="cxf-cy-OE3" firstAttribute="leading" secondItem="dm3-Dq-XOi" secondAttribute="leading" id="1mf-7O-xpD"/>
+                        <constraint firstAttribute="width" constant="32" id="2j8-hE-xqy"/>
+                        <constraint firstAttribute="bottom" secondItem="cxf-cy-OE3" secondAttribute="bottom" id="AVg-L8-YYr"/>
+                        <constraint firstAttribute="height" constant="32" id="BFq-5t-Fnf"/>
+                        <constraint firstAttribute="trailing" secondItem="cxf-cy-OE3" secondAttribute="trailing" id="Ddg-5n-qEU"/>
+                        <constraint firstItem="cxf-cy-OE3" firstAttribute="top" secondItem="dm3-Dq-XOi" secondAttribute="top" id="hot-Hd-Xdu"/>
+                    </constraints>
+                    <connections>
+                        <action selector="settingsButtonAction:" destination="-1" eventType="touchUpInside" id="5ZP-sC-nXc"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
@@ -62,9 +86,11 @@
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Xt-eF-rjN"/>
                 <constraint firstItem="eea-oC-pjY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="8zM-L9-h7G"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="top" secondItem="6yc-qH-OdR" secondAttribute="bottom" constant="8" id="DAe-Nk-gHF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dm3-Dq-XOi" secondAttribute="trailing" constant="32" id="DQj-6E-8Kz"/>
                 <constraint firstItem="w4J-GH-Itd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HC2-io-V98"/>
                 <constraint firstItem="ObX-6V-NGs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="RTU-2r-rtT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w4J-GH-Itd" secondAttribute="bottom" id="bz3-zl-9jN"/>
+                <constraint firstItem="dm3-Dq-XOi" firstAttribute="centerY" secondItem="eea-oC-pjY" secondAttribute="centerY" id="g55-5w-eT5"/>
                 <constraint firstItem="6yc-qH-OdR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hKq-Sw-3rf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6yc-qH-OdR" secondAttribute="trailing" id="nlX-Je-Yqf"/>
                 <constraint firstItem="ObX-6V-NGs" firstAttribute="top" secondItem="eea-oC-pjY" secondAttribute="bottom" constant="8" id="o5Q-ht-c1U"/>
@@ -76,8 +102,12 @@
         </view>
     </objects>
     <resources>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <namedColor name="backgroundColor">
             <color red="0.88400000333786011" green="0.88400000333786011" blue="0.90299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.11400000005960464" green="0.52100002765655518" blue="0.50700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

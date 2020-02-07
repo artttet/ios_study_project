@@ -33,8 +33,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат с фасолью и шампиньонами" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmc-aH-B5x">
-                            <rect key="frame" x="32" y="119.33333333333331" width="311" height="67.666666666666686"/>
-                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="26"/>
+                            <rect key="frame" x="32" y="109" width="311" height="78"/>
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>

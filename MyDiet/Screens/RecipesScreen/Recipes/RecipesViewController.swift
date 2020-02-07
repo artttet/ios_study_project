@@ -91,7 +91,7 @@ class RecipesViewController: UIViewController {
         } else {
             fullRecipeList.forEach({ recipe in
                 if let name = recipe.name {
-                    if name.contains(textField.text!) {
+                    if name.lowercased().contains(textField.text!.lowercased()) {
                         recipeList.append(recipe)
                     }
                 }

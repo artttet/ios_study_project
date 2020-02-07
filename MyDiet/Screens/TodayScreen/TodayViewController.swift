@@ -8,6 +8,12 @@ class TodayViewController: UIViewController {
     @IBOutlet var calendarPagerView: CalendarPagerView!
     @IBOutlet var cardsPagerView: CardsPagerView!
     
+    
+    @IBAction func settingsButtonAction(_ sender: Any) {
+        print("settings")
+    }
+    
+    
     // Индекс для текущего дня
     static var selectedDay: Int = -1
     
