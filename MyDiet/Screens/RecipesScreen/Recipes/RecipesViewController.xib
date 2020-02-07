@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="collectionView" destination="CWk-1g-kyL" id="yYy-HK-qkW"/>
                 <outlet property="iconSearch" destination="yFd-Yb-2IO" id="sFH-8m-LyD"/>
-                <outlet property="iconSearchViewConstraintRight" destination="PrO-bP-gpy" id="Sdu-gR-73j"/>
+                <outlet property="iconSearchViewConstraintRight" destination="DlK-OT-Xzn" id="HTh-zj-jGM"/>
                 <outlet property="needRecipeLabel" destination="w7H-fP-hgS" id="qul-dQ-F6G"/>
                 <outlet property="plusButtonView" destination="wZ7-WQ-v6F" id="vqE-oB-qGU"/>
                 <outlet property="recipesLabel" destination="XOA-CC-u1i" id="cEx-yQ-XuM"/>
@@ -26,40 +26,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецепты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOA-CC-u1i">
-                    <rect key="frame" x="32" y="32" width="158.5" height="44.5"/>
-                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
-                    <color key="textColor" name="primaryColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFd-Yb-2IO" customClass="SearchButton" customModule="MyDiet" customModuleProvider="target">
-                    <rect key="frame" x="311" y="38.5" width="32" height="32"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-zG-5JJ" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="88.5" width="375" height="578.5"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VwQ-V2-OiZ">
-                            <rect key="frame" x="-0.5" y="0.0" width="33.5" height="31"/>
-                            <color key="tintColor" name="primaryColor"/>
-                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
-                            </preferredSymbolConfiguration>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" name="backgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="4FR-fz-ucz"/>
-                        <constraint firstItem="VwQ-V2-OiZ" firstAttribute="centerY" secondItem="yFd-Yb-2IO" secondAttribute="centerY" id="Wrn-u5-OKY"/>
-                        <constraint firstItem="VwQ-V2-OiZ" firstAttribute="centerX" secondItem="yFd-Yb-2IO" secondAttribute="centerX" id="eet-xi-ulP"/>
-                        <constraint firstAttribute="width" constant="32" id="uhc-mv-8XT"/>
-                    </constraints>
-                    <connections>
-                        <action selector="iconSearchAction:" destination="-1" eventType="touchUpInside" id="9oA-aX-6Sy"/>
-                    </connections>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-zG-5JJ">
-                    <rect key="frame" x="0.0" y="84.5" width="375" height="582.5"/>
-                    <subviews>
-                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-1g-kyL">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="582.5"/>
+                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" indicatorStyle="black" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-1g-kyL">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="578.5"/>
                             <color key="backgroundColor" name="backgroundColor"/>
+                            <viewLayoutGuide key="contentLayoutGuide" id="i5T-2U-bmJ"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="60n-2t-yZd"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="o7w-Y2-bVn">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -111,7 +85,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZ7-WQ-v6F" customClass="PlusRecipeButton" customModule="MyDiet" customModuleProvider="target">
-                            <rect key="frame" x="295" y="502.5" width="64" height="64"/>
+                            <rect key="frame" x="295" y="498.5" width="64" height="64"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kvt-ge-5Ka">
                                     <rect key="frame" x="16" y="18" width="32" height="28"/>
@@ -153,42 +127,82 @@
                         <constraint firstItem="CWk-1g-kyL" firstAttribute="top" secondItem="lX1-zG-5JJ" secondAttribute="top" id="u5e-gs-q2A"/>
                     </constraints>
                 </view>
-                <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Название рецепта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P3M-13-ZOG">
-                    <rect key="frame" x="72" y="42.5" width="247" height="24"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQl-0r-0Se" userLabel="Top Background">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецепты" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOA-CC-u1i">
+                            <rect key="frame" x="32" y="32" width="158.5" height="44.5"/>
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
+                            <color key="textColor" name="primaryColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFd-Yb-2IO" customClass="SearchButton" customModule="MyDiet" customModuleProvider="target">
+                            <rect key="frame" x="311" y="38.5" width="32" height="32"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VwQ-V2-OiZ">
+                                    <rect key="frame" x="-1" y="0.0" width="34" height="31.5"/>
+                                    <color key="tintColor" name="primaryColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
+                                    </preferredSymbolConfiguration>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" name="backgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="4FR-fz-ucz"/>
+                                <constraint firstItem="VwQ-V2-OiZ" firstAttribute="centerY" secondItem="yFd-Yb-2IO" secondAttribute="centerY" id="Wrn-u5-OKY"/>
+                                <constraint firstItem="VwQ-V2-OiZ" firstAttribute="centerX" secondItem="yFd-Yb-2IO" secondAttribute="centerX" id="eet-xi-ulP"/>
+                                <constraint firstAttribute="width" constant="32" id="uhc-mv-8XT"/>
+                            </constraints>
+                            <connections>
+                                <action selector="iconSearchAction:" destination="-1" eventType="touchUpInside" id="9oA-aX-6Sy"/>
+                            </connections>
+                        </view>
+                        <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Название рецепта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P3M-13-ZOG">
+                            <rect key="frame" x="72" y="42.5" width="247" height="24"/>
+                            <color key="backgroundColor" name="backgroundColor"/>
+                            <color key="tintColor" name="primaryColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="eq3-3L-Uht"/>
+                            </constraints>
+                            <color key="textColor" name="primaryColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                        </textField>
+                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-rS-ytn">
+                            <rect key="frame" x="319" y="46" width="24" height="17"/>
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="MjK-ye-coN"/>
+                                <constraint firstAttribute="width" constant="24" id="R9i-hw-NuB"/>
+                            </constraints>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" name="backgroundColor"/>
-                    <color key="tintColor" name="primaryColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="24" id="eq3-3L-Uht"/>
+                        <constraint firstAttribute="trailing" secondItem="gmX-rS-ytn" secondAttribute="trailing" constant="32" id="8xh-O6-Nbj"/>
+                        <constraint firstItem="P3M-13-ZOG" firstAttribute="leading" secondItem="nQl-0r-0Se" secondAttribute="leading" constant="72" id="Apc-J4-NI8"/>
+                        <constraint firstAttribute="trailing" secondItem="yFd-Yb-2IO" secondAttribute="trailing" constant="32" id="DlK-OT-Xzn"/>
+                        <constraint firstItem="XOA-CC-u1i" firstAttribute="leading" secondItem="nQl-0r-0Se" secondAttribute="leading" constant="32" id="JGp-D8-oIc"/>
+                        <constraint firstItem="P3M-13-ZOG" firstAttribute="centerY" secondItem="XOA-CC-u1i" secondAttribute="centerY" id="PXM-4E-4PL"/>
+                        <constraint firstItem="XOA-CC-u1i" firstAttribute="top" secondItem="nQl-0r-0Se" secondAttribute="topMargin" constant="24" id="c2g-u5-3pm"/>
+                        <constraint firstAttribute="bottom" secondItem="XOA-CC-u1i" secondAttribute="bottom" constant="12" id="fdr-m1-Heu"/>
+                        <constraint firstItem="gmX-rS-ytn" firstAttribute="centerY" secondItem="P3M-13-ZOG" secondAttribute="centerY" id="hPQ-gU-vAY"/>
+                        <constraint firstItem="yFd-Yb-2IO" firstAttribute="centerY" secondItem="XOA-CC-u1i" secondAttribute="centerY" id="n1N-km-ZWz"/>
+                        <constraint firstAttribute="trailing" secondItem="P3M-13-ZOG" secondAttribute="trailing" constant="56" id="syF-aK-57x"/>
                     </constraints>
-                    <color key="textColor" name="primaryColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                </textField>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-rS-ytn">
-                    <rect key="frame" x="319" y="46" width="24" height="17"/>
-                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="MjK-ye-coN"/>
-                        <constraint firstAttribute="width" constant="24" id="R9i-hw-NuB"/>
-                    </constraints>
-                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" name="backgroundColor"/>
             <constraints>
-                <constraint firstItem="XOA-CC-u1i" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="29w-GX-oYW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gmX-rS-ytn" secondAttribute="trailing" constant="32" id="68T-pS-Ih7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lX1-zG-5JJ" secondAttribute="trailing" id="6Ed-Ln-xvg"/>
-                <constraint firstItem="lX1-zG-5JJ" firstAttribute="top" secondItem="XOA-CC-u1i" secondAttribute="bottom" constant="8" id="Auq-UM-qad"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="P3M-13-ZOG" secondAttribute="trailing" constant="56" id="HZN-zk-dF6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yFd-Yb-2IO" secondAttribute="trailing" constant="32" id="PrO-bP-gpy"/>
-                <constraint firstItem="gmX-rS-ytn" firstAttribute="centerY" secondItem="P3M-13-ZOG" secondAttribute="centerY" id="V2e-mH-hZa"/>
+                <constraint firstAttribute="trailing" secondItem="nQl-0r-0Se" secondAttribute="trailing" id="7wy-gh-EEk"/>
+                <constraint firstItem="nQl-0r-0Se" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UpE-yc-Me4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lX1-zG-5JJ" secondAttribute="bottom" id="YRe-as-gRj"/>
                 <constraint firstItem="lX1-zG-5JJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bHl-D1-aCm"/>
-                <constraint firstItem="P3M-13-ZOG" firstAttribute="centerY" secondItem="yFd-Yb-2IO" secondAttribute="centerY" id="gOQ-JC-OHH"/>
-                <constraint firstItem="VwQ-V2-OiZ" firstAttribute="centerY" secondItem="XOA-CC-u1i" secondAttribute="centerY" id="nLc-Zl-ocb"/>
-                <constraint firstItem="P3M-13-ZOG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="72" id="qH7-uD-3gl"/>
-                <constraint firstItem="XOA-CC-u1i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="ugc-lm-BCA"/>
+                <constraint firstItem="lX1-zG-5JJ" firstAttribute="top" secondItem="nQl-0r-0Se" secondAttribute="bottom" id="k7b-ew-BUD"/>
+                <constraint firstItem="nQl-0r-0Se" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pRi-EZ-sfb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-15" y="82"/>

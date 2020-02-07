@@ -57,6 +57,34 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate {
             
             let recipe = Recipe()
             
+            let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: "name")
+            do {
+                try fetchedController.performFetch()
+            } catch {}
+            let recipeList = fetchedController.fetchedObjects as! [Recipe]
+            
+            
+            
+            var counter = 0
+            var tmpRecipeName: String!
+            recipeList.forEach( { recipe in
+                if let name = recipe.name {
+                    if recipeName == name {
+                        counter += 1
+                        tmpRecipeName = recipeName + " (\(counter))"
+                    }
+                    
+                    if name.contains(recipeName + " (") {
+                        counter += 1
+                        tmpRecipeName = recipeName + " (\(counter))"
+                    }
+                }
+            })
+            if let name = tmpRecipeName {
+                recipeName = name
+            }
+            
+            
             recipe.name = recipeName
             recipe.category = category
             
