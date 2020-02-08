@@ -55,45 +55,60 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate {
                 }
             })
             
-            let recipe = Recipe()
+            var ingredientsData: Data!
+            var stepsData: Data!
             
-            let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: "name")
             do {
-                try fetchedController.performFetch()
+                try ingredientsData = NSKeyedArchiver.archivedData(withRootObject: finishIngredients, requiringSecureCoding: false)
+                try stepsData = NSKeyedArchiver.archivedData(withRootObject: finishSteps, requiringSecureCoding: false)
             } catch {}
-            let recipeList = fetchedController.fetchedObjects as! [Recipe]
             
-            
-            
-            var counter = 0
-            var tmpRecipeName: String!
-            recipeList.forEach( { recipe in
-                if let name = recipe.name {
-                    if recipeName == name {
-                        counter += 1
-                        tmpRecipeName = recipeName + " (\(counter))"
+            let recipeList = RecipesScreenDataManager.instance.getRecipeList(withSortKey: "name")
+
+            if type == "Add" {
+                var counter = 0
+                var tmpRecipeName: String!
+                recipeList.forEach( { recipe in
+                    if let name = recipe.name {
+                        if recipeName == name {
+                            counter += 1
+                            tmpRecipeName = recipeName + " (\(counter))"
+                        }
+                        
+                        if name.contains(recipeName + " (") {
+                            counter += 1
+                            tmpRecipeName = recipeName + " (\(counter))"
+                        }
                     }
-                    
-                    if name.contains(recipeName + " (") {
-                        counter += 1
-                        tmpRecipeName = recipeName + " (\(counter))"
-                    }
+                })
+                if let name = tmpRecipeName {
+                    recipeName = name
                 }
-            })
-            if let name = tmpRecipeName {
-                recipeName = name
             }
             
+            if type == "Change" {
+                RecipesScreenDataManager.instance.deleteRecipe(at: recipeIndex, withSortKey: "name")
+                
+                TodayScreenDataManager.WeekdayKeys.forEach({ key in
+                    let dishes = UserDefaults.standard.array(forKey: key) as! [String]
+                    dishes.forEach({ dish in
+                        if dish == oldRecipeName {
+                            TodayScreenDataManager.instance.changeDish(on: recipeName, inCategory: dishes.firstIndex(of: dish)!, forKey: key)
+                        }
+                    })
+                })
+                
+                NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
+            }
+    
+            let recipe = Recipe()
             
             recipe.name = recipeName
             recipe.category = category
+            recipe.ingredients = ingredientsData
+            recipe.steps = stepsData
             
-            do {
-                try recipe.ingredients = NSKeyedArchiver.archivedData(withRootObject: finishIngredients, requiringSecureCoding: false)
-                try recipe.steps = NSKeyedArchiver.archivedData(withRootObject: finishSteps, requiringSecureCoding: false)
-            } catch {}
-            
-            CoreDataManager.instance.saveContext(forEntity: Entity.Recipe)
+            CoreDataManager.instance.saveContext(forEntity: .Recipe)
             NotificationCenter.default.post(name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
             
             self.dismiss(animated: true, completion: nil)
@@ -126,6 +141,13 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate {
     
     let pickerViewTitles = ["Завтрак", "Обед", "Ужин"]
     
+    // "Add" or "Change"
+    var type: String!
+    
+    var recipeIndex: Int!
+    
+    var oldRecipeName: String!
+    
     var recipeName: String!
     
     var category: String!
@@ -145,9 +167,13 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        recipeName = "Название рецепта"
-        
-        category = "Категория"
+        if recipeName == nil {
+            type = "Add"
+            recipeName = "Название рецепта"
+            category = "Категория"
+        } else {
+            oldRecipeName = recipeName
+        }
         
         readyButtonView.layer.cornerRadius = readyButtonView.frame.size.height / 2
         

@@ -38,6 +38,11 @@ class TodayViewController: UIViewController {
         
         cardsPagerView.appDayList = appDayList
         cardsPagerView.monthNumber = AppCalendar.instance.getMonth().number
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollPagerViews(_:)), name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkboxTapped(_:)), name: .init(Notifications.CheckboxTapped.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadPagerViews), name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openRecipePage(_:)), name: .init(Notifications.OpenRecipePage.rawValue), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,19 +51,7 @@ class TodayViewController: UIViewController {
         
         reloadPagerViews()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(scrollPagerViews(_:)), name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(checkboxTapped(_:)), name: .init(Notifications.CheckboxTapped.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadPagerViews), name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openRecipePage(_:)), name: .init(Notifications.OpenRecipePage.rawValue), object: nil)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         
-        NotificationCenter.default.removeObserver(self, name: .init(Notifications.ScrollPagerViews.rawValue), object: nil)
-        NotificationCenter.default.removeObserver(self, name: .init( Notifications.CheckboxTapped.rawValue), object: nil)
-        NotificationCenter.default.removeObserver(self, name: .init( Notifications.ReloadPagerViews.rawValue), object: nil)
-        NotificationCenter.default.removeObserver(self, name: .init(Notifications.OpenRecipePage.rawValue), object: nil)
     }
     
     @objc

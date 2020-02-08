@@ -95,6 +95,8 @@ extension CardsPagerView: FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: reuseId, at: index) as! CardsPagerViewCell
+        cell.delegate = self
+        
         let data = createData(index: index)
         let appDay = data.appDay
         

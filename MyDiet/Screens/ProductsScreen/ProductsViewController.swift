@@ -28,7 +28,7 @@ class ProductsViewController: UIViewController {
         }))
         
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Введите продукт"
+            textField.placeholder = "Введите нпзвание продукта"
             textField.textColor = UIColor(named: "primaryColor")
         })
         
@@ -63,16 +63,47 @@ class ProductsViewController: UIViewController {
             
             let touchPoint = longPressGestureRecognizer.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint)  {
+                let oldProductName = productList[indexPath.row].name
                 let alert = UIAlertController(title: "Выберите действие", message: nil, preferredStyle: .actionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
                 
-                alert.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: nil))
+                // Change Product -------------------------------------------------------------------------------
+                alert.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { _ in
+                    
+                    let alert = UIAlertController(title: nil, message: "Изменить продукт", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+                    
+                    alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: { _ in
+                        let textField = alert.textFields![0] as UITextField
+                        if textField.text!.isEmpty {
+                            return
+                        } else {
+                            if textField.text == oldProductName {
+                                return
+                            } else {
+                                ProductsScreenDataManager.instance.changeName(in: indexPath.row, to: textField.text!)
+                                self.updateTableView(withInsert: false)
+                            }
+                        }
+                    }))
+                    
+                    alert.addTextField(configurationHandler: { textField in
+                        textField.text = oldProductName
+                        textField.placeholder = "Введите название продукта"
+                        textField.textColor = UIColor(named: "primaryColor")
+                    })
+                    
+                    alert.view.tintColor = UIColor(named: "primaryColor")
+                    
+                    self.present(alert, animated: true)
+                    //---------------------------------------------------------------------------------------
+                }))
                 
                 alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { _ in
                     self.tableView.beginUpdates()
                     self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                    ProductsScreenDataManager.instance.deleteProdutc(at: indexPath.row, withSortKey: "addDate")
+                    ProductsScreenDataManager.instance.deleteProduct(at: indexPath.row, withSortKey: "addDate")
                     self.productList = ProductsScreenDataManager.instance.getProductList(withSortKey: "addDate")
                     self.tableView.endUpdates()
                 }))
@@ -90,6 +121,7 @@ class ProductsViewController: UIViewController {
         if isInsert {
             tableView.insertRows(at: [IndexPath(row: productList.count-1, section: 0)], with: .automatic)
         }
+        tableView.reloadData()
         tableView.endUpdates()
     }
     

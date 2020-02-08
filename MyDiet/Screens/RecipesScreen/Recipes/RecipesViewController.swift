@@ -297,7 +297,25 @@ extension RecipesViewController: RecipesCollectionViewCellDelegate {
         
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { action in
+            let destinationVC = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
             
+            destinationVC.type = "Change"
+            destinationVC.recipeIndex = collectionViewCell.index
+            
+            let recipe = self.recipeList[collectionViewCell.index]
+            destinationVC.recipeName = recipe.name
+            destinationVC.category = recipe.category
+            
+            do {
+                try destinationVC.ingredients = NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(recipe.ingredients!) as! [String]
+                try destinationVC.steps = NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(recipe.steps!) as! [String]
+            } catch {}
+            
+            destinationVC.ingredients.append("Добавить ингредиент")
+            destinationVC.steps.append("Добавить шаг")
+            
+            print(destinationVC.recipeName)
+            self.present(destinationVC, animated: true, completion: nil)
             
         }))
         alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { action in
@@ -314,7 +332,6 @@ extension RecipesViewController: RecipesCollectionViewCellDelegate {
                 })
             })
             
-            //TodayScreenDataManager.instance.updateDishes()
             NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
         }))
         

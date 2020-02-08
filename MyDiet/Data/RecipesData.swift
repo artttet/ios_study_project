@@ -16,13 +16,7 @@ class RecipesScreenDataManager {
     }
     
     func addRecipe(recipe: Recipe) {
-        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: "name")
-        
-        do {
-            try fetchedController.performFetch()
-        } catch { print(error) }
-        
-        var fetchedObjects = fetchedController.fetchedObjects as! [Recipe]
+        var fetchedObjects = getRecipeList(withSortKey: "name")
         
         fetchedObjects.append(recipe)
         
@@ -40,6 +34,28 @@ class RecipesScreenDataManager {
         
         CoreDataManager.instance.deleteObject(forEntity: Entity.Recipe, object: managedObject)
     }
+    
+//    func changeRecipe(at index: Int, name: String, category: String, ingredients: Data, steps: Data) {
+//        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: .Recipe, keyForSort: "name")
+//        
+//        do {
+//            try fetchedController.performFetch()
+//        } catch { print(error) }
+//        
+//        let recipe = fetchedController.object(at: IndexPath(row: index, section: 0)) as! Recipe
+//        print(recipe.name)
+//        
+//        
+//        recipe.name = name
+//        recipe.category = category
+//        recipe.ingredients = ingredients
+//        recipe.steps = steps
+//        
+//       
+//        
+//        CoreDataManager.instance.saveContext(forEntity: .Recipe)
+//        
+//    }
 }
 
 extension RecipesScreenDataManager {
