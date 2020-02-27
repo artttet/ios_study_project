@@ -1,132 +1,77 @@
 import UIKit
-import FSPagerView
 import BEMCheckBox
+import FSPagerView
 
-protocol CardsPagerViewCellDelegate: AnyObject {
-    func cardTapped(_ collectionViewCell: CardsPagerViewCell)
-    func checkboxTapped(_ checkBox: BEMCheckBox, dayNumber: Int)
+protocol CardsPagerViewCellDelegate: NSObjectProtocol {
+    func cardsPagerViewCell(checkboxDidTap checkbox: BEMCheckBox, cardDayNumber: Int)
+    func cardsPagerViewCell(dishLabelDidTap label: UILabel)
 }
 
-class CardsPagerViewCell: FSPagerViewCell, BEMCheckBoxDelegate {
-    @IBOutlet weak var dayNameLabel: UILabel!
-    @IBOutlet weak var cardView: GradientView!
+class CardsPagerViewCell: FSPagerViewCell {
     
-    @IBOutlet var breakfastLabel: UILabel!
-    @IBOutlet var dinnerLabel: UILabel!
-    @IBOutlet var dinner2Label: UILabel!
+    @IBOutlet var dayNameLabel: UILabel!
+    @IBOutlet var cardView: GradientView!
     
+    var checkboxes: [BEMCheckBox]!
     @IBOutlet var breakfastCB: BEMCheckBox!
     @IBOutlet var dinnerCB: BEMCheckBox!
     @IBOutlet var dinner2CB: BEMCheckBox!
     
-    lazy var cardDidTap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.cardTapped(_:)))
-        return t
-    }()
-    
-    lazy var breakfastCheckBoxDidTap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.checkboxTapped(_:)))
-        return t
-    }()
-    
-    lazy var dinnerCheckBoxDidTap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.checkboxTapped(_:)))
-        return t
-    }()
-    
-    lazy var dinner2CheckBoxDidTap: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(self.checkboxTapped(_:)))
-        return t
-    }()
+    var labels: [UILabel]!
+    @IBOutlet var breakfastLabel: UILabel!
+    @IBOutlet var dinnerLabel: UILabel!
+    @IBOutlet var dinner2Label: UILabel!
     
     weak var delegate: CardsPagerViewCellDelegate?
     
-    var checkboxes: [BEMCheckBox]?
-    
-    var number: Int = 0
+    var dayNumber: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        labels = [breakfastLabel, dinnerLabel, dinner2Label]
+        labels.forEach({ label in
+            label.addGestureRecognizer(setGesture())
+        })
+        
         checkboxes = [breakfastCB, dinnerCB, dinner2CB]
+        checkboxes.forEach({ cb in
+            cb.delegate = self
+            cb.animationDuration = 0.5
+        })
         
-        setupCardView()
-        
-        breakfastCB.addGestureRecognizer(breakfastCheckBoxDidTap)
-        dinnerCB.addGestureRecognizer(dinnerCheckBoxDidTap)
-        dinner2CB.addGestureRecognizer(dinner2CheckBoxDidTap)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        // Позволяет кликать по элементам внутри cell'a
         contentView.removeFromSuperview()
     }
     
     @objc
-    func setupCardView() {
-        cardView.shadowColor = UIColor(named: "primaryDarkColor")!
-        cardView.shadowBlur = 10
-        cardView.shadowX = 0
-        cardView.shadowY = 8
-        cardView.shadowOpacity = 0.8
-        
-        cardView.isUserInteractionEnabled = true
-        cardView.addGestureRecognizer(cardDidTap)
+    func dishLabelTapped(_ sender: UITapGestureRecognizer) {
+        let label = sender.view as! UILabel
+        delegate?.cardsPagerViewCell(dishLabelDidTap: label)
     }
     
-    @objc
-    func cardTapped(_ sender: UITapGestureRecognizer) {
-        delegate?.cardTapped(self)
+    func setGesture() -> UITapGestureRecognizer {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dishLabelTapped(_:)))
+        return gestureRecognizer
     }
     
-    @objc
-    func checkboxTapped(_ sender: UITapGestureRecognizer) {
-        let checkBox = sender.view as! BEMCheckBox
-        let tag = checkBox.tag
-        
-        if checkBox.on {
-            let color = UIColor.white
-            checkBox.setOn(false, animated: true)
-            switch tag {
-            case 0:
-                breakfastLabel.textColor = color
-            case 1:
-                dinnerLabel.textColor = color
-            case 2:
-                dinner2Label.textColor = color
-            default:
-                break
-            }
-        } else if !checkBox.on {
-            let color = UIColor(named: "primaryColor")
-            checkBox.setOn(true, animated: true)
-            switch tag {
-            case 0:
-                breakfastLabel.textColor = color
-            case 1:
-                dinnerLabel.textColor = color
-            case 2:
-                dinner2Label.textColor = color
-            default:
-                break
-            }
-        }
-        
-        delegate?.checkboxTapped(checkBox, dayNumber: number)
+    func labelTextColor(state: Bool) -> UIColor {
+        return state ? UIColor.primary : UIColor.white
     }
-    
-    
-    
     
 }
 
-extension CardsPagerViewCell: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+extension CardsPagerViewCell: BEMCheckBoxDelegate {
+    func didTap(_ checkBox: BEMCheckBox) {
+        checkBox.setOn(checkBox.on, animated: true)
+        
+        delegate?.cardsPagerViewCell(checkboxDidTap: checkBox, cardDayNumber: dayNumber)
+    }
+    
+    func animationDidStop(for checkBox: BEMCheckBox) {
+        labels[checkBox.tag].textColor = labelTextColor(state: checkBox.on)
     }
 }
-
-
-

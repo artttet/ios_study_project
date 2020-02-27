@@ -28,7 +28,7 @@ class ProductsViewController: UIViewController {
         }))
         
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Введите нпзвание продукта"
+            textField.placeholder = "Введите название продукта"
             textField.textColor = UIColor(named: "primaryColor")
         })
         

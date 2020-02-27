@@ -1,7 +1,7 @@
 import UIKit
 
 protocol RecipesCollectionViewCellDelegate {
-    func viewTapped(_ collectionViewCell: RecipesCollectionViewCell)
+    func moreButtonDidTap(_ collectionViewCell: RecipesCollectionViewCell)
 }
 
 class RecipesCollectionViewCell: UICollectionViewCell {
@@ -11,7 +11,7 @@ class RecipesCollectionViewCell: UICollectionViewCell {
     @IBOutlet var view: GradientView!
     
     @IBAction func moreButtonAction(_ sender: Any) {
-        delegate?.viewTapped(self)
+        delegate?.moreButtonDidTap(self)
     }
     
     var delegate: RecipesCollectionViewCellDelegate?

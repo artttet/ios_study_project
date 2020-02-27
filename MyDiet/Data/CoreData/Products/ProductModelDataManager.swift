@@ -1,11 +1,11 @@
 import CoreData
 
-class ProductDataManager {
+class ProductModelDataManager {
     
-    static let instance = ProductDataManager()
+    static let instance = ProductModelDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: Entity.Product.modelName())
+        let container = NSPersistentContainer(name: CoreDataManager.Entity.Product.modelName())
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -20,8 +20,8 @@ class ProductDataManager {
         return NSEntityDescription.entity(forEntityName: name, in: persistentContainer.viewContext)!
     }
     
-    func fetchedResultsController(entityName: String, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    func fetchedResultsController(entity: CoreDataManager.Entity, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.rawValue)
         let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)

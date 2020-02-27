@@ -4,44 +4,71 @@ class CoreDataManager {
     
     static let instance = CoreDataManager()
     
-    func getFetchedResultsController(forEntity entity: Entity, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+    func getFetchedResultsController(forEntity entity: CoreDataManager.Entity, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
         var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
         
         switch entity {
         case Entity.AppDay:
-            fetchedResultsController = AppDayDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
+            fetchedResultsController = AppDayModelDataManager.instance.fetchedResultsController(entity: entity, keyForSort: keyForSort)
         case Entity.Recipe:
-            fetchedResultsController = RecipeDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
+            fetchedResultsController = RecipeModelDataManager.instance.fetchedResultsController(entity: entity, keyForSort: keyForSort)
         case .Product:
-            fetchedResultsController = ProductDataManager.instance.fetchedResultsController(entityName: entity.rawValue, keyForSort: keyForSort)
+            fetchedResultsController = ProductModelDataManager.instance.fetchedResultsController(entity: entity, keyForSort: keyForSort)
         }
         
         return fetchedResultsController!
     }
     
-    func deleteObject(forEntity entity: Entity, object: NSManagedObject) {
-        switch entity {
-        case .Recipe: RecipeDataManager.instance.deleteObject(object: object)
-        case .Product: ProductDataManager.instance.deleteObject(object: object)
-        default: break }
+    func getObject(forEntity entity: CoreDataManager.Entity, at index: Int, withKeyForSort sortKey: String) -> Any {
+        let fetchedController = getFetchedResultsController(forEntity: entity, keyForSort: sortKey)
         
+        do {
+            try fetchedController.performFetch()
+        } catch { print(error) }
+        
+        return fetchedController.object(at: IndexPath(row: index, section: 0))
     }
     
-    func saveContext(forEntity: Entity?) {
-        
+    func deleteObject(forEntity entity: CoreDataManager.Entity, object: NSManagedObject) {
+        switch entity {
+        case .Recipe: RecipeModelDataManager.instance.deleteObject(object: object)
+        case .Product: ProductModelDataManager.instance.deleteObject(object: object)
+        default: break }
+    }
+    
+    func saveContext(forEntity: CoreDataManager.Entity?) {
         if let entity = forEntity {
             switch entity {
             case Entity.AppDay:
-                AppDayDataManager.instance.saveContext()
+                AppDayModelDataManager.instance.saveContext()
             case Entity.Recipe:
-                RecipeDataManager.instance.saveContext()
+                RecipeModelDataManager.instance.saveContext()
             case .Product:
-                ProductDataManager.instance.saveContext()
+                ProductModelDataManager.instance.saveContext()
             }
         } else {
-            AppDayDataManager.instance.saveContext()
-            RecipeDataManager.instance.saveContext()
-            ProductDataManager.instance.saveContext()
+            AppDayModelDataManager.instance.saveContext()
+            RecipeModelDataManager.instance.saveContext()
+            ProductModelDataManager.instance.saveContext()
+        }
+    }
+}
+
+// MARK: - Entity enum
+extension CoreDataManager {
+    enum Entity: String {
+        case AppDay
+        case Recipe
+        case Product
+        func modelName() -> String {
+            switch self {
+            case .AppDay:
+                return "AppDayModel"
+            case .Recipe:
+                return "RecipeModel"
+            case .Product:
+                return "ProductModel"
+            }
         }
     }
 }

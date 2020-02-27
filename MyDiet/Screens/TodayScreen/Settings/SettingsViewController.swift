@@ -1,164 +1,226 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var pickerStackView: UIStackView!
-    @IBOutlet var pickerView: UIPickerView!
-    @IBOutlet var pickerViewBackground: UIView!
-    @IBOutlet var topViewPickerStackView: UIView!
-    
-    @IBAction func closeButtonAction(_ sender: Any) {
-        NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func pickerCancelButtonAction(_ sender: Any) {
-        pickerViewAnimation()
-    }
-    
-    @IBAction func pickerReadyButtonAction(_ sender: Any) {
-        let cell = tableView.cellForRow(at: lastSelectedIndexPath)
+    // MARK: -  Views
+    var settingsLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Settings", comment: "")
+        label.textColor = .primary
+        label.font = .preferredFont(forTextStyle: .headline)
         
-        let newRecipeName = pickerViewTitles[pickerView.selectedRow(inComponent: 0)]
-        if newRecipeName == "Не выбрано" {
-            cell?.textLabel?.textColor = UIColor.lightGray
-        } else {
-            cell?.textLabel?.textColor = UIColor(named: "primaryPlusColor")
-        }
-        cell?.textLabel?.text = newRecipeName
-        
-        var key: Int!
-        if lastSelectedIndexPath.section == 6 {
-            key = 0
-        } else {
-            key = lastSelectedIndexPath.section + 1
-        }
-        
-        TodayScreenDataManager.instance.changeDish(on: newRecipeName, inCategory: lastSelectedIndexPath.row, forKey: TodayScreenDataManager.WeekdayKeys[key])
-        
-        pickerViewAnimation()
-    }
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
-    let weekdays: [Weekdays] = [.Monday, .Tuesday, .Wednesday, .Thursday, .Friday, .Saturday, .Sunday]
+    var closeButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.roundedRect)
+        button.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        
+        button.setTitle(NSLocalizedString("Close", comment: ""), for: .normal)
+        button.setTitleColor(.primary, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    var separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.backgroundColor = .background
+        tableView.sectionFooterHeight = 4.0
+        tableView.sectionHeaderHeight = 48.0
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    var pickerStackView: PickerStackView = {
+        let stackView = PickerStackView()
+        stackView.state = false
+        stackView.isHidden = true
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    var backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+        view.isHidden = true
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    // MARK: - Properties
+    let tableViewReuseId = "TableViewCell"
+    
+    var completionFunc: (() -> Void)!
+    
+    var recipes: [[Recipe]] = [[], [], []]
     
     var lastSelectedIndexPath: IndexPath!
-    
-    var pickerViewTitles: [String]!
-    
-    var pickerStackViewIsHidden: Bool!
-    var pickerStackViewPositionOff: CGFloat!
-    var pickerStackViewPositionOn: CGFloat!
-    
-    var breakfastList: [Recipe] = []
-    var dinnerList: [Recipe] = []
-    var dinner2List: [Recipe] = []
+
+    // MARK: - Overriden Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .background
         
         loadRecipes()
         
-        pickerStackViewIsHidden = true
-
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)!, right: 0)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingsTableViewCell")
+        setupViews()
+        setupConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if pickerStackView.frame.origin.y != pickerStackView.yPositionOn {
+            pickerStackView.frame.origin.y = pickerStackView.yPositionOff
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if pickerStackViewPositionOff == nil {
-            pickerStackViewPositionOff = self.view.frame.height
-            pickerStackViewPositionOn = pickerStackViewPositionOff - pickerStackView.frame.height
-            
-            pickerStackView.frame.origin.y = pickerStackViewPositionOff
-            
-            topViewPickerStackView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-            topViewPickerStackView.layer.cornerRadius = topViewPickerStackView.frame.height/3
-            
-            pickerViewBackground.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+        if pickerStackView.yPositionOff == nil {
+            pickerStackView.yPositionOff = view.frame.height
+            pickerStackView.yPositionOn = view.frame.height - pickerStackView.frame.height
         }
     }
     
+    // MARK: - Public Functions
     func loadRecipes() {
-        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: "name")
-        
-        do {
-            try fetchedController.performFetch()
-        } catch {}
-        
-        let recipes = fetchedController.fetchedObjects as! [Recipe]
+        let recipes = RecipesScreenDataManager.instance.getRecipeList(withSortKey: "name")
         
         recipes.forEach({ recipe in
             switch recipe.category {
-            case "Завтрак": breakfastList.append(recipe)
-            case "Обед": dinnerList.append(recipe)
-            case "Ужин": dinner2List.append(recipe)
+            case 0: self.recipes[0].append(recipe)
+            case 1: self.recipes[1].append(recipe)
+            case 2: self.recipes[2].append(recipe)
             default: break
             }
         })
     }
+
 }
 
-// MARK: - PickerViewAnimations
+// MARK: - Setup Views
 extension SettingsViewController {
-    
-    func pickerViewAnimation() {
+    func setupViews() {
+        view.addSubview(settingsLabel)
         
-        if pickerStackViewIsHidden {
-            self.pickerStackView.isHidden = false
-            self.pickerViewBackground.isHidden = false
+        view.addSubview(closeButton)
+        
+        view.addSubview(separator)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewReuseId)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.safeAreaInsets.bottom, right: 0)
+        view.addSubview(tableView)
+        
+        view.addSubview(backgroundView)
+        
+        pickerStackView.delegate = self
+        view.addSubview(pickerStackView)
+    }
+    
+    func setupConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        settingsLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 8).isActive = true
+        settingsLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor).isActive = true
+        
+        closeButton.centerYAnchor.constraint(equalTo: settingsLabel.centerYAnchor).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -12.0).isActive = true
+        
+        separator.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        separator.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 8).isActive = true
+        separator.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        separator.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        
+        tableView.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        backgroundView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        pickerStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40).isActive = true
+        pickerStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+        pickerStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
+    }
+}
+
+// MARK: - Actions
+extension SettingsViewController {
+    @objc func closeButtonAction() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func animatePickerStackView() {
+        let state = pickerStackView.state!
+        if !state {
+            pickerStackView.isHidden = false
+            backgroundView.isHidden = false
         }
         
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.25,
             delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: [.curveEaseIn],
+            options: [(state ? .curveEaseIn : .curveEaseOut), .transitionCrossDissolve],
             animations: {
-                if self.pickerStackViewIsHidden {
-                    self.pickerStackView.frame.origin.y = self.pickerStackViewPositionOn
-                    self.pickerViewBackground.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+                if state {
+                    self.pickerStackView.frame.origin.y = self.pickerStackView.yPositionOff
+                    self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
                 } else {
-                    self.pickerStackView.frame.origin.y = self.pickerStackViewPositionOff
-                    self.pickerViewBackground.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+                    self.pickerStackView.frame.origin.y = self.pickerStackView.yPositionOn
+                    self.backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
                 }
             },
             completion: { _ in
-                if !self.pickerStackViewIsHidden {
+                if state {
                     self.pickerStackView.isHidden = true
-                    self.pickerViewBackground.isHidden = true
+                    self.backgroundView.isHidden = true
                 }
-                self.pickerStackViewIsHidden = !self.pickerStackViewIsHidden
+                self.pickerStackView.state = !state
             }
         )
     }
-    
 }
 
 // MARK: - UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        weekdays.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return weekdays[section].description(isShort: false)
+        return TodayScreenDataManager.WeekdayKeys.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let index = section == 6 ? 0 : section + 1
+        let name = TodayScreenDataManager.WeekdayKeys[index]
+        
+        return String.localized(name)
     }
     
     func getRecipeName(for indexPath: IndexPath) -> String {
-        var key: Int!
-        if indexPath.section == 6 {
-            key = 0
-        } else {
-            key = indexPath.section + 1
-        }
+        let key = indexPath.section == 6 ? 0 : indexPath.section + 1
         
         let names = UserDefaults.standard.array(forKey: TodayScreenDataManager.WeekdayKeys[key]) as! [String]
         
@@ -166,86 +228,65 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath)
+        let recipeName = getRecipeName(for: indexPath)
+        var textColor: UIColor!
         
-        cell.backgroundColor = UIColor.white
-        cell.textLabel?.text = getRecipeName(for: indexPath)
-        if cell.textLabel?.text == "Не выбрано" {
-            cell.textLabel?.textColor = UIColor.lightGray
-        } else {
-            cell.textLabel?.textColor = UIColor(named: "primaryPlusColor")
-        }
+        if recipeName == "" { textColor = .lightGray }
+        else { textColor = .primaryPlus }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewReuseId, for: indexPath)
+        cell.textLabel?.text = recipeName == "" ? String.localized("Not_selected") : recipeName
+        cell.textLabel?.textColor = textColor
         
         return cell
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UItableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let titleInRow = tableView.cellForRow(at: indexPath)?.textLabel?.text
-        var selectedTitle: Int!
+        var selectedIndexForPicker: Int?
         
-        pickerViewTitles = ["Не выбрано"]
-        switch indexPath.row {
-        case 0:
-            breakfastList.forEach({ recipe in
-                pickerViewTitles.append(recipe.name!)
-                if pickerViewTitles.contains(recipe.name!) {
-                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
-                }
-            })
-        case 1:
-            dinnerList.forEach({ recipe in
-                pickerViewTitles.append(recipe.name!)
-                if pickerViewTitles.contains(recipe.name!) {
-                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
-                }
-            })
-        case 2:
-            dinner2List.forEach({ recipe in
-                pickerViewTitles.append(recipe.name!)
-                if pickerViewTitles.contains(recipe.name!) {
-                    selectedTitle = pickerViewTitles.firstIndex(of: titleInRow!)
-                }
-            })
-            
-        default: break
-        }
+        var titles: [String] = [.localized("Not_selected")]
         
-        pickerView.reloadComponent(0)
-        pickerView.selectRow(selectedTitle, inComponent: 0, animated: false)
+        recipes[indexPath.row].forEach({ recipe in
+            titles.append(recipe.name!)
+            if titles.contains(recipe.name!) {
+                selectedIndexForPicker = titles.firstIndex(of: titleInRow!)
+            }
+        })
+        
         lastSelectedIndexPath = indexPath
-        pickerViewAnimation()
+        
+        pickerStackView.updateTitles(to: titles, with: selectedIndexForPicker!)
+        animatePickerStackView()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 
-
-// MARK: - UIPickerViewDataSource & UIPickerViewDelegate
-extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+// MARK: - PickerStackViewDelegate
+extension SettingsViewController: PickerStackViewDelegate {
+    func cancelButtonDidTap() {
+        animatePickerStackView()
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if let titles = pickerViewTitles {
-            return titles.count
-        } else {
-            return 0
+    func readyButtonDidTap() {
+        let key = lastSelectedIndexPath.section == 6 ? 0 : lastSelectedIndexPath.section + 1
+        var newRecipeName = pickerStackView.titles[pickerStackView.selectedRow()]
+        
+        if newRecipeName == String.localized("Not_selected") {
+            newRecipeName = ""
         }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let title = pickerViewTitles[row]
+        TodayScreenDataManager.instance.changeDish(on: newRecipeName, inCategory: lastSelectedIndexPath.row, forKey: TodayScreenDataManager.WeekdayKeys[key])
         
-        let color = title == "Не выбрано" ? UIColor.lightGray : UIColor(named: "primaryColor")
-        let attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor : color as Any])
+        tableView.reloadData()
+        animatePickerStackView()
         
-        return attributedTitle
+        TodayScreenDataManager.instance.updateDishes()
+        if let function = completionFunc {
+            function()
+        }
     }
 }

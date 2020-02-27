@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,13 +94,13 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
                                                     <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
                                                     <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грибной крем-суп" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nh-VS-5aT">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Грибной крем-суп" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nh-VS-5aT">
                                             <rect key="frame" x="40" y="0.0" width="147" height="117.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -143,13 +143,13 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
                                                     <color key="value" name="primaryColor"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
                                                     <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат со свеклой и шпинатом" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-3l-zyo">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Салат со свеклой и шпинатом" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-3l-zyo">
                                             <rect key="frame" x="40" y="0.0" width="147" height="118"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,15 +195,27 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="18"/>
+                            <real key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" name="backgroundColor"/>
+                            <color key="value" name="primaryDarkColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowX">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowY">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Привет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il4-3B-YXh">
-                    <rect key="frame" x="32" y="24" width="73.5" height="26.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Day Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il4-3B-YXh">
+                    <rect key="frame" x="32" y="24" width="99" height="26.5"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -221,14 +233,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="breakfastCB" destination="eua-Ec-Ofr" id="pTA-u7-47I"/>
-                <outlet property="breakfastLabel" destination="EU5-wA-4Nz" id="ltN-X9-KK0"/>
-                <outlet property="cardView" destination="rH6-x9-VYY" id="E8k-rQ-hL2"/>
-                <outlet property="dayNameLabel" destination="il4-3B-YXh" id="UOw-no-Mhn"/>
-                <outlet property="dinner2CB" destination="m90-bB-X8E" id="yi8-pM-bRb"/>
-                <outlet property="dinner2Label" destination="6Ns-3l-zyo" id="IjC-jD-KJV"/>
-                <outlet property="dinnerCB" destination="VFd-99-00R" id="8qY-rg-L3q"/>
-                <outlet property="dinnerLabel" destination="2Nh-VS-5aT" id="DUS-Er-pUB"/>
+                <outlet property="breakfastCB" destination="eua-Ec-Ofr" id="5J3-dg-mLg"/>
+                <outlet property="breakfastLabel" destination="EU5-wA-4Nz" id="Frr-3P-tLT"/>
+                <outlet property="cardView" destination="rH6-x9-VYY" id="tCH-Zq-frh"/>
+                <outlet property="dayNameLabel" destination="il4-3B-YXh" id="O4h-Z2-fZz"/>
+                <outlet property="dinner2CB" destination="m90-bB-X8E" id="mlJ-3Z-k3n"/>
+                <outlet property="dinner2Label" destination="6Ns-3l-zyo" id="scp-9Y-Udc"/>
+                <outlet property="dinnerCB" destination="VFd-99-00R" id="wfL-8h-RtB"/>
+                <outlet property="dinnerLabel" destination="2Nh-VS-5aT" id="4ru-cB-V59"/>
             </connections>
             <point key="canvasLocation" x="-61.600000000000001" y="-420.08995502248877"/>
         </view>

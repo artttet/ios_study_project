@@ -4,8 +4,8 @@ import CoreData
 public class Dish: NSManagedObject {
 
     convenience init() {
-        let entity = AppDayDataManager.instance.entityDescription(forEntityName: "Dish")
-        let context = AppDayDataManager.instance.persistentContainer.viewContext
+        let entity = AppDayModelDataManager.instance.entityDescription(forEntityName: "Dish")
+        let context = AppDayModelDataManager.instance.persistentContainer.viewContext
         
         self.init(entity: entity, insertInto: context)
     }

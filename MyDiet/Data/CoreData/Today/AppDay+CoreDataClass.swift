@@ -4,8 +4,8 @@ import CoreData
 public class AppDay: NSManagedObject {
     
     convenience init() {
-        let entity = AppDayDataManager.instance.entityDescription(forEntityName: "AppDay")
-        let context = AppDayDataManager.instance.persistentContainer.viewContext
+        let entity = AppDayModelDataManager.instance.entityDescription(forEntityName: "AppDay")
+        let context = AppDayModelDataManager.instance.persistentContainer.viewContext
         
         self.init(entity: entity, insertInto: context)
     }

@@ -1,0 +1,81 @@
+
+// General
+
+"Today" = "Today";
+"Recipes" = "Recipes";
+"Products" = "Products";
+"Settings" = "Settings";
+
+"Need_add_recipes" = "Need to add recipes..";
+"Recipes_not_found" = "Recipes not found";
+
+// Actions
+
+"Yes" = "Yes";
+"No" = "No";
+"Ok" = "Ok";
+
+"Close" = "Close";
+
+"Select_action" = "Select the action";
+"Cancel" = "Cancel";
+"Delete" = "Delete";
+"Edit" = "Edit";
+"Ready" = "Ready";
+
+"Add_recipe" = "Add recipe";
+"Edit_recipe" = "Edit recipe";
+
+"Product_list" = "Product list";
+"Add_product" = "Add product";
+"Enter_name_of_product" = "Enter name of recipe";
+"Edit_product" = "Edit recipe";
+
+"Delete_ingredient" = "Delete ingredient";
+"Delete_step" = "Delete step";
+ 
+// Other
+
+"Ingredients" = "Ingredients";
+"Cooking" = "Cooking";
+
+"Name_of_recipe" = "Name of recipe";
+"Category" = "Category";
+"Enter_ingredient" = "Enter ingredient";
+"Add_ingredient" = "Add ingredient";
+"Enter_step" = "Enter step";
+"Add_step" = "Add step";
+
+"Breakfast" = "Breakfast";
+"Dinner" = "Dinner";
+"Dinner2" = "Supper";
+
+"Not_selected" = "Not selected";
+
+// Months
+
+"January" = "January";
+"February" = "February";
+"March" = "March";
+"April" = "April";
+"May" = "May";
+"June" = "June";
+"July" = "July";
+"August" = "August";
+"September" = "September";
+"October" = "October";
+"November" = "November";
+"December" = "December";
+
+// Weekdays
+
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+"Sunday" = "Sunday";
+
+
+

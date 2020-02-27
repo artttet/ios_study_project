@@ -36,5 +36,113 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "AddRecipeViewController2"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - 428d81d5d72cdc09"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.recipeName.getter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "131">
+               </Location>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - 591929ad55416c05"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.recipeName.setter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "153">
+               </Location>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - 9bc8379a5911780a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.recipeName.modify : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - f0be7802b2557065"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.recipeName.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - 6c553c11583efee4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MyDiet.AddRecipeViewController2"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  uuid = "5DB2F7B0-9F3A-4F2A-87C1-C3006F339C22 - a444491c322e55ff"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDiet.AddRecipeViewController2.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MyDiet.AddRecipeViewController2&gt;"
+                  moduleName = "MyDiet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/artas/Desktop/MyDiet2/MyDiet/Screens/RecipesScreen/AddRecipe/AddRecipeViewController2.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1315">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -7,7 +7,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstLaunchKey = "FirstLaunchKey"
         
         if UserDefaults.standard.bool(forKey: firstLaunchKey) {
-
+            
+        let appDayList = TodayScreenDataManager.instance.getAppDayList(withSortKey: "dayNumber")
+        appDayList.forEach({ day in
+            if day.isSelected {
+                if day.dayNumber != AppCalendar.instance.day {
+                    TodayScreenDataManager.instance.changeIsSelected(at: Int(day.dayNumber-1), state: false)
+                    TodayScreenDataManager.instance.changeIsSelected(at: AppCalendar.instance.day-1, state: true)
+                }
+            }
+        })
+            
         }else {
             UserDefaults.standard.setValue(true, forKey: firstLaunchKey)
             RecipesScreenDataManager.instance.createStartRecipes()

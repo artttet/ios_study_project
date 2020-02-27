@@ -1,285 +1,409 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
-    @IBOutlet var iconSearch: MyButton!
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var plusButtonView: PlusRecipeButton!
-    @IBOutlet var needRecipeLabel: UILabel!
-    @IBOutlet var recipesLabel: UILabel!
-    @IBOutlet var textField: UITextField!
-    @IBOutlet var xmark: UIImageView!
-    @IBOutlet var topBackgroundView: UIView!
     
-    @IBOutlet var iconSearchViewConstraintRight: NSLayoutConstraint!
-    
-    @IBAction func iconSearchAction(_ sender: Any) {
+    // MARK: - Views
+    let recipesLabel: UILabel = {
+        let label = UILabel()
+        label.text = .localized("Recipes")
+        label.textColor = .primary
+        label.font = .screenTitle
         
-        if !searchIsOpen {
-            openSearch()
-        } else {
-            textField.resignFirstResponder()
-        }
-    }
-    
-    lazy var xmarkAction: UITapGestureRecognizer = {
-        let t = UITapGestureRecognizer(target: self, action: #selector(xmarkTapped))
-        return t
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    var iconSearchViewConstraintLeft: NSLayoutConstraint!
+    let searchButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.backgroundColor = .background
+        button.tintColor = .primary
+        
+        let image = UIImage(systemName: "magnifyingglass")
+        button.setImage(image, for: .normal)
+        button.setPreferredSymbolConfiguration(.buttonImageConfiguration, forImageIn: .normal)
+        
+        button.addTarget(self, action: #selector(searchButtonDidTap), for: .touchUpInside)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let searchTextField: UITextField = {
+        let field = UITextField()
+        field.placeholder = .localized("Name_of_recipe")
+        field.textColor = .primary
+        field.tintColor = .primary
+        field.backgroundColor = .background
+        field.borderStyle = .none
+        field.autocorrectionType = .no
+        
+        field.alpha = 0.0
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
+    }()
+    
+    let closeSearchButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.backgroundColor = .background
+        button.tintColor = .placeholderText
+        
+        let image = UIImage(systemName: "xmark")
+        button.setImage(image, for: .normal)
+        
+        button.addTarget(self, action: #selector(closeSearchButtonDidTap), for: .touchUpInside)
+        
+        button.alpha = 0.0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.backgroundColor = .background
+        collection.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 8, right: 0)
+        
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
+    
+    let addRecipeButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.tintColor = .white
+        button.backgroundColor = .accent
+        
+        button.layer.cornerRadius = 32
+        button.layer.shadowColor = UIColor.accent.cgColor
+        button.layer.shadowRadius = 8
+        button.layer.shadowOpacity = 1.0
+        
+        let image = UIImage(systemName: "plus")
+        button.setImage(image, for: .normal)
+        button.setPreferredSymbolConfiguration(.buttonImageConfiguration, forImageIn: .normal)
+        
+        button.addTarget(self, action: #selector(addRecipeButtonDidTap), for: .touchUpInside)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let needRecipesLabel: UILabel = {
+        let label = UILabel()
+        label.text = .localized("Need_add_recipes")
+        label.textColor = .lightGray
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.textAlignment = .center
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    // MARK: - Properties
+    let recipesReuseId = "RecipesCollectionViewCell"
+    
+    var searchButtonLeadingConstraint: NSLayoutConstraint!
+    var searchButtonTrailingConstraint: NSLayoutConstraint!
     
     var searchIsOpen: Bool = false
     
-    var iconSearchOriginX: CGFloat = 0
-    
-    var style: UIStatusBarStyle = .default
-    
-    var isNeedPlusButtonShow = false;
-    
     var recipeList: [Recipe] = []
-    
     var fullRecipeList: [Recipe] = []
     
-    var recipePageViewController: RecipePageViewController?
+    var addRecipeButtonPositionOn: CGFloat!
+    var addRecipeButtonPositionOff: CGFloat!
     
+    var style: UIStatusBarStyle = .default
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.style }
     
+    // MARK: - Overriden Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.style = .darkContent
-        setNeedsStatusBarAppearanceUpdate()
+        updateCollectionView()
         
-        xmark.isUserInteractionEnabled = true
-        xmark.addGestureRecognizer(xmarkAction)
-        
-        updateRecipesCollectionView(nil)
-        
-        
-        collectionView.register(UINib(nibName: "RecipesCollectionViewCell", bundle: Bundle(identifier: "RecipesCollectionViewCell")), forCellWithReuseIdentifier: "RecipesCollectionViewCell")
-        collectionView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 8, right: 0)
-        
-        textField.delegate = self
-        textField.attributedPlaceholder = NSAttributedString(string: "Название рецепта", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
-        plusButtonView.addTarget(self, action: #selector(plusButtonTapped(_:)), for: .touchUpInside)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        recipePageViewController = RecipePageViewController()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateRecipesCollectionView(_:)), name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self, name: .init(Notifications.UpdateRecipesCollectionView.rawValue), object: nil)
+        setupViews()
+        setupConstraints()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if let contraint = iconSearchViewConstraintLeft {
-            return
-        } else {
-            iconSearchViewConstraintLeft = iconSearch.leadingAnchor.constraint(equalTo: topBackgroundView.leadingAnchor
-            , constant: 32)
+        if addRecipeButtonPositionOn == nil {
+            addRecipeButtonPositionOn = addRecipeButton.frame.origin.y
+            addRecipeButtonPositionOff = view.frame.height + 10
         }
-    }
-    
-    @objc
-    func plusButtonTapped(_ sender: PlusRecipeButton) {
-        let destinationVC = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
-        self.present(destinationVC, animated: true, completion: nil)
-    }
-    
-    @objc
-    func updateRecipesCollectionView(_ notification: Notification?) {
-        recipeList = RecipesScreenDataManager.instance.getRecipeList(withSortKey: "name")
         
-        fullRecipeList = recipeList
-        
-        if recipeList.count == 0 {
-            needRecipeLabel.isHidden = false
-        } else {
-            needRecipeLabel.isHidden = true
-        }
-    
-        self.collectionView.reloadData()
-    }
-    
-    func deleteCell(at index: Int) {
-        RecipesScreenDataManager.instance.deleteRecipe(at: index, withSortKey: "name")
-        updateRecipesCollectionView(nil)
     }
 }
 
-// MARK: - Search Functions
+// MARK: - Setup Views
 extension RecipesViewController {
     
-    @objc
-    func xmarkTapped() {
-        if textField.text!.isEmpty {
-            textField.resignFirstResponder()
-            closeSearch()
+    func addSearchField() {
+        
+        searchTextField.delegate = self
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        view.addSubview(searchTextField)
+        searchTextField.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        searchTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32 + 32 + 8).isActive = true
+        searchTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -(32 + 18 + 7)).isActive = true
+        searchTextField.centerYAnchor.constraint(equalTo: recipesLabel.centerYAnchor).isActive = true
+        
+        view.addSubview(closeSearchButton)
+        closeSearchButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        closeSearchButton.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        closeSearchButton.centerYAnchor.constraint(equalTo: searchTextField.centerYAnchor).isActive = true
+        closeSearchButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -(32 + 16)).isActive = true
+    }
+    
+    func removeTextField() {
+        searchTextField.removeFromSuperview()
+        closeSearchButton.removeFromSuperview()
+    }
+    
+    func addNeedRecipesLabel() {
+        
+        view.addSubview(needRecipesLabel)
+        needRecipesLabel.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 16 + 24).isActive = true
+        needRecipesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32).isActive = true
+        needRecipesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 32).isActive = true
+    }
+    
+    func setupViews() {
+        style = .darkContent
+        setNeedsStatusBarAppearanceUpdate()
+        view.backgroundColor = .background
+        
+        view.addSubview(recipesLabel)
+        
+        
+        view.addSubview(searchButton)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(.init(nibName: recipesReuseId, bundle: nil), forCellWithReuseIdentifier: recipesReuseId)
+        view.addSubview(collectionView)
+        
+        view.addSubview(addRecipeButton)
+    }
+    
+    func setupConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        recipesLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant:
+            32).isActive = true
+        recipesLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 32).isActive = true
+        
+        searchButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        searchButton.widthAnchor.constraint(equalToConstant: 32).isActive = true
+        searchButton.centerYAnchor.constraint(equalTo: recipesLabel.centerYAnchor).isActive = true
+        searchButtonLeadingConstraint = searchButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 32)
+        searchButtonTrailingConstraint = searchButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -32)
+        searchButtonTrailingConstraint.isActive = true
+        
+        collectionView.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 16.0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: 0).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor).isActive = true
+        
+        addRecipeButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        addRecipeButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        addRecipeButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -12).isActive = true
+        addRecipeButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -12).isActive = true
+    }
+}
+
+// MARK: - Actions
+extension RecipesViewController {
+    
+    @objc func searchButtonDidTap() {
+        animateSearchField(to: true)
+    }
+    
+    @objc func closeSearchButtonDidTap() {
+        if searchTextField.text!.isEmpty {
+            searchTextField.resignFirstResponder()
+            animateSearchField(to: false)
         } else {
-            textField.text = nil
-            textField.becomeFirstResponder()
-            
+            searchTextField.text = nil
+            searchTextField.becomeFirstResponder()
+
             recipeList = fullRecipeList
-            needRecipeLabel.text = "Необходимо добавить хотя бы один рецепт..."
-            
+            needRecipesLabel.text = .localized("Need_add_recipes")
+
             if recipeList.count == 0 {
-                needRecipeLabel.isHidden = false
+                addNeedRecipesLabel()
             } else {
-                needRecipeLabel.isHidden = true
+                needRecipesLabel.removeFromSuperview()
             }
-            
+
             collectionView.reloadData()
         }
     }
     
-    func openSearch() {
-        searchIsOpen = true
+    @objc func addRecipeButtonDidTap() {
+        let destinationVC = AddRecipeViewController2()
+        destinationVC.completionFunc = updateCollectionView
+        self.present(destinationVC, animated: true, completion: nil)
+    }
+    
+    func updateCollectionView() {
+        recipeList = RecipesScreenDataManager.instance.getRecipeList(withSortKey: "name")
+        
+        if recipeList.count == 0 { addNeedRecipesLabel() }
+        else { needRecipesLabel.removeFromSuperview() }
         
         fullRecipeList = recipeList
-        
-        iconSearchOriginX = iconSearch.frame.origin.x
+        collectionView.reloadData()
+    }
+}
+
+// MARK: - Animations
+extension RecipesViewController {
+    func showSearchField(to state: Bool) {
+        if state { addSearchField() }
+        UIView.animate(
+            withDuration: 0.1,
+            delay: 0.0,
+            options: [.curveEaseOut],
+            animations: {
+                self.searchTextField.alpha = state ? 1.0 : 0.0
+                self.closeSearchButton.alpha = state ? 1.0 : 0.0
+            },
+            completion: {_ in
+                if !state {
+                    self.removeTextField()
+                    self.moveSearchButton(to: state)
+                }
+                self.searchIsOpen = state
+            }
+        )
+    }
+    
+    func moveSearchButton(to state: Bool) {
+        if state {
+            searchButtonTrailingConstraint.isActive = false
+            searchButtonLeadingConstraint.isActive = true
+        } else {
+            searchButtonLeadingConstraint.isActive = false
+            searchButtonTrailingConstraint.isActive = true
+        }
         
         UIView.animate(
             withDuration: 0.3,
             delay: 0.0,
-            options: [ .curveEaseOut],
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 1.0,
+            options: [.curveEaseOut],
             animations: {
-                self.iconSearch.frame.origin.x = self.recipesLabel.frame.origin.x
-                
-                self.recipesLabel.isHidden = true
-            }, completion: { _ in
-                self.textField.becomeFirstResponder()
-                
-                self.textField.isHidden = false
-                self.xmark.isHidden = false
-            
-                //self.iconSearchViewConstraintLeft.isActive = true
-                self.iconSearchViewConstraintRight.isActive = false
+                self.view.layoutIfNeeded()
+            },
+            completion: { _ in
+                if state { self.showSearchField(to: state) }
+                else { self.showRecipesLabel(to: state) }
             }
         )
     }
-
-    func closeSearch() {
-        
-        recipeList = fullRecipeList
-        collectionView.reloadData()
-        
-        searchIsOpen = false
-        
-        self.textField.text = nil
-        self.textField.isHidden = true
-        self.xmark.isHidden = true
-        
+    
+    func showRecipesLabel(to state: Bool) {
         UIView.animate(
-            withDuration: 0.25,
-            delay: 0.0,
-            options: [ .curveEaseIn],
+            withDuration: 0.1,
             animations: {
-                
-                self.iconSearch.frame.origin.x = self.iconSearchOriginX
-            }, completion: { _ in
-                self.recipesLabel.isHidden = false
-                
-                self.iconSearchViewConstraintLeft.isActive = false
-                self.iconSearchViewConstraintRight.isActive = true
+            self.recipesLabel.alpha = state ? 0.0 : 1.0
+            },
+            completion: { _ in
+                if state { self.moveSearchButton(to: state) }
             }
+        )
+    }
+    
+    func animateSearchField(to state: Bool) {
+        if state { showRecipesLabel(to: state) }
+        else { showSearchField(to: state) }
+    }
+    
+    func animateAddRecipeButton(to state: Bool) {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 1.0,
+            options: [.curveEaseOut],
+            animations: {
+                self.addRecipeButton.frame.origin.y = state ? self.addRecipeButtonPositionOn
+                                                            : self.addRecipeButtonPositionOff
+            },
+            completion: nil
         )
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - Collection View Data Source
 extension RecipesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recipeList.count
+        recipeList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipesCollectionViewCell", for: indexPath) as! RecipesCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: recipesReuseId, for: indexPath) as! RecipesCollectionViewCell
+        let recipe = recipeList[indexPath.row]
+        let category = recipe.category
+        
+        var image: UIImage!
+        var recipeCategory: String!
+        switch category {
+        case 0:
+            image = UIImage(named: "breakfast.jpg")!
+            recipeCategory = .localized("Breakfast")
+        case 1:
+            image = UIImage(named: "dinner.jpg")
+            recipeCategory = .localized("Dinner")
+        case 2:
+            image = UIImage(named: "dinner2.jpg")
+            recipeCategory = .localized("Dinner2")
+        default: break
+        }
         
         cell.delegate = self
-        
         cell.index = indexPath.row
-        cell.recipeNameLabel.text = recipeList[indexPath.row].name
-        let category = recipeList[indexPath.row].category
-        cell.recipeCategory.text = category
-        
-        var image = UIImage()
-        if category == "Завтрак" {
-            image = UIImage(named: "breakfast.jpg")!
-        }
-        if category == "Обед" {
-            image = UIImage(named: "dinner.jpg")!
-        }
-        if category == "Ужин" {
-            image = UIImage(named: "dinner2.jpg")!
-        }
-        
         cell.imageView.image = image
+        cell.recipeNameLabel.text = recipe.name
+        cell.recipeCategory.text = recipeCategory
         
         return cell
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - Collection View Delegate
 extension RecipesViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        recipePageViewController?.recipe = recipeList[indexPath.row]
-
-        recipePageViewController?.modalPresentationStyle = .fullScreen
-        self.present(recipePageViewController!, animated: true, completion: nil)
+        let destinationVC = RecipePageViewController()
+        destinationVC.recipe = recipeList[indexPath.row]
         
+        destinationVC.modalPresentationStyle = .fullScreen
+        self.present(destinationVC, animated: true, completion: nil)
     }
     
-    func showPlusButton(_ state: Bool) {
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .beginFromCurrentState, animations: {
-            var plusButtonFrame = self.plusButtonView.frame
-            if state == true {
-                plusButtonFrame.origin.y -= plusButtonFrame.size.height+24
-            } else {
-                plusButtonFrame.origin.y += plusButtonFrame.size.height+24
-            }
-            
-            self.plusButtonView.frame = plusButtonFrame
-        })
-    }
-    
-    @objc
-    func plusButtonShowCheck() {
-        if collectionView.indexPathsForVisibleItems.contains(IndexPath(row: 0, section: 0)) {
-            if isNeedPlusButtonShow {
-                showPlusButton(true)
-                isNeedPlusButtonShow = false
-            }
-        } else {
-            if recipeList.count == 0 {
-                showPlusButton(true)
-                isNeedPlusButtonShow = false
-            }
-            if !isNeedPlusButtonShow {
-                showPlusButton(false)
-                isNeedPlusButtonShow = true
-            }
-        }
+    func deleteCell(at index: Int) {
+        RecipesScreenDataManager.instance.deleteRecipe(at: index, withSortKey: "name")
+        updateCollectionView()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        perform(#selector(plusButtonShowCheck), with: nil, afterDelay: 0.0)
+        if addRecipeButtonPositionOn != nil {
+            if recipeList.count != 0 {
+                if collectionView.indexPathsForVisibleItems.contains(IndexPath(row: 0, section: 0)) {
+                    animateAddRecipeButton(to: true)
+                } else {
+                    animateAddRecipeButton(to: false)
+                }
+            }
+        }
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - Collection View Delegate Flow Layout
 extension RecipesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.collectionView.frame.size.width
@@ -289,68 +413,61 @@ extension RecipesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - RecipesCollectionViewCellDelegate
+// MARK: - Collection View Cell Delegate
 extension RecipesViewController: RecipesCollectionViewCellDelegate {
-    func viewTapped(_ collectionViewCell: RecipesCollectionViewCell) {
-        
+    func moreButtonDidTap(_ collectionViewCell: RecipesCollectionViewCell) {
         let alert = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Редактировать", style: .default, handler: { action in
-            let destinationVC = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
-            
-            destinationVC.type = "Change"
+
+        alert.addAction(UIAlertAction(title: .localized("Cancel"), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: .localized("Edit"), style: .default, handler: { action in
+            let destinationVC = AddRecipeViewController2()
+            destinationVC.completionFunc = self.updateCollectionView
+            destinationVC.type = .edit
             destinationVC.recipeIndex = collectionViewCell.index
-            
+
             let recipe = self.recipeList[collectionViewCell.index]
             destinationVC.recipeName = recipe.name
-            destinationVC.category = recipe.category
-            
+            destinationVC.category = Int(recipe.category)
+
             do {
                 try destinationVC.ingredients = NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(recipe.ingredients!) as! [String]
                 try destinationVC.steps = NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(recipe.steps!) as! [String]
             } catch {}
-            
-            destinationVC.ingredients.append("Добавить ингредиент")
-            destinationVC.steps.append("Добавить шаг")
-            
-            print(destinationVC.recipeName)
+
+            destinationVC.ingredients.append(.localized("Add_ingredient"))
+            destinationVC.steps.append(.localized("Add_step"))
+
             self.present(destinationVC, animated: true, completion: nil)
-            
         }))
-        alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: .localized("Delete"), style: .destructive, handler: { action in
             self.deleteCell(at: collectionViewCell.index)
-            
-            let cell = collectionViewCell as! RecipesCollectionViewCell
-            
+
+            let cell = collectionViewCell
             TodayScreenDataManager.WeekdayKeys.forEach({ key in
                 let dishes = UserDefaults.standard.array(forKey: key) as! [String]
                 dishes.forEach({ dish in
                     if dish == cell.recipeNameLabel.text {
-                        TodayScreenDataManager.instance.changeDish(on: "Не выбрано", inCategory: dishes.firstIndex(of: dish)!, forKey: key)
+                        TodayScreenDataManager.instance.changeDish(on: .localized("Not_selected"), inCategory: dishes.firstIndex(of: dish)!, forKey: key)
                     }
                 })
             })
-            
-            NotificationCenter.default.post(name: .init(Notifications.ReloadPagerViews.rawValue), object: nil)
+
+            NotificationCenter.default.post(name: .reloadCardsPagerView, object: nil)
         }))
-        
-        alert.view.tintColor = UIColor(named: "primaryColor")
+
+        alert.view.tintColor = .primary
         self.present(alert, animated: true)
     }
 }
 
-// MARK: - UITextFiledDelegate
+// MARK: - Text Filed Delegate
 extension RecipesViewController: UITextFieldDelegate {
-    
-    @objc
-    func textFieldDidChange(_ textField: UITextField) {
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
         recipeList.removeAll()
         
-        if textField.text!.isEmpty {
-            recipeList = fullRecipeList
-            
-        } else {
+        if textField.text!.isEmpty { recipeList = fullRecipeList }
+        else {
             fullRecipeList.forEach({ recipe in
                 if let name = recipe.name {
                     if name.lowercased().contains(textField.text!.lowercased()) {
@@ -359,28 +476,26 @@ extension RecipesViewController: UITextFieldDelegate {
                 }
             })
         }
-        
+
         if !textField.text!.isEmpty {
             if recipeList.count == 0 {
-                needRecipeLabel.text = "Рецепты не найдены"
-                needRecipeLabel.isHidden = false
+                addNeedRecipesLabel()
+                needRecipesLabel.text = .localized("Recipes_not_found")
             } else {
-                needRecipeLabel.isHidden = true
+                needRecipesLabel.removeFromSuperview()
             }
         } else {
-            needRecipeLabel.text = "Необходимо добавить хотя бы один рецепт..."
-            if recipeList.count != 0 {
-                needRecipeLabel.isHidden = true
-            }
+            needRecipesLabel.text = .localized("Need_add_recipes")
+            if recipeList.count != 0 { needRecipesLabel.removeFromSuperview() }
         }
-        
+
         collectionView.reloadData()
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.textField.resignFirstResponder()
-        
+        searchTextField.resignFirstResponder()
+
         return true
     }
-    
+
 }

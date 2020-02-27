@@ -57,8 +57,12 @@ class RecipePageViewController: UIViewController {
         updateContent()
         
         ingredientsTextView.text = makeTextViewString(for: .Ingredients)
+        ingredientsTextView.showsVerticalScrollIndicator = false
+        ingredientsTextView.textContainerInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
         
         stepsTextView.text = makeTextViewString(for: .Steps)
+        stepsTextView.showsVerticalScrollIndicator = false
+        stepsTextView.textContainerInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
     
     override func viewDidLayoutSubviews() {

@@ -1,0 +1,91 @@
+
+// General
+
+"Today" = "Сегодня";
+"Recipes" = "Рецепты";
+"Products" = "Продукты";
+"Settings" = "Настройки";
+
+"Need_add_recipes" = "Необходимо добавить рецепты..";
+"Recipes_not_found" = "Рецепты не найдены";
+
+// Actions
+
+"Yes" = "Да";
+"No" = "Нет";
+"Ok" = "Ок";
+"Error" = "Ошибка";
+
+"Close" = "Закрыть";
+
+"Select_action" = "Выберите действие";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";
+"Edit" = "Редактировать";
+"Ready" = "Готово";
+
+"Add_recipe" = "Добавить рецепт";
+"Edit_recipe" = "Изменить рецепт";
+"Need_enter_recipe_name" = "Необходимо ввести название рецепта";
+"Need_choose_category" = "Необходимо выбрать категорию";
+
+"Add_product" = "Добавить продукт";
+"Enter_name_of_product" = "Введите название продукта";
+"Edit_product" = "Изменить продукт";
+
+
+"Delete_ingredient" = "Удалить ингредиент";
+"Delete_step" = "Удалить шаг";
+ 
+// Other
+
+"Ingredients" = "Ингредиенты";
+"Cooking" = "Приготовление";
+
+"Name_of_recipe" = "Название рецепта";
+"Category" = "Категория";
+"Enter_ingredient" = "Введите ингредиент";
+"Add_ingredient" = "Добавить ингредиент";
+"Enter_step" = "Введите шаг";
+"Add_step" = "Добавить шаг";
+
+"Breakfast" = "Завтрак";
+"Dinner" = "Обед";
+"Dinner2" = "Ужин";
+
+"Not_selected" = "Не выбрано";
+
+// Months
+
+"January" = "Январь";
+"February" = "Февраль";
+"March" = "Март";
+"April" = "Апрель";
+"May" = "Май";
+"June" = "Июнь";
+"July" = "Июль";
+"August" = "Август";
+"September" = "Сентябрь";
+"October" = "Октябрь";
+"November" = "Ноябрь";
+"December" = "Декабрь";
+
+// Weekdays
+
+"Monday" = "Понедельник";
+"Tuesday" = "Вторник";
+"Wednesday" = "Среда";
+"Thursday" = "Четверг";
+"Friday" = "Пятница";
+"Saturday" = "Суббота";
+"Sunday" = "Воскресенье";
+
+// Short Weekdays
+
+"Mon" = "Пн";
+"Tue" = "Вт";
+"Wed" = "Ср";
+"Thu" = "Чт";
+"Fri" = "Пт";
+"Sat" = "Сб";
+"Sun" = "Вс";

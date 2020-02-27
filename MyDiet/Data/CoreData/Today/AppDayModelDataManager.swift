@@ -1,11 +1,11 @@
 import CoreData
 
-class RecipeDataManager {
+class AppDayModelDataManager {
     
-    static let instance = RecipeDataManager()
-    
+    static let instance = AppDayModelDataManager()
+
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: Entity.Recipe.modelName())
+        let container = NSPersistentContainer(name: CoreDataManager.Entity.AppDay.modelName())
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -20,22 +20,17 @@ class RecipeDataManager {
         return NSEntityDescription.entity(forEntityName: name, in: persistentContainer.viewContext)!
     }
     
-    func fetchedResultsController(entityName: String, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    func fetchedResultsController(entity: CoreDataManager.Entity, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.rawValue)
         let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }
-    
-    func deleteObject(object: NSManagedObject) {
-        persistentContainer.viewContext.delete(object)
-        saveContext()
-    }
 
     func saveContext () {
       let context = persistentContainer.viewContext
-        
+      
       if context.hasChanges {
           do {
               try context.save()

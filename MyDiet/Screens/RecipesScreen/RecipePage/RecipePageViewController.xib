@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,10 +121,10 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57z-ZA-15t" userLabel="Content View">
-                    <rect key="frame" x="0.0" y="267.33333333333331" width="375" height="544.66666666666674"/>
+                    <rect key="frame" x="0.0" y="263.33333333333331" width="375" height="514.66666666666674"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icf-ED-g9K" userLabel="Ingredients TextView">
-                            <rect key="frame" x="32" y="8.0000000000000284" width="311" height="504.66666666666674"/>
+                            <rect key="frame" x="32" y="0.0" width="311" height="514.66666666666663"/>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <viewLayoutGuide key="contentLayoutGuide" id="gn0-bm-h70"/>
                             <viewLayoutGuide key="frameLayoutGuide" id="Hug-V6-3ar"/>
@@ -134,7 +134,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3D6-cv-me2" userLabel=" Steps TextView">
-                            <rect key="frame" x="32" y="8.0000000000000284" width="311" height="504.66666666666674"/>
+                            <rect key="frame" x="32" y="0.0" width="311" height="514.66666666666663"/>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,11 +145,11 @@
                     <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
                         <constraint firstItem="icf-ED-g9K" firstAttribute="leading" secondItem="57z-ZA-15t" secondAttribute="leading" constant="32" id="3Gx-ZU-3hE"/>
-                        <constraint firstAttribute="bottom" secondItem="3D6-cv-me2" secondAttribute="bottom" constant="32" id="54B-Kz-Cv2"/>
-                        <constraint firstItem="icf-ED-g9K" firstAttribute="top" secondItem="57z-ZA-15t" secondAttribute="top" constant="8" id="MTZ-8S-AI7"/>
-                        <constraint firstAttribute="bottom" secondItem="icf-ED-g9K" secondAttribute="bottom" constant="32" id="Ou4-BM-Bbt"/>
+                        <constraint firstAttribute="bottom" secondItem="3D6-cv-me2" secondAttribute="bottom" id="54B-Kz-Cv2"/>
+                        <constraint firstItem="icf-ED-g9K" firstAttribute="top" secondItem="57z-ZA-15t" secondAttribute="top" id="MTZ-8S-AI7"/>
+                        <constraint firstAttribute="bottom" secondItem="icf-ED-g9K" secondAttribute="bottom" id="Ou4-BM-Bbt"/>
                         <constraint firstAttribute="trailing" secondItem="icf-ED-g9K" secondAttribute="trailing" constant="32" id="QBY-RO-fvk"/>
-                        <constraint firstItem="3D6-cv-me2" firstAttribute="top" secondItem="57z-ZA-15t" secondAttribute="top" constant="8" id="bsB-f3-KwM"/>
+                        <constraint firstItem="3D6-cv-me2" firstAttribute="top" secondItem="57z-ZA-15t" secondAttribute="top" id="bsB-f3-KwM"/>
                         <constraint firstItem="3D6-cv-me2" firstAttribute="leading" secondItem="57z-ZA-15t" secondAttribute="leading" constant="32" id="fEF-8W-6de"/>
                         <constraint firstAttribute="trailing" secondItem="3D6-cv-me2" secondAttribute="trailing" constant="32" id="yWc-3U-RXK"/>
                     </constraints>
@@ -163,12 +163,12 @@
                 <constraint firstItem="cJ1-tv-Zva" firstAttribute="top" secondItem="d8R-eL-ahf" secondAttribute="bottom" id="6Mj-yz-wIh"/>
                 <constraint firstItem="cJ1-tv-Zva" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BZO-ty-bjW"/>
                 <constraint firstItem="aA2-qM-AWe" firstAttribute="trailing" secondItem="d8R-eL-ahf" secondAttribute="trailing" id="HYR-TB-PMY"/>
-                <constraint firstItem="57z-ZA-15t" firstAttribute="top" secondItem="cJ1-tv-Zva" secondAttribute="bottom" constant="4" id="I01-HQ-bn8"/>
+                <constraint firstItem="57z-ZA-15t" firstAttribute="top" secondItem="cJ1-tv-Zva" secondAttribute="bottom" id="I01-HQ-bn8"/>
                 <constraint firstItem="iaF-Mz-yyL" firstAttribute="top" secondItem="aA2-qM-AWe" secondAttribute="top" constant="16" id="Ka9-rV-YP3"/>
                 <constraint firstAttribute="trailing" secondItem="KFv-iJ-Xyi" secondAttribute="trailing" id="Sew-zO-ptN"/>
                 <constraint firstItem="cJ1-tv-Zva" firstAttribute="top" secondItem="KFv-iJ-Xyi" secondAttribute="bottom" id="abF-QF-LNw"/>
                 <constraint firstItem="KFv-iJ-Xyi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bwa-eW-ADz"/>
-                <constraint firstAttribute="bottom" secondItem="57z-ZA-15t" secondAttribute="bottom" id="eCU-Mu-9R0"/>
+                <constraint firstItem="aA2-qM-AWe" firstAttribute="bottom" secondItem="57z-ZA-15t" secondAttribute="bottom" id="eCU-Mu-9R0"/>
                 <constraint firstItem="KFv-iJ-Xyi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iQP-lI-RAB"/>
                 <constraint firstAttribute="trailing" secondItem="cJ1-tv-Zva" secondAttribute="trailing" id="ice-vm-m3Z"/>
                 <constraint firstItem="Lmc-aH-B5x" firstAttribute="leading" secondItem="tbF-9B-Vwu" secondAttribute="leading" id="lVK-Gk-UgR"/>

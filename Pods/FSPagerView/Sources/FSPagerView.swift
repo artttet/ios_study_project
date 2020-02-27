@@ -119,7 +119,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
             self.collectionViewLayout.forceInvalidate()
         }
     }
-    
+        
     /// A Boolean value indicates that whether the pager view has infinite items. Default is false.
     @IBInspectable
     open var isInfinite: Bool = false {
@@ -548,6 +548,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
         let indexPath = self.nearbyIndexPath(for: index)
         return self.collectionView.cellForItem(at: indexPath) as? FSPagerViewCell
     }
+
     
     // MARK: - Private functions
     

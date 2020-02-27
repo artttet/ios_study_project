@@ -6,7 +6,7 @@ class RecipesScreenDataManager {
     static let instance = RecipesScreenDataManager()
     
     func getRecipeList(withSortKey key: String) -> [Recipe] {
-        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: key)
+        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: .Recipe, keyForSort: key)
     
         do {
             try fetchedController.performFetch()
@@ -20,46 +20,18 @@ class RecipesScreenDataManager {
         
         fetchedObjects.append(recipe)
         
-        CoreDataManager.instance.saveContext(forEntity: Entity.Recipe)
+        CoreDataManager.instance.saveContext(forEntity: .Recipe)
     }
     
     func deleteRecipe(at index: Int, withSortKey key: String) {
-        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: Entity.Recipe, keyForSort: key)
-        
-        do {
-            try fetchedController.performFetch()
-        } catch { print(error) }
-        
-        let managedObject = fetchedController.object(at: IndexPath(row: index, section: 0)) as! NSManagedObject
-        
-        CoreDataManager.instance.deleteObject(forEntity: Entity.Recipe, object: managedObject)
+        let managedObject = CoreDataManager.instance.getObject(forEntity: .Recipe, at: index, withKeyForSort: key) as! NSManagedObject
+        CoreDataManager.instance.deleteObject(forEntity: .Recipe, object: managedObject)
     }
-    
-//    func changeRecipe(at index: Int, name: String, category: String, ingredients: Data, steps: Data) {
-//        let fetchedController = CoreDataManager.instance.getFetchedResultsController(forEntity: .Recipe, keyForSort: "name")
-//        
-//        do {
-//            try fetchedController.performFetch()
-//        } catch { print(error) }
-//        
-//        let recipe = fetchedController.object(at: IndexPath(row: index, section: 0)) as! Recipe
-//        print(recipe.name)
-//        
-//        
-//        recipe.name = name
-//        recipe.category = category
-//        recipe.ingredients = ingredients
-//        recipe.steps = steps
-//        
-//       
-//        
-//        CoreDataManager.instance.saveContext(forEntity: .Recipe)
-//        
-//    }
 }
 
+// MARK: - StartRecipeFunctions
+
 extension RecipesScreenDataManager {
-    
     func createStartRecipes() {
         let names = [
             "Овсянка с ягодами",
@@ -73,16 +45,16 @@ extension RecipesScreenDataManager {
             "Салат с рукколой и грушей",
         ]
         
-        let categories = [
-            "Завтрак",
-            "Обед",
-            "Ужин",
-            "Завтрак",
-            "Обед",
-            "Ужин",
-            "Завтрак",
-            "Обед",
-            "Ужин",
+        let categories: [Int32] = [
+            0,
+            1,
+            2,
+            0,
+            1,
+            2,
+            0,
+            1,
+            2,
         ]
         
         let ingredients: [[String]] = [
@@ -126,7 +98,7 @@ extension RecipesScreenDataManager {
             [
                 "Творог - 100 г.",
                 "Авокадо - 1 шт.",
-                "Рукколв - 1 ст.л"
+                "Руккола - 1 ст.л"
             ],
             [
                 "Шампиньоны - 300 гр.",
@@ -209,7 +181,5 @@ extension RecipesScreenDataManager {
             
             CoreDataManager.instance.saveContext(forEntity: .Recipe)
         }
-        
     }
-    
 }
